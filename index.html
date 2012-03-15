@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Kickstrap: Enhancements for Bootstrap</title>
+    <title>Bootstrap, from Twitter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="assets/css/docs.css" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
@@ -37,14 +38,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="./index.html">Kickstrap</a>
+          <a class="brand" href="./index.html">Bootstrap</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active">
                 <a href="./index.html">Overview</a>
               </li>
               <li class="">
-                <a href="./themes.html">Themes</a>
+                <a href="./scaffolding.html">Scaffolding</a>
               </li>
               <li class="">
                 <a href="./base-css.html">Base CSS</a>
@@ -77,31 +78,31 @@
 ================================================== -->
 <header class="jumbotron masthead">
   <div class="inner">
-    <h1>Kickstrap</h1>
-    <p>A full version of Twitter's Bootstrap with themes, enhancements, and other goodies.</p>
+    <h1>Bootstrap, from Twitter</h1>
+    <p>Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.</p>
     <p class="download-info">
-      <a href="https://github.com/ajkochanowicz/kickstrap/" class="btn btn-large">View project on GitHub</a>
-      <a href="assets/kickstrap.zip" class="btn btn-primary btn-large">Download Kickstrap <i class="icon-download-alt"></i></a>
+      <a href="https://github.com/twitter/bootstrap/" class="btn btn-primary btn-large">View project on GitHub</a>
+      <a href="assets/bootstrap.zip" class="btn btn-large">Download Bootstrap</a>
     </p>
   </div>
 
   <ul class="quick-links">
-    <!--li><a href="./upgrading.html">Upgrading from 1.4</a></li-->
-    <li><a href="https://github.com/ajkochanowicz/kickstrap/issues?state=open">Issues</a></li>
-    <!--li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap &amp; changelog</a></li-->
+    <li><a href="./upgrading.html">Upgrading from 1.4</a></li>
+    <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+    <li><a href="https://github.com/twitter/bootstrap/wiki">Roadmap &amp; changelog</a></li>
     <li class="divider">&middot;</li>
     <li>
-      <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=ajkochanowicz&repo=kickstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+      <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=twitter&repo=bootstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
     </li>
     <li>
-      <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=ajkochanowicz&repo=kickstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=twitter&repo=bootstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
     </li>
     <li class="divider">&middot;</li>
     <li class="follow-btn">
-      <a href="https://twitter.com/yourwebsitesUX" class="twitter-follow-button" data-width="225px" data-link-color="#0069D6" data-show-count="true">Follow Adam Kochanowicz</a>
+      <a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-width="225px" data-link-color="#0069D6" data-show-count="true">Follow @twbootstrap</a>
     </li>
     <li class="tweet-btn">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ajkochanowicz.github.com/kickstrap/" data-count="horizontal" data-via="twbootstrap">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.github.com/bootstrap/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
     </li>
   </ul>
 </header>
@@ -109,37 +110,40 @@
 <hr class="soften">
 
 <div class="marketing">
-  <h1>Enhancement over Bloating</h1>
-  <p class="marketing-byline">Feature rich without feature creep</p>
+  <h1>Designed for everyone, everywhere.</h1>
+  <p class="marketing-byline">Need reasons to love Bootstrap? Look no further.</p>
   <div class="row">
     <div class="span4">
-      <h2><i class="icon-ok"></i>&nbsp;&nbsp;Ready to go</h2>
-      <p>Developers will love the advanced features, but novices need not worry about customization. Kickstrap is drag-and-drop ready to go. I've even included two sample html files with everything linked and the best features turned on.</p>
+      <img class="bs-icon" src="assets/img/glyphicons/glyphicons_042_group.png">
+      <h2>Built for and by nerds</h2>
+      <p>Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
     </div>
     <div class="span4">
-      <h2><i class="icon-resize-small"></i>&nbsp;&nbsp;Minify and Optimize on the Fly</h2>
-      <p>With <a href="html5boilerplate.com">HTML5 Boilerplate</a>'s build script, your entire directory of javascript, css, and images can be minified and optimized with two simple words (ant build) in the command line. (Optional and opt-in)</p>
+      <img class="bs-icon" src="assets/img/glyphicons/glyphicons_079_podium.png">
+      <h2>For all skill levels</h2>
+      <p>Bootstrap is designed to help people of all skill levels&mdash;designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
     </div>
     <div class="span4">
       <img class="bs-icon" src="assets/img/glyphicons/glyphicons_163_iphone.png">
       <h2>Cross-everything</h2>
-      <p>Bootstrap did such an awesome job with css @media support, I've turned it on by default and responsively-designed the default Kickstrap theme.</p>
+      <p>Originally built with only modern browsers in mind, Bootstrap has evolved to include support for all major browsers (even IE7!) and, with Bootstrap 2, tablets and smartphones, too.</p>
     </div>
   </div><!--/row-->
   <div class="row">
     <div class="span4">
-      <h2><i class="icon-edit"></i>&nbsp;&nbsp;Inputs on Steroids</h2>
-      <p>Thanks to <a href="http://harvesthq.github.com/chosen/">Chosen</a>, a select box js library from <a href="getharvest.com">Harvest</a>, select elements are now marvels of interaction.</p>
+      <img class="bs-icon" src="assets/img/glyphicons/glyphicons_155_show_thumbnails.png">
+      <h2>12-column grid</h2>
+      <p>Grid systems aren't everything, but having a durable and flexible one at the core of your work can make development much simpler. Use our built-in grid classes or roll your own.</p>
     </div>
-
+    <div class="span4">
+      <img class="bs-icon" src="assets/img/glyphicons/glyphicons_214_resize_small.png">
+      <h2>Responsive design</h2>
+      <p>With Bootstrap 2, we've gone fully responsive. Our components are scaled according to a range of resolutions and devices to provide a consistent experience, no matter what.</p>
+    </div>
     <div class="span4">
       <img class="bs-icon" src="assets/img/glyphicons/glyphicons_266_book_open.png">
       <h2>Styleguide docs</h2>
       <p>Unlike other front-end toolkits, Bootstrap was designed first and foremost as a styleguide to document not only our features, but best practices and living, coded examples.</p>
-    </div>
-    <div class="span4">
-      <h2><i class="icon-picture"></i>&nbsp;&nbsp;Themes Included</h2>
-      <p>Easily activate and install themes. Using a <a href="http://lesscss.org">LESS </a>compiler, Kickstrap will override Bootstrap's default style where needed so your users won't need to download an extra stylesheet.</p>
     </div>
   </div><!--/row-->
   <div class="row">
@@ -178,14 +182,31 @@
     <div class="span3">
       <img class="small-bs-icon" src="assets/img/icon-twitter.png">
       <h3>Made at Twitter</h3>
-      <p>Brought to you by an experienced <a href="http://twitter.com/fat">engineer</a>, <a href="http://twitter.com/mdo">designer</a>, and a <a href="http://twitter.com/yourwebsitesux">UX specialist</a>.</p>
+      <p>Brought to you by an experienced <a href="http://twitter.com/fat">engineer</a> and <a href="http://twitter.com/mdo">designer</a>.</p>
     </div>
   </div><!--/row-->
 
   <hr class="soften">
 
-  <h1>Built with Kickstrap.</h1>
-  <p class="marketing-byline">Have you built a classy site in Kickstrap? <a href="http://twitter.com/yourwebsitesux" target="_blank">Detaaaaaails!</a> also <a href="./examples.html">browse the examples</a> to check my style.</p>
+  <h1>Built with Bootstrap.</h1>
+  <p class="marketing-byline">For even more sites built with Bootstrap, <a href="http://builtwithbootstrap.tumblr.com/" target="_blank">visit the unofficial Tumblr</a> or <a href="./examples.html">browse the examples</a>.</p>
+  <ul class="thumbnails example-sites">
+    <li class="span4">
+      <a class="thumbnail" href="http://kippt.com/" target="_blank">
+        <img src="assets/img/example-sites/kippt.png" alt="Kippt">
+      </a>
+    </li>
+    <li class="span4">
+      <a class="thumbnail" href="http://www.fleetio.com/" target="_blank">
+        <img src="assets/img/example-sites/fleetio.png" alt="Fleetio">
+      </a>
+    </li>
+    <li class="span4">
+      <a class="thumbnail" href="http://www.jshint.com/" target="_blank">
+        <img src="assets/img/example-sites/jshint.png" alt="JS Hint">
+      </a>
+    </li>
+  </ul>
 
 </div><!-- /.marketing -->
 
@@ -193,9 +214,9 @@
       ================================================== -->
       <footer class="footer">
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>. Then <a href="http://twitter.com/yourwebsitesux">@yourwebsitesUX</a> came and did a few other things.</p>
+        <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
         <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        <p>Icons from <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
       </footer>
 
     </div><!-- /container -->
