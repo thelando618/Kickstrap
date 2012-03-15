@@ -29,14 +29,316 @@
     <h1>{{_i}}Customize your site <small>Easily change, add, or create new themes{{/i}}</small></h1>
   </div>
 
-  <h2>{{_i}}Only change what you need{{/i}}</h2>
-
   <!-- Headings & Paragraph Copy -->
   <div class="row">
-    <div class="span4">
+    <div class="span5">
+      <h2>{{_i}}Only change what you need{{/i}}</h2>
       <p>{{_i}}Kickstrap themes override the default Bootstrap theme. This means you don't have to define a style for every element. Kickstrap will fall back to Bootstrap by default.{{/i}}</p>
+      <h2>{{_i}}Change Themes{{/i}}</h2>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+      <p>{{_i}}For example:{{/i}}</p>
+      <p>
+    <div class="alert alert-warning">
+      {{_i}}Warning: Make sure only one @import line is uncommented at any time, or one theme will override another.{{/i}}
+    </div>  
+<pre>{{_i}}// SANDRA
+@import &quot;../themes/sandra/less/theme.less&quot;;
+
+// CERULEAN
+// @import &quot;../themes/cerulean/less/bootswatch.less&quot;;
+{{/i}}</pre></p>
+	<p>{{_i}}The "Sandra" theme is uncommented before "@import" so this theme will be shown. "Cerulean", however, is not.{{/i}}</p>
     </div>
-    <div class="span8">
-      {{_i}}[Sorry, not finished writing the documentation yet. Check back soon.]{{/i}}
-    </div>
+	<img src="assets/img/kickstrap_themes.png" class="span6 offset1" />
   </div>
+
+  <!-- Amelia -->
+  
+  <div id="amelia" class="page-header">
+    <h1>{{_i}}Amelia{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Amelia, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// AMELIA
+@import &quot;../themes/amelia/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/amelia.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Cerulean -->
+  
+  <div id="cerulean" class="page-header">
+    <h1>{{_i}}Cerulean{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Cerulean, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// CERULEAN
+@import &quot;../themes/cerulean/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/cerulean.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Cyborg -->
+  
+  <div id="cyborg" class="page-header">
+    <h1>{{_i}}Cyborg{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Cyborg, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// CYBORG
+@import &quot;../themes/cyborg/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/cyborg.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Journal -->
+  
+  <div id="journal" class="page-header">
+    <h1>{{_i}}Journal{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Journal, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// JOURNAL
+@import &quot;../themes/journal/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/journal.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Readable -->
+  
+  <div id="readable" class="page-header">
+    <h1>{{_i}}Readable{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Readable, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// READABLE
+@import &quot;../themes/readable/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/readable.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Sandra -->
+  
+  <div id="sandra" class="page-header">
+    <h1>{{_i}}Sandra{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Sandra, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// SANDRA
+@import &quot;../themes/sandra/less/theme.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/sandra.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Simplex -->
+  
+  <div id="simplex" class="page-header">
+    <h1>{{_i}}Simplex{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Simplex, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// SIMPLEX
+@import &quot;../themes/simplex/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/simplex.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Slate -->
+  
+  <div id="Slate" class="page-header">
+    <h1>{{_i}}Slate{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Slate, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// SLATE
+@import &quot;../themes/slate/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/slate.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Spacelab -->
+  
+  <div id="spacelab" class="page-header">
+    <h1>{{_i}}Spacelab{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Spacelab, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// SPACELAB
+@import &quot;../themes/spacelab/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/spacelab.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Spruce -->
+  
+  <div id="spruce" class="page-header">
+    <h1>{{_i}}Spruce{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Spruce, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// SPRUCE
+@import &quot;../themes/spruce/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/spruce.png" class="span6 offset1" />
+  </div>
+  
+  <!-- Superhero -->
+  
+  <div id="superhero" class="page-header">
+    <h1>{{_i}}Superhero{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use Superhero, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// SUPERHERO
+@import &quot;../themes/superhero/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/superhero.png" class="span6 offset1" />
+  </div>
+  
+  <!-- United -->
+  
+  <div id="united" class="page-header">
+    <h1>{{_i}}United{{/i}}</small></h1>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>{{_i}}Description{{/i}}</h2>
+      <p>{{_i}}To use United, comment out this @import line in extras/less/overrides.less and be sure to <strong>re-comment</strong> any other themes{{/i}}</p>
+<pre>{{_i}}// UNITED
+@import &quot;../themes/united/less/bootswatch.less&quot;;
+
+// SOME OTHER THEME
+// @import &quot;../themes/othertheme/less/theme.less&quot;;
+
+// See above how we commented out "Some Other Theme".
+{{/i}}</pre></p>
+      <p>{{_i}}Currently, Kickstrap requires running a LESS compiler. Don't worry. Many are free and are dead simple to use. Check out <a href="less.html#compiling">Compiling Kickstrap</a> if you need help.{{/i}}</p>
+      <p>{{_i}}Once you download your LESS compiler, navigate to extras/less/overrides.less and simply comment or uncomment the theme you want to use.{{/i}}</p>
+    </div>
+	<img src="assets/img/united.png" class="span6 offset1" />
+  </div>
+  
+
