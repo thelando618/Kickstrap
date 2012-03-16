@@ -47,6 +47,9 @@
               <li class="{{themes}}">
                 <a href="./themes.html">{{_i}}Themes{{/i}}</a>
               </li>
+              <li class="{{icons}}">
+                <a href="./icons.html">{{_i}}Icons{{/i}}</a>
+              </li>
               <li class="{{scaffolding}}">
                 <a href="./scaffolding.html">{{_i}}Scaffolding{{/i}}</a>
               </li>
@@ -112,10 +115,16 @@
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
     <script src="assets/js/application.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('li').tooltip()
+  });
+  </script>
 
     {{#production}}
     <!-- Analytics
     ================================================== -->
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script>
       var _gauges = _gauges || [];
       (function() {

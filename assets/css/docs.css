@@ -5,6 +5,24 @@
   Special styles for presenting Bootstrap's documentation and examples
 */
 
+ul.the-icons {
+  margin-left:25px;
+}
+ul.the-icons  li {
+    font-size: 1.1em;
+    line-height: 2em;
+}
+
+ul.icon-array li {
+    display: inline;
+    padding: 0px;
+    font-size: 1.5em;
+    line-height: 35px;
+    text-indent: 0em;
+    cursor:pointer;
+}
+ul.icon-array li:hover {color:green;}
+ul.icon-array li[class^="icon-"]::before, ul.icon-array li[class*=" icon-"]::before {text-indent:0em;}
 
 /* Body and structure
 -------------------------------------------------- */
