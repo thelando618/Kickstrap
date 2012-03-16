@@ -10,7 +10,7 @@
       <li><a href="#tables">{{_i}}Tables{{/i}}</a></li>
       <li><a href="#forms">{{_i}}Forms{{/i}}</a></li>
       <li><a href="#buttons">{{_i}}Buttons{{/i}}</a></li>
-      <li><a href="#icons">{{_i}}Icons by Glyphicons{{/i}}</a></li>
+      <li><a href="#icons">{{_i}}Icons by Font Awesome{{/i}}</a></li>
     </ul>
   </div>
 </header>
@@ -279,6 +279,34 @@
       </dl>
     </div>
   </div><!-- /row -->
+  <div class="row">
+    <div class="span6">
+      <h3>Horizontal List</h3>
+      <p><code>&lt;ul class=&quot;ul-horizontal&quot;&gt;</code><p>
+      <p><code>&lt;ol class=&quot;ol-horizontal&quot;&gt;</code></p>
+      <ul class="ul-horizontal">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Carrot</li>
+        <li>Orange</li>
+        <li>Pear</li>
+        <li>Kiwi</li>
+      </ul>
+    </div>
+    <div class="span6">
+    	<h3>Horizontal Description</h3>
+    	<p><code>&lt;dl class=&quot;dl-horizontal&quot;&gt;</code></p>
+    	<dl class="dl-horizontal">
+    	  <dt>Description lists</dt>
+    	  <dd>A description list is perfect for defining terms.</dd>
+    	  <dt>Euismod</dt>
+    	  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+    	  <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+    	  <dt>Malesuada porta</dt>
+    	  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+    	</dl>
+    </div>
+  </div>
 </section>
 
 
@@ -1296,158 +1324,365 @@
 ================================================== -->
 <section id="icons">
   <div class="page-header">
-    <h1>{{_i}}Icons <small>Graciously provided by <a href="http://glyphicons.com" target="_blank">Glyphicons</a></small>{{/i}}</h1>
+    <h1>{{_i}}Awesome Icons <small><a href="http://fortawesome.github.com/Font-Awesome/"><i class="icon-flag"></i>  Font Awesome</a> is an icon font which replaces glyphicons.</small>{{/i}}</h1>
+  </div>
+<div class="row">
+  <div class="span4">
+  <div class="page-header">
+  	<h2>Usage</h2>
+  </div>
+  </div>
+  <div class="span8">
+  <div class="page-header">
+    <h2>Quick Lookup</h2>
+  </div>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="span4">
+    	<p>By default, this guide recommends using the <code>&lt;i&gt;</code> element for icons as such:</p>
+    	<pre>&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt; Search</pre>
+    	<p>Which yields this:</p>
+    	<p class="well"><i class="icon-search"></i>  Search</p>
+    	
+    </div>
+    <div class="span8">
+      <ul class="icon-array">
+        <li class="icon-glass" title=".icon-glass">&nbsp;</li>
+        <li class="icon-music" title=".icon-music">&nbsp;</li>
+        <li class="icon-search" title=".icon-search">&nbsp;</li>
+        <li class="icon-envelope" title=".icon-envelope">&nbsp;</li>
+        <li class="icon-heart" title=".icon-heart">&nbsp;</li>
+        <li class="icon-star" title=".icon-star">&nbsp;</li>
+        <li class="icon-star-empty" title=".icon-star.empty">&nbsp;</li>
+        <li class="icon-user" title=".icon-user">&nbsp;</li>
+        <li class="icon-film" title=".icon-film">&nbsp;</li>
+        <li class="icon-th-large" title=".icon-th-large">&nbsp;</li>
+        <li class="icon-th" title=".icon-th">&nbsp;</li>
+        <li class="icon-th-list" title=".icon-th-list">&nbsp;</li>
+        <li class="icon-ok" title=".icon-ok">&nbsp;</li>
+        <li class="icon-remove" title=".icon-remove">&nbsp;</li>
+        <li class="icon-zoom-in" title=".icon-zoom-in">&nbsp;</li>
+        <li class="icon-zoom-out" title=".icon-zoom-out">&nbsp;</li>
+        <li class="icon-off" title=".icon-off">&nbsp;</li>
+        <li class="icon-signal" title=".icon-signal">&nbsp;</li>
+        <li class="icon-cog" title=".icon-cog">&nbsp;</li>
+        <li class="icon-trash" title=".icon-trash">&nbsp;</li>
+        <li class="icon-home" title=".icon-home">&nbsp;</li>
+        <li class="icon-file" title=".icon-file">&nbsp;</li>
+        <li class="icon-time" title=".icon-time">&nbsp;</li>
+        <li class="icon-road" title=".icon-road">&nbsp;</li>
+        <li class="icon-download-alt" title=".icon-download-alt">&nbsp;</li>
+        <li class="icon-download" title=".icon-download">&nbsp;</li>
+        <li class="icon-upload" title=".icon-upload">&nbsp;</li>
+        <li class="icon-inbox" title=".icon-inbox">&nbsp;</li>
+        <li class="icon-play-circle" title=".icon-play-circle">&nbsp;</li>
+        <li class="icon-repeat" title=".icon-repeat">&nbsp;</li>
+        <li class="icon-refresh" title=".icon-refresh">&nbsp;</li>
+        <li class="icon-list-alt" title=".icon-list-alt">&nbsp;</li>
+        <li class="icon-lock" title=".icon-lock">&nbsp;</li>
+        <li class="icon-flag" title=".icon-flag">&nbsp;</li>
+        <li class="icon-headphones" title=".icon-headphones">&nbsp;</li>
+        <li class="icon-volume-off" title=".icon-volume-off">&nbsp;</li>
+        <li class="icon-volume-down" title=".icon-volume-down">&nbsp;</li>
+        <li class="icon-volume-up" title=".icon-volume-up">&nbsp;</li>
+        <li class="icon-qrcode" title=".icon-qrcode">&nbsp;</li>
+        <li class="icon-barcode" title=".icon-barcode">&nbsp;</li>
+        <li class="icon-tag" title=".icon-tag">&nbsp;</li>
+        <li class="icon-tags" title=".icon-tags">&nbsp;</li>
+        <li class="icon-book" title=".icon-book">&nbsp;</li>
+        <li class="icon-bookmark" title=".icon-bookmark">&nbsp;</li>
+        <li class="icon-print" title=".icon-print">&nbsp;</li>
+        <li class="icon-camera" title=".icon-camera">&nbsp;</li>
+        <li class="icon-font" title=".icon-font">&nbsp;</li>
+        <li class="icon-bold" title=".icon-bold">&nbsp;</li>
+        <li class="icon-italic" title=".icon-italic">&nbsp;</li>
+        <li class="icon-text-height" title=".icon-text-height">&nbsp;</li>
+        <li class="icon-text-width" title=".icon-text-width">&nbsp;</li>
+        <li class="icon-align-left" title=".icon-align-left">&nbsp;</li>
+        <li class="icon-align-center" title=".icon-align-center">&nbsp;</li>
+        <li class="icon-align-right" title=".icon-align-right">&nbsp;</li>
+        <li class="icon-align-justify" title=".icon-align-justify">&nbsp;</li>
+        <li class="icon-list" title=".icon-list">&nbsp;</li>
+        <li class="icon-indent-left" title=".icon-indent-left">&nbsp;</li>
+        <li class="icon-indent-right" title=".icon-indent-right">&nbsp;</li>
+        <li class="icon-facetime-video" title=".icon-facetime-video">&nbsp;</li>
+        <li class="icon-picture" title=".icon-picture">&nbsp;</li>
+        <li class="icon-pencil" title=".icon-pencil">&nbsp;</li>
+        <li class="icon-map-marker" title=".icon-map-marker">&nbsp;</li>
+        <li class="icon-adjust" title=".icon-adjust">&nbsp;</li>
+        <li class="icon-tint" title=".icon-tint">&nbsp;</li>
+        <li class="icon-edit" title=".icon-edit">&nbsp;</li>
+        <li class="icon-share" title=".icon-share">&nbsp;</li>
+        <li class="icon-check" title=".icon-check">&nbsp;</li>
+        <li class="icon-move" title=".icon-move">&nbsp;</li>
+        <li class="icon-step-backward" title=".icon-step-backward">&nbsp;</li>
+        <li class="icon-fast-backward" title=".icon-fast-backward">&nbsp;</li>
+        <li class="icon-backward" title=".icon-backward">&nbsp;</li>
+        <li class="icon-play" title=".icon-play">&nbsp;</li>
+        <li class="icon-pause" title=".icon-pause">&nbsp;</li>
+        <li class="icon-stop" title=".icon-stop">&nbsp;</li>
+        <li class="icon-forward" title=".icon-forward">&nbsp;</li>
+        <li class="icon-fast-forward" title=".icon-fast-forward">&nbsp;</li>
+        <li class="icon-step-forward" title=".icon-step-forward">&nbsp;</li>
+        <li class="icon-eject" title=".icon-eject">&nbsp;</li>
+        <li class="icon-chevron-left" title=".icon-chevron-left">&nbsp;</li>
+        <li class="icon-chevron-right" title=".icon-chevron-right">&nbsp;</li>
+        <li class="icon-plus-sign" title=".icon-plus-sign">&nbsp;</li>
+        <li class="icon-minus-sign" title=".icon-minus-sign">&nbsp;</li>
+        <li class="icon-remove-sign" title=".icon-remove-sign">&nbsp;</li>
+        <li class="icon-ok-sign" title=".icon-ok-sign">&nbsp;</li>
+        <li class="icon-question-sign" title=".icon-question-sign">&nbsp;</li>
+        <li class="icon-info-sign" title=".icon-info.sign">&nbsp;</li>
+        <li class="icon-screenshot" title=".icon-screenshot">&nbsp;</li>
+        <li class="icon-remove-circle" title=".icon-remove-circle">&nbsp;</li>
+        <li class="icon-ok-circle" title=".icon-ok-circle">&nbsp;</li>
+        <li class="icon-ban-circle" title=".icon-ban-circle">&nbsp;</li>
+        <li class="icon-arrow-left" title=".icon-arrow-left">&nbsp;</li>
+        <li class="icon-arrow-right" title=".icon-arrow-right">&nbsp;</li>
+        <li class="icon-arrow-up" title=".icon-arrow-up">&nbsp;</li>
+        <li class="icon-arrow-down" title=".icon-arrow-down">&nbsp;</li>
+        <li class="icon-share-alt" title=".icon-share-alt">&nbsp;</li>
+        <li class="icon-resize-full" title=".icon-resize-full">&nbsp;</li>
+        <li class="icon-resize-small" title=".icon-resize-small">&nbsp;</li>
+        <li class="icon-plus" title=".icon-plus">&nbsp;</li>
+        <li class="icon-minus" title=".icon-minus">&nbsp;</li>
+        <li class="icon-asterisk" title=".icon-asterisk">&nbsp;</li>
+        <li class="icon-exclamation-sign" title=".icon-exclamation-sign">&nbsp;</li>
+        <li class="icon-gift" title=".icon-gift">&nbsp;</li>
+        <li class="icon-leaf" title=".icon-leaf">&nbsp;</li>
+        <li class="icon-fire" title=".icon-fire">&nbsp;</li>
+        <li class="icon-eye-open" title=".icon-eye-open">&nbsp;</li>
+        <li class="icon-eye-close" title=".icon-eye-close">&nbsp;</li>
+        <li class="icon-warning-sign" title=".icon-warning-sign">&nbsp;</li>
+        <li class="icon-plane" title=".icon-plane">&nbsp;</li>
+        <li class="icon-calendar" title=".icon-calendar">&nbsp;</li>
+        <li class="icon-random" title=".icon-random">&nbsp;</li>
+        <li class="icon-comment" title=".icon-comment">&nbsp;</li>
+        <li class="icon-magnet" title=".icon-magnet">&nbsp;</li>
+        <li class="icon-chevron-up" title=".icon-chevron-up">&nbsp;</li>
+        <li class="icon-chevron-down" title=".icon-chevron-down">&nbsp;</li>
+        <li class="icon-retweet" title=".icon-retweet">&nbsp;</li>
+        <li class="icon-shopping-cart" title=".icon-shopping-cart">&nbsp;</li>
+        <li class="icon-folder-close" title=".icon-folder-close">&nbsp;</li>
+        <li class="icon-folder-open" title=".icon-folder-open">&nbsp;</li>
+        <li class="icon-resize-vertical" title=".icon-resize-vertical">&nbsp;</li>
+        <li class="icon-resize-horizontal" title=".icon-resize">&nbsp;</li>
+        <li class="icon-camera-retro" title=".icon-camera-retro">&nbsp;</li>
+        <li class="icon-bar-chart" title=".icon-bar-chart">&nbsp;</li>
+        <li class="icon-cogs" title=".icon-cogs">&nbsp;</li>
+        <li class="icon-external-link" title=".icon-external-link">&nbsp;</li>
+        <li class="icon-pushpin" title=".icon-pushpin">&nbsp;</li>
+        <li class="icon-facebook-sign" title=".icon-facebook-sign">&nbsp;</li>
+        <li class="icon-twitter-sign" title=".icon-twitter-sign">&nbsp;</li>
+        <li class="icon-linkedin-sign" title=".icon-linkedin-sign">&nbsp;</li>
+        <li class="icon-github-sign" title=".icon-github-sign">&nbsp;</li>
+        <li class="icon-key" title=".icon-key">&nbsp;</li>
+        <li class="icon-thumbs-up" title=".icon-thumbs-up">&nbsp;</li>
+        <li class="icon-thumbs-down" title=".icon-thumbs-down">&nbsp;</li>
+        <li class="icon-comments" title=".icon-comments">&nbsp;</li>
+        <li class="icon-trophy" title=".icon-trophy">&nbsp;</li>
+        <li class="icon-upload-alt" title=".icon-upload-alt">&nbsp;</li>
+        <li class="icon-signin" title=".icon-signin">&nbsp;</li>
+        <li class="icon-signout" title=".icon-signout">&nbsp;</li>
+        <li class="icon-star-half" title=".icon-star-half">&nbsp;</li>
+        <li class="icon-heart-empty" title=".icon-heart-empty">&nbsp;</li>
+        <li class="icon-lemon" title=".icon-lemon">&nbsp;</li>
+      </ul>
+    </div>
   </div>
   <div class="row">
-    <div class="span3">
-      <ul class="the-icons">
-        <li><i class="icon-glass"></i> icon-glass</li>
-        <li><i class="icon-music"></i> icon-music</li>
-        <li><i class="icon-search"></i> icon-search</li>
-        <li><i class="icon-envelope"></i> icon-envelope</li>
-        <li><i class="icon-heart"></i> icon-heart</li>
-        <li><i class="icon-star"></i> icon-star</li>
-        <li><i class="icon-star-empty"></i> icon-star-empty</li>
-        <li><i class="icon-user"></i> icon-user</li>
-        <li><i class="icon-film"></i> icon-film</li>
-        <li><i class="icon-th-large"></i> icon-th-large</li>
-        <li><i class="icon-th"></i> icon-th</li>
-        <li><i class="icon-th-list"></i> icon-th-list</li>
-        <li><i class="icon-ok"></i> icon-ok</li>
-        <li><i class="icon-remove"></i> icon-remove</li>
-        <li><i class="icon-zoom-in"></i> icon-zoom-in</li>
-        <li><i class="icon-zoom-out"></i> icon-zoom-out</li>
-        <li><i class="icon-off"></i> icon-off</li>
-        <li><i class="icon-signal"></i> icon-signal</li>
-        <li><i class="icon-cog"></i> icon-cog</li>
-        <li><i class="icon-trash"></i> icon-trash</li>
-        <li><i class="icon-home"></i> icon-home</li>
-        <li><i class="icon-file"></i> icon-file</li>
-        <li><i class="icon-time"></i> icon-time</li>
-        <li><i class="icon-road"></i> icon-road</li>
-        <li><i class="icon-download-alt"></i> icon-download-alt</li>
-        <li><i class="icon-download"></i> icon-download</li>
-        <li><i class="icon-upload"></i> icon-upload</li>
-        <li><i class="icon-inbox"></i> icon-inbox</li>
-        <li><i class="icon-play-circle"></i> icon-play-circle</li>
-        <li><i class="icon-repeat"></i> icon-repeat</li>
-      </ul>
+    <div class="span8">
+      	<div class="page-header">
+			<h2>Icon Library</h2>
+		</div>
     </div>
-    <div class="span3">
-      <ul class="the-icons">
-        <li><i class="icon-refresh"></i> icon-refresh</li>
-        <li><i class="icon-list-alt"></i> icon-list-alt</li>
-        <li><i class="icon-lock"></i> icon-lock</li>
-        <li><i class="icon-flag"></i> icon-flag</li>
-        <li><i class="icon-headphones"></i> icon-headphones</li>
-        <li><i class="icon-volume-off"></i> icon-volume-off</li>
-        <li><i class="icon-volume-down"></i> icon-volume-down</li>
-        <li><i class="icon-volume-up"></i> icon-volume-up</li>
-        <li><i class="icon-qrcode"></i> icon-qrcode</li>
-        <li><i class="icon-barcode"></i> icon-barcode</li>
-        <li><i class="icon-tag"></i> icon-tag</li>
-        <li><i class="icon-tags"></i> icon-tags</li>
-        <li><i class="icon-book"></i> icon-book</li>
-        <li><i class="icon-bookmark"></i> icon-bookmark</li>
-        <li><i class="icon-print"></i> icon-print</li>
-        <li><i class="icon-camera"></i> icon-camera</li>
-        <li><i class="icon-font"></i> icon-font</li>
-        <li><i class="icon-bold"></i> icon-bold</li>
-        <li><i class="icon-italic"></i> icon-italic</li>
-        <li><i class="icon-text-height"></i> icon-text-height</li>
-        <li><i class="icon-text-width"></i> icon-text-width</li>
-        <li><i class="icon-align-left"></i> icon-align-left</li>
-        <li><i class="icon-align-center"></i> icon-align-center</li>
-        <li><i class="icon-align-right"></i> icon-align-right</li>
-        <li><i class="icon-align-justify"></i> icon-align-justify</li>
-        <li><i class="icon-list"></i> icon-list</li>
-        <li><i class="icon-indent-left"></i> icon-indent-left</li>
-        <li><i class="icon-indent-right"></i> icon-indent-right</li>
-        <li><i class="icon-facetime-video"></i> icon-facetime-video</li>
-        <li><i class="icon-picture"></i> icon-picture</li>
-      </ul>
-    </div>
-    <div class="span3">
-      <ul class="the-icons">
-        <li><i class="icon-pencil"></i> icon-pencil</li>
-        <li><i class="icon-map-marker"></i> icon-map-marker</li>
-        <li><i class="icon-adjust"></i> icon-adjust</li>
-        <li><i class="icon-tint"></i> icon-tint</li>
-        <li><i class="icon-edit"></i> icon-edit</li>
-        <li><i class="icon-share"></i> icon-share</li>
-        <li><i class="icon-check"></i> icon-check</li>
-        <li><i class="icon-move"></i> icon-move</li>
-        <li><i class="icon-step-backward"></i> icon-step-backward</li>
-        <li><i class="icon-fast-backward"></i> icon-fast-backward</li>
-        <li><i class="icon-backward"></i> icon-backward</li>
-        <li><i class="icon-play"></i> icon-play</li>
-        <li><i class="icon-pause"></i> icon-pause</li>
-        <li><i class="icon-stop"></i> icon-stop</li>
-        <li><i class="icon-forward"></i> icon-forward</li>
-        <li><i class="icon-fast-forward"></i> icon-fast-forward</li>
-        <li><i class="icon-step-forward"></i> icon-step-forward</li>
-        <li><i class="icon-eject"></i> icon-eject</li>
-        <li><i class="icon-chevron-left"></i> icon-chevron-left</li>
-        <li><i class="icon-chevron-right"></i> icon-chevron-right</li>
-        <li><i class="icon-plus-sign"></i> icon-plus-sign</li>
-        <li><i class="icon-minus-sign"></i> icon-minus-sign</li>
-        <li><i class="icon-remove-sign"></i> icon-remove-sign</li>
-        <li><i class="icon-ok-sign"></i> icon-ok-sign</li>
-        <li><i class="icon-question-sign"></i> icon-question-sign</li>
-        <li><i class="icon-info-sign"></i> icon-info-sign</li>
-        <li><i class="icon-screenshot"></i> icon-screenshot</li>
-        <li><i class="icon-remove-circle"></i> icon-remove-circle</li>
-        <li><i class="icon-ok-circle"></i> icon-ok-circle</li>
-        <li><i class="icon-ban-circle"></i> icon-ban-circle</li>
-      </ul>
-    </div>
-    <div class="span3">
-      <ul class="the-icons">
-        <li><i class="icon-arrow-left"></i> icon-arrow-left</li>
-        <li><i class="icon-arrow-right"></i> icon-arrow-right</li>
-        <li><i class="icon-arrow-up"></i> icon-arrow-up</li>
-        <li><i class="icon-arrow-down"></i> icon-arrow-down</li>
-        <li><i class="icon-share-alt"></i> icon-share-alt</li>
-        <li><i class="icon-resize-full"></i> icon-resize-full</li>
-        <li><i class="icon-resize-small"></i> icon-resize-small</li>
-        <li><i class="icon-plus"></i> icon-plus</li>
-        <li><i class="icon-minus"></i> icon-minus</li>
-        <li><i class="icon-asterisk"></i> icon-asterisk</li>
-        <li><i class="icon-exclamation-sign"></i> icon-exclamation-sign</li>
-        <li><i class="icon-gift"></i> icon-gift</li>
-        <li><i class="icon-leaf"></i> icon-leaf</li>
-        <li><i class="icon-fire"></i> icon-fire</li>
-        <li><i class="icon-eye-open"></i> icon-eye-open</li>
-        <li><i class="icon-eye-close"></i> icon-eye-close</li>
-        <li><i class="icon-warning-sign"></i> icon-warning-sign</li>
-        <li><i class="icon-plane"></i> icon-plane</li>
-        <li><i class="icon-calendar"></i> icon-calendar</li>
-        <li><i class="icon-random"></i> icon-random</li>
-        <li><i class="icon-comment"></i> icon-comment</li>
-        <li><i class="icon-magnet"></i> icon-magnet</li>
-        <li><i class="icon-chevron-up"></i> icon-chevron-up</li>
-        <li><i class="icon-chevron-down"></i> icon-chevron-down</li>
-        <li><i class="icon-retweet"></i> icon-retweet</li>
-        <li><i class="icon-shopping-cart"></i> icon-shopping-cart</li>
-        <li><i class="icon-folder-close"></i> icon-folder-close</li>
-        <li><i class="icon-folder-open"></i> icon-folder-open</li>
-        <li><i class="icon-resize-vertical"></i> icon-resize-vertical</li>
-        <li><i class="icon-resize-horizontal"></i> icon-resize-horizontal</li>
-      </ul>
+    <div class="span4">
+      	<div class="page-header">
+			<h2>Extended Icons</h2>
+		</div>
     </div>
   </div>
-  <div class="alert alert-info">
-    {{_i}}<strong>Heads up!</strong> Icon classes are echoed via CSS <code>:after</code>. In the docs, we show a light red background color on hover to highlight the icon's size.{{/i}}
-  </div>
+  <div class="row">
+	<div class="span2">
+            <ul class="the-icons">
+                <li class="icon-glass">.icon-glass</li>
+                <li class="icon-music">.icon-music</li>
+                <li class="icon-search">.icon-search</li>
+                <li class="icon-envelope">.icon-envelope</li>
+                <li class="icon-heart">.icon-heart</li>
+                <li class="icon-star">.icon-star</li>
+                <li class="icon-star-empty">.icon-star.empty</li>
+                <li class="icon-user">.icon-user</li>
+                <li class="icon-film">.icon-film</li>
+                <li class="icon-th-large">.icon-th-large</li>
+                <li class="icon-th">.icon-th</li>
+                <li class="icon-th-list">.icon-th-list</li>
+                <li class="icon-ok">.icon-ok</li>
+                <li class="icon-remove">.icon-remove</li>
+                <li class="icon-zoom-in">.icon-zoom-in</li>
 
+                <li class="icon-zoom-out">.icon-zoom-out</li>
+                <li class="icon-off">.icon-off</li>
+                <li class="icon-signal">.icon-signal</li>
+                <li class="icon-cog">.icon-cog</li>
+                <li class="icon-trash">.icon-trash</li>
+                <li class="icon-home">.icon-home</li>
+                <li class="icon-file">.icon-file</li>
+                <li class="icon-time">.icon-time</li>
+                <li class="icon-road">.icon-road</li>
+                <li class="icon-download-alt">.icon-download-alt</li>
+                <li class="icon-download">.icon-download</li>
+                <li class="icon-upload">.icon-upload</li>
+                <li class="icon-inbox">.icon-inbox</li>
+                <li class="icon-play-circle">.icon-play-circle</li>
+                <li class="icon-repeat">.icon-repeat</li>
+            </ul>
+	</div>
+	<div class="span2">
+            <ul class="the-icons">
+                <li class="icon-refresh">.icon-refresh</li>
+                <li class="icon-list-alt">.icon-list-alt</li>
+                <li class="icon-lock">.icon-lock</li>
+                <li class="icon-flag">.icon-flag</li>
+                <li class="icon-headphones">.icon-headphones</li>
+                <li class="icon-volume-off">.icon-volume-off</li>
+                <li class="icon-volume-down">.icon-volume-down</li>
+                <li class="icon-volume-up">.icon-volume-up</li>
+                <li class="icon-qrcode">.icon-qrcode</li>
+                <li class="icon-barcode">.icon-barcode</li>
+                <li class="icon-tag">.icon-tag</li>
+                <li class="icon-tags">.icon-tags</li>
+                <li class="icon-book">.icon-book</li>
+                <li class="icon-bookmark">.icon-bookmark</li>
+                <li class="icon-print">.icon-print</li>
+
+                <li class="icon-camera">.icon-camera</li>
+                <li class="icon-font">.icon-font</li>
+                <li class="icon-bold">.icon-bold</li>
+                <li class="icon-italic">.icon-italic</li>
+                <li class="icon-text-height">.icon-text-height</li>
+                <li class="icon-text-width">.icon-text-width</li>
+                <li class="icon-align-left">.icon-align-left</li>
+                <li class="icon-align-center">.icon-align-center</li>
+                <li class="icon-align-right">.icon-align-right</li>
+                <li class="icon-align-justify">.icon-align-justify</li>
+                <li class="icon-list">.icon-list</li>
+                <li class="icon-indent-left">.icon-indent-left</li>
+                <li class="icon-indent-right">.icon-indent-right</li>
+                <li class="icon-facetime-video">.icon-facetime-video</li>
+                <li class="icon-picture">.icon-picture</li>
+            </ul>
+	</div>
+	<div class="span2">
+            <ul class="the-icons">
+                <li class="icon-pencil">.icon-pencil</li>
+                <li class="icon-map-marker">.icon-map-marker</li>
+                <li class="icon-adjust">.icon-adjust</li>
+                <li class="icon-tint">.icon-tint</li>
+                <li class="icon-edit">.icon-edit</li>
+                <li class="icon-share">.icon-share</li>
+                <li class="icon-check">.icon-check</li>
+                <li class="icon-move">.icon-move</li>
+                <li class="icon-step-backward">.icon-step-backward</li>
+                <li class="icon-fast-backward">.icon-fast-backward</li>
+                <li class="icon-backward">.icon-backward</li>
+                <li class="icon-play">.icon-play</li>
+                <li class="icon-pause">.icon-pause</li>
+                <li class="icon-stop">.icon-stop</li>
+                <li class="icon-forward">.icon-forward</li>
+
+                <li class="icon-fast-forward">.icon-fast-forward</li>
+                <li class="icon-step-forward">.icon-step-forward</li>
+                <li class="icon-eject">.icon-eject</li>
+                <li class="icon-chevron-left">.icon-chevron-left</li>
+                <li class="icon-chevron-right">.icon-chevron-right</li>
+                <li class="icon-plus-sign">.icon-plus-sign</li>
+                <li class="icon-minus-sign">.icon-minus-sign</li>
+                <li class="icon-remove-sign">.icon-remove-sign</li>
+                <li class="icon-ok-sign">.icon-ok-sign</li>
+                <li class="icon-question-sign">.icon-question-sign</li>
+                <li class="icon-info-sign">.icon-info.sign</li>
+                <li class="icon-screenshot">.icon-screenshot</li>
+                <li class="icon-remove-circle">.icon-remove-circle</li>
+                <li class="icon-ok-circle">.icon-ok-circle</li>
+                <li class="icon-ban-circle">.icon-ban-circle</li>
+            </ul>
+
+	</div>
+	<div class="span2">
+            <ul class="the-icons">
+                <li class="icon-arrow-left">.icon-arrow-left</li>
+                <li class="icon-arrow-right">.icon-arrow-right</li>
+                <li class="icon-arrow-up">.icon-arrow-up</li>
+                <li class="icon-arrow-down">.icon-arrow-down</li>
+                <li class="icon-share-alt">.icon-share-alt</li>
+                <li class="icon-resize-full">.icon-resize-full</li>
+                <li class="icon-resize-small">.icon-resize-small</li>
+                <li class="icon-plus">.icon-plus</li>
+                <li class="icon-minus">.icon-minus</li>
+                <li class="icon-asterisk">.icon-asterisk</li>
+                <li class="icon-exclamation-sign">.icon-exclamation-sign</li>
+                <li class="icon-gift">.icon-gift</li>
+                <li class="icon-leaf">.icon-leaf</li>
+                <li class="icon-fire">.icon-fire</li>
+                <li class="icon-eye-open">.icon-eye-open</li>
+
+                <li class="icon-eye-close">.icon-eye-close</li>
+                <li class="icon-warning-sign">.icon-warning-sign</li>
+                <li class="icon-plane">.icon-plane</li>
+                <li class="icon-calendar">.icon-calendar</li>
+                <li class="icon-random">.icon-random</li>
+                <li class="icon-comment">.icon-comment</li>
+                <li class="icon-magnet">.icon-magnet</li>
+                <li class="icon-chevron-up">.icon-chevron-up</li>
+                <li class="icon-chevron-down">.icon-chevron-down</li>
+                <li class="icon-retweet">.icon-retweet</li>
+                <li class="icon-shopping-cart">.icon-shopping-cart</li>
+                <li class="icon-folder-close">.icon-folder-close</li>
+                <li class="icon-folder-open">.icon-folder-open</li>
+                <li class="icon-resize-vertical">.icon-resize-vertical</li>
+                <li class="icon-resize-horizontal">.icon-resize-horizontal</li>
+            </ul>
+	</div>
+	<div class="span2">
+      <ul class="the-icons">
+          <li class="icon-camera-retro">.icon-camera-retro</li>
+          <li class="icon-bar-chart">.icon-bar-chart</li>
+          <li class="icon-cogs">.icon-cogs</li>
+          <li class="icon-external-link">.icon-external-link</li>
+          <li class="icon-pushpin">.icon-pushpin</li>
+          <li class="icon-facebook-sign">.icon-facebook-sign</li>
+          <li class="icon-twitter-sign">.icon-twitter-sign</li>
+          <li class="icon-linkedin-sign">.icon-linkedin-sign</li>
+          <li class="icon-github-sign">.icon-github-sign</li>
+          <li class="icon-key">.icon-key</li>
+      </ul>
+	</div>
+	<div class="span2">
+	  <ul class="the-icons">
+          <li class="icon-thumbs-up">.icon-thumbs-up</li>
+          <li class="icon-thumbs-down">.icon-thumbs-down</li>
+          <li class="icon-comments">.icon-comments</li>
+          <li class="icon-trophy">.icon-trophy</li>
+          <li class="icon-upload-alt">.icon-upload-alt</li>
+          <li class="icon-signin">.icon-signin</li>
+          <li class="icon-signout">.icon-signout</li>
+          <li class="icon-star-half">.icon-star-half</li>
+          <li class="icon-heart-empty">.icon-heart-empty</li>
+          <li class="icon-lemon">.icon-lemon</li>
+	  </ul>
+	</div>
+  </div>
   <br>
 
   <div class="row">
     <div class="span4">
-      <h3>{{_i}}Built as a sprite{{/i}}</h3>
-      <p>{{_i}}Instead of making every icon an extra request, we've compiled them into a sprite&mdash;a bunch of images in one file that uses CSS to position the images with <code>background-position</code>. This is the same method we use on Twitter.com and it has worked well for us.{{/i}}</p>
+      <h3>{{_i}}The fucking shit{{/i}}</h3>
+      <p>{{_i}}I'm sorry for swearing, but icon fonts are pretty darn cool.{{/i}}</p>
       <p>{{_i}}All icons classes are prefixed with <code>.icon-</code> for proper namespacing and scoping, much like our other components. This will help avoid conflicts with other tools.{{/i}}</p>
-      <p>{{_i}}<a href="http://glyphicons.com" target="_blank">Glyphicons</a> has granted us use of the Halflings set in our open-source toolkit so long as we provide a link and credit here in the docs. Please consider doing the same in your projects.{{/i}}</p>
+      <p>{{_i}}<a href="http://css-tricks.com/examples/IconFont/">Check out this article</a> to see why icon fonts are so neato.{{/i}}</p>
     </div>
     <div class="span4">
       <h3>{{_i}}How to use{{/i}}</h3>
@@ -1459,7 +1694,6 @@
 <pre class="prettyprint linenums">
 &lt;i class="icon-search icon-white"&gt;&lt;/i&gt;
 </pre>
-      <p>{{_i}}There are 120 classes to choose from for your icons. Just add an <code>&lt;i&gt;</code> tag with the right classes and you're set. You can find the full list in <strong>sprites.less</strong> or right here in this document.{{/i}}</p>
     </div>
     <div class="span4">
       <h3>{{_i}}Use cases{{/i}}</h3>
