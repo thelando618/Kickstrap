@@ -93,6 +93,70 @@
         </div>
       </header>
 
+<!-- One Line CSS Grid -->
+<section id="global">
+  <div class="page-header">
+    <h1>OLCG <small>One Line CSS Grid</small></h1>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <p>For convenience, Kickstrap includes a "One Line CSS Grid."</p>
+      <p><em><a href="http://adamkochanowicz.com/oneline.html"><i class="icon-book"></i>  Full Documentation</a>.</em></p>
+      <p>Bootstrap's robust 12 column grid is far superior to OLCG as a layout tool. However, OLCG is convenient in cases when the grid needs to be broken, yet still balanced.</p>
+      <p>For example, you may want to split a div with a "span8" class into three. However, 8 is not cleanly divisible by three. OLCG solves this problem by using three "ot" or "One Third" divs. Examples follow below.</p>
+      <div style="background-color:#aaa" class="oh">1/2</div>
+      <div style="background-color:#ccc" class="oh">1/2</div>
+      <div class="clear"></div><br />
+      <div style="background-color:#aaa" class="ot">1/3</div>
+      <div style="background-color:#ccc" class="tt">2/3</div>
+      <div class="clear"></div><br />
+      <div style="background-color:#aaa" class="ot">1/3</div>
+      <div style="background-color:#ccc" class="ot">1/3</div>
+      <div style="background-color:#eee" class="ot">1/3</div>
+      <div class="clear"></div><br />
+      <div style="background-color:#aaa" class="ot">1/3</div>
+      <div style="background-color:#ccc" class="tt">
+        2/3<br />
+        <div style="background-color:#ddd" class="oh">1/2</div>
+        <div style="background-color:#eee" class="oh">1/2</div>
+      </div>
+      <div class="clear"></div><br />
+      <h2>OLCG is great for splitting</h2>
+      <div class="span5" style="border:1px solid #ddd">
+       <h2>I'm five columns wide, how can I have two equal columns?</h2>
+       <div style="background-color:#aaa" class="oh">
+         Like
+       </div>
+       <div style="background-color:#ccc" class="oh">
+         This!
+       </div>
+     </div>
+    </div>
+    <div class="span6">
+      <h2>One Line CSS Grid</h2>
+      <pre>.oh,.ot,.tt{float:left;padding:0 2% 2% 0;width:48%}.ot{width:31%}.tt{width:65%}.cl{clear:both}</pre>
+      <p><em><a href="http://adamkochanowicz.com/oneline.html"><i class="icon-book"></i>  Documentation Here</a>.</em></p>
+      <h2>Two equal columns</h2>
+<pre>
+&lt;div class=&quot;oh&quot;&gt;
+  1/2
+&lt;/div&gt;
+&lt;div class=&quot;oh&quot;&gt;
+  1/2
+&lt;/div&gt;
+</pre>
+      <h2>One third and two thirds</h2>
+<pre>
+&lt;div class=&quot;ot&quot;&gt;
+  1/3
+&lt;/div&gt;
+&lt;div class=&quot;tt&quot;&gt;
+  2/3
+&lt;/div&gt;
+</pre>
+</div>
+    </div>
+</section>
 
 
 <!-- Grid system
