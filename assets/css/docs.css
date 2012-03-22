@@ -13,7 +13,7 @@ ul.the-icons  li {
     line-height: 2em;
 }
 
-[class^="icon-"], [class*=" icon-"] {display:block;}
+ul.the-icons > li[class^="icon-"], ul.the-icons > li[class*=" icon-"] {display:block;}
 
 ul.icon-array li {
     display: inline;
