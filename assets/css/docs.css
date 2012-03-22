@@ -9,9 +9,11 @@ ul.the-icons {
   margin-left:25px;
 }
 ul.the-icons  li {
-    font-size: 1.1em;
+    font-size: 1.0em;
     line-height: 2em;
 }
+
+[class^="icon-"], [class*=" icon-"] {display:block;}
 
 ul.icon-array li {
     display: inline;
