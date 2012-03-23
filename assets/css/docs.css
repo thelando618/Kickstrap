@@ -8,9 +8,16 @@
 ul.the-icons {
   margin-left:25px;
 }
-ul.the-icons  li {
+ul.the-icons  li,
+ul.the-icomoons li {
     font-size: 1.0em;
     line-height: 2em;
+    cursor:pointer;
+}
+ul.the-icons  li:hover,
+ul.the-icomoons li:hover {
+    font-size: 1.4em;
+    line-height: normal;
 }
 
 ul.the-icons > li[class^="icon-"], ul.the-icons > li[class*=" icon-"] {display:block;}
