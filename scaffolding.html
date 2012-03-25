@@ -612,9 +612,14 @@
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
     <script src="assets/js/application.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.jgrowl.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function() {
-    $('li').tooltip()
+    $('li').tooltip();
+    $('#demo').click(function() {
+      $.jGrowl("Congratulations, you pressed the button!");
+    });
   });
   </script>
 

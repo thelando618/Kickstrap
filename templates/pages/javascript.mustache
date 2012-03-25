@@ -7,6 +7,7 @@
           <ul class="nav nav-pills">
             <li><a href="#javascript">{{_i}}All plugins{{/i}}</a></li>
             <li><a href="#chosen">{{_i}}Chosen{{/i}}</a></li>
+            <li><a href="#jgrowl">{{_i}}jGrowl{{/i}}</a></li>
             <li><a href="#modals">{{_i}}Modal{{/i}}</a></li>
             <li><a href="#dropdowns">{{_i}}Dropdown{{/i}}</a></li>
             <li><a href="#scrollspy">{{_i}}Scrollspy{{/i}}</a></li>
@@ -134,7 +135,7 @@
       <h2>About</h2>
     </div>
     <p>Chosen is a Javascript library from <a href="http://getharvest.com">Harvest</a> which changes the look and operation of &lt;select&gt; elements.</p>
-    <p><a href="assets/js/bootstrap-modal.js" target="_blank" class="btn">{{_i}}Download file{{/i}}</a></p>
+    <p><a href="assets/js/chosen.zip" target="_blank" class="btn">{{_i}}Download file{{/i}}</a></p>
     
   </div> 
   
@@ -1402,7 +1403,7 @@
     
     <!-- jGrowl
     ================================================== -->
-    <section id="chosen">
+    <section id="jgrowl">
       <div class="page-header">
         <h1>jGrowl <small><i class="icomoon-star"></i>&nbsp;Kickstrap add-on from Stan Lemon [<a href="https://bitbucket.org/stanlemon/jgrowl/overview"><i class="icon-book"></i> Docs</a>]</small></h1>
       </div>
@@ -1410,10 +1411,31 @@
         <div class="span3 columns">
           <h3>{{_i}}About jGrowl{{/i}}</h3>
           <p>{{_i}}jQuery-powered notifications which are both noticeable yet easily dismissible--greatly improving the user experience over interruptive system dialogs.{{/i}}</p>
-          <a href="assets/js/jgrowl.js" target="_blank" class="btn">{{_i}}Download file{{/i}}</a>
+          <a href="assets/js/jgrowl.zip" target="_blank" class="btn">{{_i}}Download file{{/i}}</a>
         </div>
-		<div class="span5">
-		  
+		<div class="span3">
+		  <p>jGrowl centralizes your site notifications in an unobtrusive fade-in, fade-out right corner of the user's screen. The notifications are highly customizable and can easily be written via simple jQuery statements.</p>
+		  <p><a class="btn" id="demo">{{_i}}Demo{{/i}}</a></p>
+		  <p>There's a lot more jGrowl can do. To learn more, read the <a href="http://stanlemon.net/pages/jgrowl"><i class="icon-book"></i> Docs</a></p>
+		</div>
+		<div class="span6">
+		  <h2>Code</h2>
+		  <p>To use jGrowl, you'll need to call the jQuery UI library in addition to jQuery itself. Afterwards, call the jGrowl plugin.</p>
+<pre>
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;extras/jgrowl/jquery.jgrowl.min.js&quot;&gt;&lt;/script&gt;
+</pre>
+          <p>Now jGrowl notifications can be tied to the page load or any jQuery event.</p>
+<pre>
+&lt;script type=&quot;text/javascript&quot;&gt;
+  $(document).ready(function() {
+    $('#demo').click(function() {
+      $.jGrowl(&quot;Congratulations, you pressed the button!&quot;);
+    });
+  });
+&lt;/script&gt;
+</pre>
 		</div>
       </div>
     </section>
