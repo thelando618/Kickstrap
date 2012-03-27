@@ -749,7 +749,7 @@
       <h2>Code</h2>
     </div>
         <p>To enable Chosen, put the following before the ending body tag of the html document:</p>
-<pre>
+<pre  class="prettyprint linenums">
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot;&gt; $(&quot;.chzn-select&quot;).chosen(); $(&quot;.chzn-select-deselect&quot;).chosen({allow_single_deselect:true}); &lt;/script&gt;
 </pre>
@@ -1367,21 +1367,21 @@
   </div>
   <div class="row">
     <div class="span3">
-<pre>&lt;select data-placeholder=&quot;Choose a Country...&quot; class=&quot;chzn-select&quot;&gt;
+<pre  class="prettyprint linenums">&lt;select data-placeholder=&quot;Choose a Country...&quot; class=&quot;chzn-select&quot;&gt;
 &lt;option value=&quot;&quot;&gt;&lt;/option&gt; 
 &lt;option value=&quot;United States&quot;&gt;United States&lt;/option&gt;
 ...
 &lt;/select&gt;</pre>
     </div>
     <div class="span3">
-<pre>&lt;select data-placeholder=&quot;Choose a Country...&quot; multiple class=&quot;chzn-select&quot;&gt;
+<pre  class="prettyprint linenums">&lt;select data-placeholder=&quot;Choose a Country...&quot; multiple class=&quot;chzn-select&quot;&gt;
 &lt;option value=&quot;&quot;&gt;&lt;/option&gt; 
 &lt;option value=&quot;United States&quot;&gt;United States&lt;/option&gt;
 ...
 &lt;/select&gt;</pre>
     </div>
     <div class="span3">
-<pre>&lt;select data-placeholder=&quot;Your Favorite Football Team&quot; class=&quot;chzn-select&quot;&gt;
+<pre  class="prettyprint linenums">&lt;select data-placeholder=&quot;Your Favorite Football Team&quot; class=&quot;chzn-select&quot;&gt;
 &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
 &lt;optgroup label=&quot;NFC EAST&quot;&gt;
 &lt;option&gt;Dallas Cowboys&lt;/option&gt;
@@ -1390,7 +1390,7 @@
 &lt;/select&gt;</pre>
     </div>
     <div class="span3">
-<pre>&lt;select data-placeholder=&quot;Your Favorite Football Team&quot; class=&quot;chzn-select&quot; multiple&gt;
+<pre  class="prettyprint linenums">&lt;select data-placeholder=&quot;Your Favorite Football Team&quot; class=&quot;chzn-select&quot; multiple&gt;
 &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
 &lt;optgroup label=&quot;NFC EAST&quot;&gt;
 &lt;option&gt;Dallas Cowboys&lt;/option&gt;
@@ -1431,25 +1431,40 @@
 		    </div>
       </div>
       <div class="row">
-        <div class="span6 offset3">
+        <div class="span8 offset3">
         		  <h2>Code</h2>
         		  <p>To use jGrowl, you'll need to call the jQuery UI library in addition to jQuery itself. Afterwards, call the jGrowl plugin.</p>
-<pre>
+<pre  class="prettyprint linenums">
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;extras/jgrowl/jquery.jgrowl.min.js&quot;&gt;&lt;/script&gt;
 </pre>
                   <p>Now jGrowl notifications can be tied to the page load or any jQuery event.</p>
-<pre>
+<pre  class="prettyprint linenums">
 &lt;script type=&quot;text/javascript&quot;&gt;
   $(document).ready(function() {
     $('#demo').click(function() {
-      $.jGrowl(&quot;Congratulations, you pressed the button!&quot;);
+      $.jGrowl(&quot;Congratulations!&quot;);
     });
   });
 &lt;/script&gt;
 </pre>
         </div>
+      </div>
+      <div class="row">
+        <div class="span8 offset3">
+          <h2>How to theme</h2>
+          <p>To apply a theme, simply call the <code>theme</code> object property and specify with the conventional names (default, warning, danger, info, success).
+<pre  class="prettyprint linenums">
+$('.notification-success').click(function() {
+  $.jGrowl('Congratulations, you pressed the button!',{
+    theme:  'success'
+  });
+});
+</pre>
+          <p>You can always override these colors without changing your button and alert colors by defining <code>div.jGrowl div.x</code> selectors in your theme (where "x" is "warning/danger/info/success").</p>
+        </div>
+        
       </div>
     </section>
 
