@@ -1495,20 +1495,33 @@
           <p>jQuery-powered notifications which are both noticeable yet easily dismissible--greatly improving the user experience over interruptive system dialogs.</p>
           <a href="assets/js/jgrowl.zip" target="_blank" class="btn">Download file</a>
         </div>
-		<div class="span3">
-		  <p>jGrowl centralizes your site notifications in an unobtrusive fade-in, fade-out right corner of the user's screen. The notifications are highly customizable and can easily be written via simple jQuery statements.</p>
-		  <p><a class="btn" id="demo">Demo</a></p>
-		  <p>There's a lot more jGrowl can do. To learn more, read the <a href="http://stanlemon.net/pages/jgrowl"><i class="icon-book"></i> Docs</a></p>
-		</div>
-		<div class="span6">
-		  <h2>Code</h2>
-		  <p>To use jGrowl, you'll need to call the jQuery UI library in addition to jQuery itself. Afterwards, call the jGrowl plugin.</p>
+		    <div class="span4">
+		      <h3>Try it out</h3>
+		      <p>jGrowl centralizes your site notifications in an unobtrusive fade-in, fade-out right corner of the user's screen. The notifications are highly customizable and can easily be written via simple jQuery statements.</p>
+		      <p><a class="btn" id="demo">Demo</a></p>
+		      <p>There's a lot more jGrowl can do. To learn more, read the <a href="http://stanlemon.net/pages/jgrowl"><i class="icon-book"></i> Docs</a></p>
+		    </div>
+		    <div class="span4 offset1">
+		      <h3>Follows your theme</h3>
+		      <p>Via LESS compilation, jGrowl will automatically theme itself according to "default, warning, danger, info, and success" colors in your Kickstrap theme.</p>
+		      <h4>Click a button to see the corresponding theme</h4><br />
+		      <button class="btn notification">Default</button>
+          <button class="btn btn-info notification-info">Info</button>
+          <button class="btn btn-warning notification-warning">Warning</button>
+          <button class="btn btn-danger notification-danger">Danger</button>
+          <button class="btn btn-success notification-success">Success</button>
+		    </div>
+      </div>
+      <div class="row">
+        <div class="span6 offset3">
+        		  <h2>Code</h2>
+        		  <p>To use jGrowl, you'll need to call the jQuery UI library in addition to jQuery itself. Afterwards, call the jGrowl plugin.</p>
 <pre>
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;extras/jgrowl/jquery.jgrowl.min.js&quot;&gt;&lt;/script&gt;
 </pre>
-          <p>Now jGrowl notifications can be tied to the page load or any jQuery event.</p>
+                  <p>Now jGrowl notifications can be tied to the page load or any jQuery event.</p>
 <pre>
 &lt;script type=&quot;text/javascript&quot;&gt;
   $(document).ready(function() {
@@ -1518,7 +1531,7 @@
   });
 &lt;/script&gt;
 </pre>
-		</div>
+        </div>
       </div>
     </section>
 
@@ -2812,6 +2825,29 @@ $('.myCarousel').carousel({
     $('li').tooltip();
     $('#demo').click(function() {
       $.jGrowl("Congratulations, you pressed the button!");
+    });
+    $('.notification').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!');
+    });
+    $('.notification-success').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!',{
+        theme:  'success'
+      });
+    });
+    $('.notification-info').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!',{
+        theme:  'info'
+      });
+    });
+    $('.notification-danger').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!',{
+        theme:  'danger'
+      });
+    });
+    $('.notification-warning').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!',{
+        theme:  'warning'
+      });
     });
   });
   </script>

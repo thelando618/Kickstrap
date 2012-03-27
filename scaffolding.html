@@ -620,6 +620,29 @@
     $('#demo').click(function() {
       $.jGrowl("Congratulations, you pressed the button!");
     });
+    $('.notification').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!');
+    });
+    $('.notification-success').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!',{
+        theme:  'success'
+      });
+    });
+    $('.notification-info').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!',{
+        theme:  'info'
+      });
+    });
+    $('.notification-danger').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!',{
+        theme:  'danger'
+      });
+    });
+    $('.notification-warning').click(function() {
+      $.jGrowl('Congratulations, you pressed the button!',{
+        theme:  'warning'
+      });
+    });
   });
   </script>
 
