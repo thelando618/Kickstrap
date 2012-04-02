@@ -63,6 +63,13 @@ transition: all .2s linear;
   text-decoration: none;
 }
 
+a.brand-alt {
+  font-family: 'helvetica' sans-serif;
+  font-weight: 100 !important;
+  font-size: 1.2em !important;
+  padding-top: 10px !important;
+}
+a.brand-alt:hover {text-decoration: underline;}
 
 /* Space out sub-sections more
 -------------------------------------------------- */
