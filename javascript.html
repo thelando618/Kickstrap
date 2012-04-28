@@ -2379,7 +2379,7 @@ $('#my-alert').bind('closed', function () {
              <tr>
                <td>Radio</td>
                <td>
-                  <div class="btn-group" data-toggle="buttons-radio">
+                  <div class="btn-group radio-buttons" data-toggle="buttons-radio">
                     <button class="btn btn-primary">Left</button>
                     <button class="btn btn-primary">Middle</button>
                     <button class="btn btn-primary">Right</button>
@@ -2819,7 +2819,7 @@ $('.myCarousel').carousel({
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <script src="assets/js/google-code-prettify/prettify.js"></script>
     <script src="assets/js/bootstrap-transition.js"></script>
     <script src="assets/js/bootstrap-alert.js"></script>
@@ -2834,10 +2834,10 @@ $('.myCarousel').carousel({
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
     <script src="assets/js/application.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.jgrowl.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function() {
+  	$('.radio-buttons').button()
     $('li').tooltip();
     $('#demo').click(function() {
       $.jGrowl("Congratulations, you pressed the button!");

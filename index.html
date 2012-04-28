@@ -148,8 +148,8 @@
       <p>The included starter HTML files are ready to go with code for Google Analytics, CDN-hosted jQuery with local fallback, IE version detection, responsive screen detection, HTML5 Polyfilling (via Modernizr), and several other delightfully nerdy things.</p>
     </div>
     <div class="span4">
-      <h2><i class="icon-book"></i> Styleguide docs</h2>
-      <p>Kickstrap builds on top of Bootstrap, that means Bootstrap's core layout code is still valid in Kickstrap and documented here.</p>
+      <h2><i class="icomoon-video"></i> CSS Animations, just add water</h2>
+      <p>Easy to implement CSS animations from <a href="http://daneden.me/animate/">animate.css</a>. See the <a href="http://ajkochanowicz.github.com/Kickstrap/examples.html">included index page</a> for an example.</p>
     </div>
   </div><!--/row-->
   <div class="row">
@@ -227,7 +227,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <script src="assets/js/google-code-prettify/prettify.js"></script>
     <script src="assets/js/bootstrap-transition.js"></script>
     <script src="assets/js/bootstrap-alert.js"></script>
@@ -242,10 +242,10 @@
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
     <script src="assets/js/application.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.jgrowl.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function() {
+  	$('.radio-buttons').button()
     $('li').tooltip();
     $('#demo').click(function() {
       $.jGrowl("Congratulations, you pressed the button!");
