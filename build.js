@@ -5,7 +5,7 @@ var hogan = require('hogan.js')
   , test  = process.argv[2] == 'test'
   , title = 'Kickstrap'
 
-var layout, pages, apps
+var layout, pages, apps, layoutGh
 var publishDir = 'html'
 var appList = '<section><div class="row">'
 var appCount = 0
@@ -13,6 +13,10 @@ var appCount = 0
 // compile layout template
 layout = fs.readFileSync(__dirname + '/assets/templates/layout.mustache', 'utf-8')
 layout = hogan.compile(layout, { sectionTags: [{o:'_i', c:'i'}] })
+
+// compile layout template
+layoutGh = fs.readFileSync(__dirname + '/assets/templates/layoutGh.mustache', 'utf-8')
+layoutGh = hogan.compile(layoutGh, { sectionTags: [{o:'_i', c:'i'}] })
 
 // retrieve pages
 pages = fs.readdirSync(__dirname + '/assets/templates/pages')
@@ -67,3 +71,27 @@ pages.forEach(function (name) {
   fs.writeFileSync(__dirname + '/' + publishDir + '/' + name.replace(/mustache$/, 'html'), page, 'utf-8')
 })
 
+// Make the special index.html page for GitHub
+
+  var indexPage = fs.readFileSync(__dirname  + '/assets/templates/pages/index.mustache', 'utf-8')
+    , context = {}
+
+
+  //context[name.replace(/\.mustache$/, '')] = 'active'
+  context._i = true
+  context.production = prod
+  context.test = test
+  context.title = 'indexGh'
+    .replace(/\.mustache/, '')
+    .replace(/\-.*/, '')
+    .replace(/(.)/, function ($1) { return $1.toUpperCase() })
+
+  context.title = title
+
+  page = hogan.compile(indexPage, { sectionTags: [{o:'_i', c:'i'}] })
+  page = layoutGh.render(context, {
+    body: indexPage
+  })
+
+
+fs.writeFileSync(__dirname + '/' + publishDir + '/indexGh.html', page, 'utf-8')

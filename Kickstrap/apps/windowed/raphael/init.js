@@ -1,0 +1,1 @@
+loadWindow({name: 'windowed/raphael', url: 'raphael.html', width:'600',height:'350', title: 'Raphael.js'});

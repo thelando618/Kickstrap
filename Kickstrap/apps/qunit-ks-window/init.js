@@ -1,0 +1,1 @@
+loadWindow({name: 'qunit', theUrl: 'qunit.html', width:'750',height:'450', title: 'qUnit Javascript Tester', iframe: false});

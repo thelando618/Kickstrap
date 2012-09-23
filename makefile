@@ -10,8 +10,6 @@ build:
 	@node build.js
 	@echo "Copying images"
 	@cp -r assets/img html/
-	@echo "Copying index file to gh-pages"
-	@cp html/index.html ./
 	@cp assets/update.js html/
 
 	@echo "Pseudo-RESTful directories. I'll get Django up one of these days..."
@@ -26,3 +24,10 @@ build:
 	@echo "Moving in app zips."
 	@mkdir -p html/apps/download
 	@cp -r assets/app-zips/* html/apps/download/
+
+	@echo "Doing a shitty job making index.html also work on github pages"
+	@cp -r assets/ks-files/Kickstrap ./
+	@cp -r assets/ks-files/css ./
+	@cp -r assets/ks-files/theme.less ./
+	@cp assets/misc/kickstrap.less ./
+	@mv html/indexGh.html ./index.html	
