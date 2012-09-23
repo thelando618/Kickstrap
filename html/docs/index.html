@@ -1,0 +1,329 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-gb"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en-gb"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en-gb"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-gb"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Kickstrap</title>
+  <meta name="description" content="">
+  <!-- You can also compile style.less to use regular css. Your apps will still work. -->
+  <style type="text/css">.hidden{margin:20px;border:5px solid #a24c4c;background-color:red;padding:10px;width:400px;color:white;font-family:helvetica,sans-serif}</style>
+  <link rel="stylesheet/less" type="text/css" href="/kickstrap.less">
+  <script src="/Kickstrap/js/less-1.3.0.min.js"></script>
+</head>
+<body data-offset="150" data-spy="scroll" data-target=".subnav">
+<div id="sf-wrapper"> <!-- Sticky Footer Wrapper -->
+   <div class="hidden"><h1>No Stylesheet Loaded</h1><p><strong>Could not load Kickstrap.</strong>There are <a href="">several common reasons for this error.</a></p></div>
+  <!-- Prompt IE 6/7 users to install Chrome Frame. Remove this if you support IE 7-.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<!--! END KICKSTRAP HEADER --> 
+
+
+
+
+
+
+
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+   <div class="navbar-inner">
+      <div class="container">
+         <a class="brand" href="/"><img src="/img/littleswing.png" /></a>
+         <ul class="nav">
+            <li class=""><a href="http://getkickstrap.com/">Home</a></li>
+            <li class="divider-vertical"></li>
+            <li class=""><a href="http://getkickstrap.com/apps">Apps</a></li>
+            <li class=""><a href="http://getkickstrap.com/themes">Themes</a></li>
+            <li class="divider-vertical"></li>
+            <li class="active"><a href="http://getkickstrap.com/docs/1.1">Docs</a></li>
+            <li class=""><a href="http://getkickstrap.com/extend">Extend</a></li>
+            <li class=""><a href="http://getkickstrap.com/upgrade">Upgrade</a></li>
+         </ul>
+         <ul class="nav pull-right">
+            <li><button class="btn btn-primary">Download the Beta</button></li>
+         </ul>
+      </div>
+   </div>
+</div>
+
+<div class="container">
+   <style>body {padding-top: 100px;}</style>
+   <div class="navbar subnav navbar-fixed-top" style="margin-top: 40px;">
+      <div class="navbar-inner">
+         <div class="container">
+            <ul class="nav">
+               <li class="active"><a rel="tooltip" title="Just downloaded Kickstrap? Here's how to get started." href="#quickstart">Quickstart</a></li>
+               <li class=""><a rel="tooltip" title="Change and customize your Kickstrap theme." href="#themes">Themes</a></li>
+               <li class=""><a rel="tooltip" title="Organize runtime extensions via simple keywords" href="#apps">Apps</a></li>
+               <li class=""><a rel="tooltip" title="Optimize your site's performance" href="#settings">Settings</a></li>
+               <li class=""><a rel="tooltip" title="Add a 404 page, .htaccess file, icons, and more." href="#root-goodies">Root Goodies</a></li>
+               <li class=""><a rel="tooltip" title="Generate good ol' CSS and speed up your site." href="#compile-less">Compiling LESS</a></li>
+               <li class=""><a rel="tooltip" title="Use Kickstrap's very own color scheming app." href="#color-schemer">Color Schemer</a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
+   
+   <div class="row">
+      <div class="span12">
+         <section id="quickstart">
+            <h1>Quickstart</h1>
+            <p>Download the latest version of Kickstrap and move all the files to the location of your site. Bootstrap is already included. You shouldn't need anything else.</p>
+            <p class="alert"><strong>Note:</strong> By default, Kickstrap uses less.js client-side, requiring you to run Kickstrap from an actual server address, not "file://" or "C:/...".</p>
+            <p>The default <strong class="text-success">index.html</strong> file is an example page with a similar, but shorter guide than this. To begin making your own site, I recommend using <strong class="text-success">blank.html</strong> instead. This contains the Kickstrap HTML header and footer, with everything linked up.</p>
+         </section>
+         <section id="themes">
+            <h1>Themes <small>Change and customize your Kickstrap theme</small></h1>
+            <p>Select a theme by opening your <strong class="text-success">theme.less</strong> file. This should be at the same level as your <strong class="text-success">Kickstrap</strong> folder.</p>
+      <pre class="prettyprint">
+      // BEGIN THEME
+      // -----------
+   
+      @import &quot;Kickstrap/themes/spacelab/variables.less&quot;;		
+      @import &quot;Kickstrap/themes/spacelab/bootswatch.less&quot;; </pre>
+            <p>Now just make sure the <code>@import</code> lines are pointing to your theme. In the above example, you could change both instances of "spacelab" to "amelia" to use the included amelia theme instead.</p>
+      <pre class="prettyprint">
+      // BEGIN THEME
+      // -----------
+   
+      @import &quot;Kickstrap/themes/amelia/variables.less&quot;;		
+      @import &quot;Kickstrap/themes/amelia/bootswatch.less&quot;; </pre>
+            <p>If you wish to expand on this theme, simply start writing CSS or LESS below those <code>@import</code>s. If you want to skip the theme, using Bootstrap's default instead, just get rid of the <code>@import</code> lines.</p>
+         </section>
+   
+         <section id="apps">
+            <h1>Apps <small>Organize runtime extensions via simple keywords</small></h1>
+            <p>Kickstrap comes with a few pre-bundled apps. You can find this in the <strong class="text-success">Kickstrap/apps</strong> directory.</p>
+            <p>Apps, as well as many other settings, are set in <strong class="text-success">kickstrap.less</strong> at the same level as your <strong class="text=success">Kickstrap</strong> folder.</p>
+            <p>Adding and removing apps is as simple as adding or removing them from the comma-separated list.</p>
+   <pre class="prettyprint">
+   // APPS
+   // -------
+   
+      @apps: "pinesnotify, bootstrap/tooltip, prettify, //knockout, //updater"; 
+      // Name should match the app's folder name in Kickstrap/apps/.</pre>
+            <p>However, you can also disable apps by typing two backslashes (//) in front of it. This is useful when you want to temporarily toggle off an app only to turn it back on later.</p>
+            <p>You may also notice single backslashes (/) can be used to refer to "subapps". For example, you can add the entire Bootstrap JS library with <code>bootstrap</code> or a single component of bootstrap such as bootstrap-tooltip with <code>bootstrap/tooltip</code>.</p>
+            <h2>Troubleshooting</h2>
+            <div class="oh">
+               <p>Learn to love your browser's console. Kickstrap uses this like a chat window to tell you what's going on.</p>
+               <p>To troubleshoot how your apps and other parts of your site are running, open your console using the shortcuts to your right.</p>
+               <p>If an app is not loading, you can troubleshoot its status via the arrays created there. Chrome, Safari, and Firefox with Firebug display these arrays best. For further troubleshooting, trying running the dependencies from the apps directly via good old html <code>&lt;script&gt;</code> and <code>&lt;link&gt;</code> tags.</p>
+               <p>For more information on troubleshooting, see <a href="extend.html#debugging">debugging</a> in the Extend section</p>
+            </div>
+            <div class="oh">
+               <h4>How to open your browser's console</h4>
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th>OS</td>
+                        <th>Browser</td>
+                        <th>Command</td>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td rowspan="3">Mac</td>
+                        <td>Chrome</td>
+                        <td>Command + Alt + J</td>
+                     </tr>
+                     <tr>
+                        <td>Firefox</td>
+                        <td>Command + Shift + L (Firebug)<br />Command + Option + K (Default)</td>
+                     </tr>
+                     <tr>
+                        <td>Safari</td>
+                        <td>Command + Alt + C</td>
+                     <tr>
+                        <td rowspan="4">Windows</td>
+                        <td>Chrome</td>
+                        <td>Ctrl + Shift + J</td>
+                     </tr>
+                     <tr>
+                        <td>Firefox</td>
+                        <td>Ctrl + Shift + L (Firebug)<br />Ctrl + Shift + K (Default)</td>
+                     </tr>
+                     <tr>
+                        <td>Internet Explorer</td>
+                        <td>F12 then Ctrl + 3</td>
+                     </tr>
+                     <tr>
+                        <td>Safari</td>
+                        <td>Ctrl + Alt + C</td>
+                  </tbody>
+               </table>
+            </div>
+            <div class="cl"></div>
+   
+         	<h2 id="page-specific">Page-Specific Apps</h2>
+         
+   
+         <p class="alert">Due to limitations with LESS CSS, variables can only be set once. This means the @apps variable unfortunately cannot be appended with additional values, it is either used as-is page to page or not. Hopefully dynamic variables will be supported in the future.</p>
+   
+         <p>By default, Kickstrap will load all the apps from settings.less on every page of your application. However, you may want to use different apps on different pages.</p>
+   
+         <p>This requires removing @apps from settings.less and loading an individual apps.less file instead. Say you have an app you want to run only on your home page but you also have some apps you want across your application. Here is what your settings.less file looks like now:</p>
+   
+         <p><strong>settings.less</strong></p>
+         <pre class="prettyprint">
+         // APPS
+         // -------
+   
+         @apps: "qunit, bootstrap, homepage";
+         ...
+         </pre>
+   
+         <p>This will work fine, but it will load the "homepage" app on every single page. To correct this let's make a new apps.less file just for the homepage. We'll call it apps-home.less.</p>
+   
+         <p><strong>apps-home.less</strong></p>
+         <pre class="prettyprint">
+         // APPS
+         // -------
+   
+         @apps: "qunit, bootstrap, homepage";
+         ...
+         </pre>
+   
+         <p>For all other pages, we'll use apps.less with the homepage app removed.</p>
+   
+         <p><strong>apps.less</strong></p>
+         <pre class="prettyprint">
+         // APPS
+         // -------
+   
+         @apps: "qunit, bootstrap";
+         ...
+         </pre>
+   
+   
+         </section>
+   
+         <section id="settings">
+            <h1>Settings <small>Optimize your site's performance.</small></h1>
+            <p><strong class="text-success">kickstrap.less</strong> is designed to be a customization hub for your Kickstrap site.</strong></p>
+            <p>Here are some key parts of this file you may want to edit.</p>
+            <dl class="dl-horizontal">
+               <dt>@apps</dt>
+               <dd>A comma-separated list of the apps to run. Single apps can be commented out using two backslashes (//).</dd>
+               <dt>@rootDir</dt>
+               <dd>The root of your site beginning and ending with a "/". This is automatically converted both as a global LESS and JavaScript variable to keep absolute paths consistent.</dd>
+               <dt>@universalResources<dt>
+               <dd>Set this to either "local" or "none". "local" means you'll be loading up universal dependencies (from the Kickstrap/apps/universal directory) from your local Kickstrap installation, "none" means you'll be skipping universal dependencies altogether. Universal dependencies are actually one big special app that loads strictly before any other apps. This is useful when you have more than one app that requires the same dependency, like jQuery UI. Running this in the universal app prevents each of those apps from loading it individually. We use the term "local" here as there may be support for running the universal app from a CDN in future Kickstrap releases</dd>
+               <dt>console.less</dt>
+               <dd>Kickstrap uses your browser's console like a chat window between itself and you. (Type "kickstrap.hello" in your console.) However, you may not want these diagnostics to show during production. Simply comment out this <code>@import</code> line to turn off Kickstrap console. Note, this only turns off console output from Kickstrap, and not the console itself.</dd>
+               <dt>caching.less</dt>
+               <dd>This <code>@import</code> is commented-out by default so you can see your LESS changes as they are made. When uncommented, client-side less.js will save your stylesheet output in the user's browser, making page load times very fast. Be advised, however, that it can be tricky to refresh the user's cache if needed. To refresh the cache manually, simply type <code>clearCache()</code> in your console.</dd>
+               <dt>Core Files</dt>
+               <dd>As the name implies, these are the core Kickstrap and Bootstrap files all atomically imported. As you build your site, consider commenting out the UI parts you don't use to improve page load performance.</dd>
+            </dl>
+         </section>
+         <section id="root-goodies">
+            <h1>Root Goodies <small>Add a 404 page, .htaccess file, icons, and more.</small></h1>
+            <p>Kickstrap tucks away some useful root files from the HTML5 Boilerplate project you may want to include in the root of your site. The reason why these are stashed this way is to maintain a clean file structure for new users and to remove the burden of deleting each and every one of these files if not needed.</p>
+            <p>To use the root goodies files, copy all contents from <strong class="text-success">Kickstrap/extras/root goodies</strong> into your root.</p>
+            <p>These files include:</p>
+            <ul>
+               <li>robots.txt</li>
+               <li>crossdomain.xml</li>
+               <li>404.html</li>
+               <li>favicon.ico</li>
+               <li>Mobile device icons</li>
+            </ul>
+         </section>
+         <section id="compile-less">
+            <h1>Compiling LESS <small>Generate good ol' CSS and speed up your site.</small></h1>
+            <p>Using LESS.js client-side is great for rapidly building your site and seeing your changes. Unfortunately, however, it has a detrimental effect on page load time. Fortunately, there are some excellent free tools for compiling your LESS to css.</p>
+            <p class="alert alert-success">This very site has its LESS files compiled to a 67kb css file via LESS.app for Mac OS X</p>
+            <h2>Follow these steps when compiling</h2>
+            <ul>
+               <li>Compile kickstrap.less. If using a gui, you should be able to just drag this file into the program.</li>
+               <li>Remove your link to kickstrap.less in your markup.</li>
+               <li>Remove the less.js script. Keeping this in your head will slow page load unnecessarily.</li>
+            </ul>
+            <p class="alert">Important: Do not directly compile theme.less or any other .less file that is not kickstrap.less. Some compilers which "watch" for changes will try to compile theme.less as you edit and save it. This will cause it to lose the important variables and dependencies set in kickstrap.less.</p>
+            <p><strong>Mac:</strong> I recommend <a href="http://incident57.com/less/">LESS.app for Mac OS X</a>. From the same developer is the paid and excellent <a href="http://incident57.com/codekit">CodeKit</a>.</ p>
+            <p><strong>Windows:</strong> I recommend <a href="http://winless.org">WinLess</a>.</p>. 
+            <p class="alert alert-danger"><strong>Not recommended</strong>: SimpLESS, Crunch have not worked well throughout the development of Kickstrap.</p>
+            <h2>Keeping your page zippy</h2>
+            <ul>
+               <li>Comment out the parts you don't need from <strong class="text-success">kickstrap.less</strong>.</li>
+               <li>Be sure less.js is removed from your head on all pages if you are comiling to css. You won't lose any Kickstrap functionality doing so.</li>
+               <li>Target IE browsers in your LESS/CSS with the html classes already in the included markup files (see the very top.) Simply make special IE rules children of .lt-ie8, etc.</li>
+            </ul>
+            <h2 id="lessjs-errors">LESS.js Errors</h2>
+            <p>If you see that big red rectangle on your page instead of one of Bootswatch's wonderful themes, there are a few common reasons why this might happen:</p>
+            <ul>
+               <li>You are trying to run your Kickstrap site in a browser with an address starting with anything other than "http://" or "https://" Less.js will automatically not run for security reasons.</li>
+               <li>There was a parsing error in your LESS. Check the console as there may be debugging information there (Client-side only.)</li>
+               <li>The less.js file cannot be found. Usually this is in <strong class="text-success">Kickstrap/js/</strong></li>
+            </ul>
+         </section>
+         <section id="color-schemer">
+            <div class="row">
+               <div class="span12">
+                  <h1>Color Schemer <small>Use Kickstrap's very own color scheming app.</small></h1>
+                  <img src="/img/colorschemer_full.png" style="display: block;margin:25px auto;"/>
+                  <p>To activate color schemer, already included in your <strong class="text-success">Kickstrap/apps</strong> directory, just add it to the comma-separated <code>@apps</code> list.</p>
+                  <h2>API</h2>
+                  <p><em>The following commands should be run from the console while Color Schemer is open.</em></p>
+                  <dl class="dl-horizontal">
+                     <dt>setColor('red')<dt>
+                     <dd>Set the color to modify as red. In addition to plain-english words, you can also use hex values like "#e6e6e6", as well as hsv, hsl, and rgb. Use the same sytax as you would with CSS.</dd>
+                     <dt>get(hex)</dt>
+                     <dd>Get the currently set color as a hex value. Again, you can also use hsv, hsl, or rgb.</dd>
+                     <dt>getTetrad([hex])</dt>
+                     <dd>Generate a tetrad-based color scheme based on the currently set color. Optionally use a color code (hsl, hsv, rgb, or hex) as a parameter to have the values spit out in that code.</dd>
+                     <dt>getTriad([hex])<dt>
+                     <dd>Generate a triad-based color scheme.</dd>
+                     <dt>getMono([hex])<dt>
+                     <dd>Generate a monochromatic color scheme</dd>
+                     <dt>getSplit([hex])</dt>
+                     <dd>Generate a split-complement color scheme.</dd>
+                     <dt>getAnalogous</dt>
+                     <dd>Generate an analogous color scheme</dd>
+                  </dl>
+                  <p>You can also increase the saturation or luminosity of the selected color via the generated GUI on-screen. Just look for the four circles surrounding that color square.</p>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <!--! KICKSTRAP FOOTER -->
+  <div id="push"></div></div> <!-- sf-wrapper -->
+  <footer class="container" id="footer">
+	  <p>Built with <a href="http://getkickstrap.com">Kickstrap</a></p>
+     <p>Kickstrap is built by <a href="http://twitter.com/yourwebsitesux">@yourwebsitesux</a>. Bootstrap is built by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a></p>
+  </footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="Kickstrap/js/jquery-1.7.1.min.js"><\/script>');</script>
+  <!-- Kickstrap CDN thanks to our friends at netDNA.com -->
+  <script id="appList" src="http://netdna.getkickstrap.com/Kickstrap/js/kickstrap.min.js"></script>
+  <script>window.consoleLog || document.write('<script id="appList" src="Kickstrap/js/kickstrap.js"><\/script>')</script>
+  <script>
+   kickstrap.ready(function() {
+      $('.navbar a').tooltip({
+         placement: 'bottom'
+      });
+   });
+  </script>
+  <!--script src="/Kickstrap/bootstrap/js/bootstrap-scrollspy.js"></script-->
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+       mathiasbynens.be/notes/async-analytics-snippet -->
+  <!--script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script-->
+</body>
+</html>

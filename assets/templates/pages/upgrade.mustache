@@ -1,0 +1,24 @@
+<section>
+   <div class="row">
+      <div class="span12">
+         <h1>Upgrading Kickstrap</h1>
+         <h3>From 1.0</h3>
+         <p>If you were one of the lucky few who received this private beta release, please understand there were some sweeping changes made at the last minute to prepare Kickstrap for public beta release. This will take a few steps to get up-to-date but it's all intended to prevent meticulous updates in the future.</p>
+         <h4>Manual Instructions</h4>
+         <ol>
+            <li>Backup!</li>
+            <li>Download the latest version of Kickstrap</li>
+            <li>Delete the <strong class="text-success">js</strong>, <strong class="text-success">themes</strong>, <strong class="text-success">extras</strong>, and <strong class="text-success">less</strong> directories and <strong class="text-success">style.less</strong> from the <strong class="text-success">Kickstrap</strong> directory.</li>
+            <li>Please also note the <strong class="text-success">Kickstrap/build</strong> directory is deprecated in favor of better-supported third-party compilation tools</li>
+            <li>Replace <strong class="text-success">settings.less</strong> with <strong class="text-success">kickstrap.less</strong>
+               <ul>
+                  <li>Don't forget to merge in your previous settings</li>
+                  <li>Theme imports are now stored in theme.less and have different paths (see the themes folder)</li>
+               </ul>
+            </li>
+            <li>Add the <strong class="text-success">bootstrap</strong>, <strong class="text-success">js</strong>, <strong class="text-success">themes</strong>, and <strong class="text-success">extras</strong> directories to the <strong class="text-success">Kickstrap</strong> directory.</li>
+            <li>Your HTML files are still linked to <strong class="text-success">Kickstrap/style.less</strong>, so change this to just <strong class="text-success">kickstrap.less</strong></li>
+         </ol>
+      </div>
+   </div>
+</section>

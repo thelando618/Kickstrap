@@ -1,2 +1,0 @@
-- Fix 2.0.3 update
-- Add PK menu and the code as a "legacy header", compatible in IE6. LESS in queue folder.

@@ -1,0 +1,3 @@
+Some of your apps will require the same dependencies. For example, jquery ui. Why have multiple copies of it for each app that uses it? 
+
+Put your universal dependencies in here and list them in config.ks. You don't need to put "universal" in your list of apps. They will be added automatically.

@@ -1,0 +1,260 @@
+<style>body {padding-top: 100px;}</style>
+<div class="navbar subnav navbar-fixed-top" style="margin-top: 40px;">
+   <div class="navbar-inner">
+      <div class="container">
+         <ul class="nav">
+            <li class="active"><a rel="tooltip" title="Turn your JS/CSS project into an atomic package" href="#app-dev">App Development</a></li>
+            <li class=""><a rel="tooltip" title="Optimize apps with CDN-sourced dependencies" href="#cdn">CDN Resources</a></li>
+            <li class=""><a rel="tooltip" title="Troubleshoot your app right from the console." href="#debugging">Debugging</a></li>
+            <li class=""><a rel="tooltip" title="Speak Kickstrap's language from your app" href="#api">API</a></li>
+            <li class=""><a rel="tooltip" title="Create a personalized look for your Kickstrap site" href="#themes ">Themes</a></li>
+         </ul>
+      </div>
+   </div>
+</div>
+
+<div class="row">
+   <div class="span12">
+      <section id="app-dev">
+         <h1>App Development <small>Turn your JS/CSS project into an atomic package</small></h1>
+         <h3 id="what-is-an-app">What is an "App"?</h3>
+         <p>In Kickstrap, an app is nothing more than a folder with css and js files. But what really makes it tick is the <em>config.ks</em> file. This is a script for Kickstrap's resource loader to instruct how to load the css and js in your app.</p>
+         <p>As simple as this is, packaging it this way has profound implications for User Experience:</p>
+         <ul>
+           <li>Users can install apps throughout their website just by copying in the folder and turning it on in kickstrap.less.</li>
+           <li>App resources are automatically <em>non-blocking</em>. That is, the resources load via organized AJAX calls after DOM load.</li>
+           <li>Because apps are simple by design--not compiled or generated--they're also optional. Users can always link in the resources the normal way.</li>
+         </ul>
+
+         <h2 id="create-an-app">Create an App</h2>
+         
+         <p>The bulk of the work involved in creating an app is simply the creation of a JavaScript project. This guide assumes you have already created such a project. Otherwise, documentation for creating such a project is outside the scope of this guide. Check out <a href="">CodeAcademy</a> to learn how to program in JavaScript</p>
+         <p>Unlike "apps" for other devices and platforms, making an app for Kickstrap doesn't mean making it <em>exclusively</em> for Kickstrap. <strong>You can turn your existing JavaScript projects into Kickstrap apps in seconds.</strong></p>
+
+         <h3 id="packaging">Packaging</h3>
+         
+         <p>To begin creating your app, drag and drop all your resources--images, media, JS, CSS, etc--into a folder with the name of your app. This folder name is what users will write in their kickstrap.less file to refer to your app.</p>
+
+         <h3 id="a-simple-example">A Simple Example</h3>
+
+         <p>Follow along with our example creation of a "Hello World" app. In a folder called "helloworld," we have a config.ks file and a helloworld.js file.</p>
+
+         <p><strong>Structure</strong></p>
+         <pre class="prettyprint">
+         helloworld/
+           config.ks
+           helloworld.js
+         </pre>
+
+         <p>Let's assume helloworld.js has the code <code>alert('hello world!');</code>.</p>
+         <p>Now we'll open the config.ks file and tell add helloworld.js as a resource. To do that, just write helloworld.js, no quotes, in that file.</p>
+
+         <p><strong>config.ks</strong></p>
+         <pre class="prettyprint">helloworld.js</pre>
+
+         <p>That's it! We now have an app. All the user needs to do is include the helloworld folder in her Kickstrap/apps/ directory and write "helloworld" in their @apps in kickstrap.less.</p>
+
+         <p class="alert alert-info"><strong>TIP:</strong> The disadvantage to running your app as <em>non-blocking javascript</em> is that regular blocking Javascript will run whether your app is ready or not. Alternatively, you or your users can use the <code>kickstrap.ready()</code> function to ensure code loads after all apps have loaded.  See the <a href="#api">API</a>.</p>
+
+         <p><strong>kickstrap.less</strong></p>
+         <pre class="prettyprint">
+         ...
+         @apps: "jgrowl, bootstrap, helloworld";
+         ...
+         </pre>
+
+         <h3 id="more-interesting-examples">More Interesting Examples</h3>
+
+         <p>Of course, for the helloworld app, making this into an app is a bit overkill. It's easier to see the utility of an app with a slightly more complicated example. Let's see how this works with an image slider plugin.</p>
+         <p>First, we'll need to create the folder and put in a blank config.ks file...</p>
+
+         <p><strong>Structure</strong></p>
+         <pre class="prettyprint">
+         <strong>imageslider/
+           config.ks</strong>
+         </pre>
+
+         <p>Now, let's add the images themselves and put them in a folder called "img"</p>
+
+         <p><strong>Structure</strong></p>
+         <pre class="prettyprint">
+         imageslider/
+           config.ks
+         <strong>  img/
+             boy.jpg
+             girl.jpg
+             man.jpg
+             woman.jpg</strong>
+         </pre>
+
+         <p>We'll also need some css files for css3 transitions and special bordering and effects for the images. We'll put those in a folder called "css."</p>
+
+         <p><strong>Structure</strong></p>
+         <pre class="prettyprint">
+         imageslider/
+           config.ks
+           img/
+             boy.jpg
+             girl.jpg
+             man.jpg
+             woman.jpg
+         <strong>  css/
+             transitions.css
+             imgstyles.css</strong>
+         </pre>
+
+         <p>Finally, we need the JS file to run this.</p>
+
+         <p><strong>Structure</strong></p>
+         <pre class="prettyprint">
+         imageslider/
+           config.ks
+           img/
+             boy.jpg
+             girl.jpg
+             man.jpg
+             woman.jpg
+           css/
+             transitions.css
+             imgstyles.css
+         <strong>  js/
+             imageslider.js</strong>
+         </pre>
+
+         <p>Now that we have all our resources, the last thing we need to do to make this into an app is tell config.ks how to load our resources. Let's assume our image slider is loading the images via the js file using the global <code>rootDir</code> variable to ensure the app doesn't break for sites with subdomains.</p>
+         <p>That means, we really just need to tell the app to load the JS and CSS files.</p>
+
+         <p><strong>config.ks</strong></p>
+         <pre class="prettyprint">imageslider.js, transitions.css, imgstyles.css</pre>
+
+         <p class="alert">Remember, if your app requires a certain HTML structure, as is surely the case with this image slider, include this in your docs. Users may otherwise expect to see an image slider pop up on their page when turning on the app.</p>
+
+         <p>As long as the project files work on their own, they should now work as a Kickstrap app. Just don't forget to place this folder in Kickstrap/apps and link it in the @apps in kickstrap.less</p>
+
+         <p>What if our image slider app was actually an extension of another, simpler jQuery plugin called "Basic Image Slider" (bis)? By default, all files in the app are loaded in asynchronous AJAX calls. Our imageslider.js file uses functions from bis.js so we need to make sure bis.js loads <em>first</em> while imageslider.js loads only when bis.js is ready. To do this, just place your <em>required</em> resources (bis.js) on the first line, and the <em>dependent</em> resources (imageslider.js) on the second line.</p>
+
+         <p><strong>config.ks</strong></p>
+         <pre class="prettyprint">bis.js
+         imageslider.js, transitions.css, imgstyles.css</pre>
+
+         <p><strong>Structure</strong></p>
+         <pre class="prettyprint">
+         imageslider/
+           config.ks
+           img/
+             boy.jpg
+             girl.jpg
+             man.jpg
+             woman.jpg
+           css/
+             transitions.css
+             imgstyles.css
+           js/
+             imageslider.js
+           <strong>  bis.js</strong>
+         </pre>
+
+         <p>Note it doesn't matter to the js files where the css files go in terms of the top line or the bottom line. Kickstrap only waits for js files to load before moving to the next line.</p>
+
+         <p>To verify your resources have loaded the way they are intended, make sure the console is turned on in kickstrap.less and inspect the loaded apps. See <a href="#debugging">Debugging</a> to see how this works.</p>
+      </section>
+
+      <section id="cdn">
+         <h1>CDN Resources <small>Optimize apps with CDN-sourced dependencies</small></h1>
+         
+         <p>Content Delivery Networks, or CDNs, distribute your content to servers all over the world, matching your users with the server closest to them. This means users will get the fastest download possible relative to their location.</p>
+
+         <p>Using a CDN resource in your app is tremendously simple. Say you have this as your config.ks file:</p>
+
+         <p><strong>config.ks</strong></p>
+         <pre class="prettyprint">app.js, app.css</pre>
+
+         <p>Now we want to load app.js from http://cdnjs.com/app.js. Just put this address in the file instead of app.js. Kickstrap will automatically detect either an "http:" or "https:" prefix and load it remotely instead.</p>
+
+         <p><strong>config.ks</strong></p>
+         <pre class="prettyprint">http://cdnjs.com/app.js, app.css</pre>
+
+         <p>While using a CDN resource in your app has many benefits, be aware the app will only work with an internet connection, which may be undesirable for developers working on their local host, potentially without internet access. For example, I like to do some programming on long subway rides home.</p>
+
+         <p>A good practice is to include the resource locally as well, and simply comment it out in config.ks.</p>
+
+         <p><strong>config.ks</strong></p>
+         <pre class="prettyprint">http://cdnjs.com/app.js, //app.js, app.css</pre>
+
+         <p>If the user wants to use the local version instead, she can simply comment out the public link and uncomment the local one.</p>
+
+         <p><strong>config.ks</strong></p>
+         <pre class="prettyprint">//http://cdnjs.com/app.js, app.js, app.css</pre>
+      </section>
+
+      <section id="debugging">
+         <h1>Debugging <small>Troubleshoot your app right from the console.</small></h1>
+         
+         <p>Kickstrap.js will closely monitor your app's resource-loading and report in the console. We recommend using Google Chrome's console for its minimalist reporting and its ability to report when the console is closed. However, Kickstrap will write to the default console object, so any browser with a console should work.</p>
+         <p>Once an app has been called, you'll see the name of the app loaded with an array of its properties.</p>
+         <p><img src="/img/appinconsole.png" alt="appinconsole" /></p>
+         <p>The properties will tell you how many resources were found and how many were loaded successfully.</p>
+         <p>In case your app does not load, check the "countRequired" and "countDependent" values. Also verify the configPath is set up correctly. This is where kickstrap.js is looking for config.ks</p>
+
+         <p><img src="/img/appproperties.png" alt="appproperties" /></p>
+         <p>The first number tells you how many were loaded, the second tells you how many should have loaded. In the above example, the app successfully loaded 0 of 0 dependent resources (The second line of config.ks) and 1 of 1 required resources.</p>
+         <p>You can see what these resources are, successfully loaded or not, in the "resourcesRequired" and "resourcesDependent" values.</p>
+
+         <p>Note that "successfully loading" a css file only means Kickstrap has successfully linked in the css file into the DOM. It does not validate the css file itself. It is possible that the path name could be incorrect yet still count this as a successful load in the app.</p>
+         <p>However, JS resources are counted as successful when the AJAX call to the resource returns with success.</p> 
+      </section>
+
+      <section id="api">
+         <h1>API <small>Speak Kickstrap's language from your app</small></h1> 
+         <p>Kickstrap 1.x has a small, humble API for apps to use</p>
+
+         <dl>
+            <dt>[app]</dt><dd>Before loading the apps, Kickstrap looks through config.ks and creates a JavaScript object which can be reused later. The name of the object is just the name of the app. To pull in properties from the app, you may need to use the syntax <code>window[[app]]</code> where [app] is the app's name without brackets. (e.g. <code>window[qunit]</code>.) From there, you may use JavaScript dot notation to pull in properties from that app object.</dd>
+           <dt>consoleLog(msg)</dt><dd>Using consoleLog() instead of console.log() in your app allows any such command to be toggled off when the user turns off the console in settings. This also future-proofs your app for any additional features which may be built into this function or other apps which read from it.</dd>
+           <dt>@footerHeight</dt><dd>This is a LESS variable used in the <a href="http://ryanfait.com/sticky-footer/">sticky footer</a>, which is coded in the standard Kickstrap footer and header. Unlike directly styling the footer element, this value is brought into a calculation to make the footer stick to the bottom.</dd>
+           <dt>loadApp(appName) <span class="label label-warning">Experimental</span></dt><dd>Load app is a manual way to load an app at any time, even if it's not included in kickstrap.less. Simply write in the name of the app in quotes.</dd>
+           <dt>rootDir</dt><dd>This is defined in settings with a trailing slash. Use this JS variable in the front of any paths to ensure your app does not break in Kickstrap sites working from a subdirectory.</dd>
+         </dl>
+
+         <strong>kickstrap.[x]</strong>
+         <dl>
+           <dt>.hello</dt><dd>Say "hi" to Kickstrap and get version number.</dd>
+           <dt>.edit()</dt><dd>Edit anything on the page. (Go ahead, try it on this page.)</dd>
+           <dt>.ready()</dt><dd>This is modeled to work just like the jQuery <code>$(document).ready()</code> function. The only difference is this will run after all your apps have successfully loaded. Feel free to use this as many times as you want throughout your application. It will store each instance in an array and fire them off in order. Like the jQuery document ready, this should only appear after kickstrap.js has loaded. (And yes, you can use them in apps).</dd>
+         </dl>
+
+         <!--h3 id="ks-window-api">Kickstrap GUI API</h3-->
+         <!--p><a href="#top">Back to top</a></p-->
+
+         <!--p>The Kickstrap GUI creates attractive and usable AJAX-loaded windows with just one line of code. An example of this is the window created by "welcome," the app that greets users in a fresh version of Kickstrap.</p-->
+      </section>
+
+      <section id="themes">
+         <h1>Themes <small>Create a personalized look for your Kickstrap site</small></h1>
+         <h2 id="theme-functions">Theme Functions</h2>
+         <p>Your theme may require some accompanying js, but you wouldn't want to force your user to manually add it as an app or write it into their HTML.</p>
+         <p>Instead, you can include a functions.js file in your theme folder. This is done with the mytheme theme if you'd like to see a working example.</p>
+         <p>This is achieved by including the following lines in mytheme.less</p>
+
+         <p><strong>mytheme.less</strong></p>
+         <pre class="prettyprint">
+         #themeFunctions {
+            content: '&lt;script&gt;themeFunction(\'mytheme\');&lt;\/script&gt;';
+            ie: '&lt;script&gt;themeFunction(\'mytheme\');&lt;\/script&gt;';
+         }</pre>
+
+         <p><strong>Structure</strong></p>
+         <pre class="prettyprint">
+         Kickstrap/
+           themes/
+             mytheme.less
+             mytheme/
+               functions.js
+         </pre>
+
+         <p>It's a mouthful, but all you'll need to change is the word "mytheme" appearing twice. Change this to the name of the folder in Kickstrap/themes/ where you'll store your function file. In this case, it's also called "mytheme."</p>
+
+         <p>Now you can write any JavaScript/jQuery in your functions.js file and it will automatically load with your theme. mytheme's functions.js file replaces the low resolution background image (which loads quickly) with a high definition version only after it has loaded.</p>
+      </section>
+   </div>
+</div>

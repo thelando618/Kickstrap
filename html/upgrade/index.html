@@ -1,0 +1,116 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-gb"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en-gb"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en-gb"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-gb"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Kickstrap</title>
+  <meta name="description" content="">
+  <!-- You can also compile style.less to use regular css. Your apps will still work. -->
+  <style type="text/css">.hidden{margin:20px;border:5px solid #a24c4c;background-color:red;padding:10px;width:400px;color:white;font-family:helvetica,sans-serif}</style>
+  <link rel="stylesheet/less" type="text/css" href="/kickstrap.less">
+  <script src="/Kickstrap/js/less-1.3.0.min.js"></script>
+</head>
+<body data-offset="150" data-spy="scroll" data-target=".subnav">
+<div id="sf-wrapper"> <!-- Sticky Footer Wrapper -->
+   <div class="hidden"><h1>No Stylesheet Loaded</h1><p><strong>Could not load Kickstrap.</strong>There are <a href="">several common reasons for this error.</a></p></div>
+  <!-- Prompt IE 6/7 users to install Chrome Frame. Remove this if you support IE 7-.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<!--! END KICKSTRAP HEADER --> 
+
+
+
+
+
+
+
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+   <div class="navbar-inner">
+      <div class="container">
+         <a class="brand" href="/"><img src="/img/littleswing.png" /></a>
+         <ul class="nav">
+            <li class=""><a href="http://getkickstrap.com/">Home</a></li>
+            <li class="divider-vertical"></li>
+            <li class=""><a href="http://getkickstrap.com/apps">Apps</a></li>
+            <li class=""><a href="http://getkickstrap.com/themes">Themes</a></li>
+            <li class="divider-vertical"></li>
+            <li class=""><a href="http://getkickstrap.com/docs/1.1">Docs</a></li>
+            <li class=""><a href="http://getkickstrap.com/extend">Extend</a></li>
+            <li class="active"><a href="http://getkickstrap.com/upgrade">Upgrade</a></li>
+         </ul>
+         <ul class="nav pull-right">
+            <li><button class="btn btn-primary">Download the Beta</button></li>
+         </ul>
+      </div>
+   </div>
+</div>
+
+<div class="container">
+   <section>
+      <div class="row">
+         <div class="span12">
+            <h1>Upgrading Kickstrap</h1>
+            <h3>From 1.0</h3>
+            <p>If you were one of the lucky few who received this private beta release, please understand there were some sweeping changes made at the last minute to prepare Kickstrap for public beta release. This will take a few steps to get up-to-date but it's all intended to prevent meticulous updates in the future.</p>
+            <h4>Manual Instructions</h4>
+            <ol>
+               <li>Backup!</li>
+               <li>Download the latest version of Kickstrap</li>
+               <li>Delete the <strong class="text-success">js</strong>, <strong class="text-success">themes</strong>, <strong class="text-success">extras</strong>, and <strong class="text-success">less</strong> directories and <strong class="text-success">style.less</strong> from the <strong class="text-success">Kickstrap</strong> directory.</li>
+               <li>Please also note the <strong class="text-success">Kickstrap/build</strong> directory is deprecated in favor of better-supported third-party compilation tools</li>
+               <li>Replace <strong class="text-success">settings.less</strong> with <strong class="text-success">kickstrap.less</strong>
+                  <ul>
+                     <li>Don't forget to merge in your previous settings</li>
+                     <li>Theme imports are now stored in theme.less and have different paths (see the themes folder)</li>
+                  </ul>
+               </li>
+               <li>Add the <strong class="text-success">bootstrap</strong>, <strong class="text-success">js</strong>, <strong class="text-success">themes</strong>, and <strong class="text-success">extras</strong> directories to the <strong class="text-success">Kickstrap</strong> directory.</li>
+               <li>Your HTML files are still linked to <strong class="text-success">Kickstrap/style.less</strong>, so change this to just <strong class="text-success">kickstrap.less</strong></li>
+            </ol>
+         </div>
+      </div>
+   </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <!--! KICKSTRAP FOOTER -->
+  <div id="push"></div></div> <!-- sf-wrapper -->
+  <footer class="container" id="footer">
+	  <p>Built with <a href="http://getkickstrap.com">Kickstrap</a></p>
+     <p>Kickstrap is built by <a href="http://twitter.com/yourwebsitesux">@yourwebsitesux</a>. Bootstrap is built by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a></p>
+  </footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="Kickstrap/js/jquery-1.7.1.min.js"><\/script>');</script>
+  <!-- Kickstrap CDN thanks to our friends at netDNA.com -->
+  <script id="appList" src="http://netdna.getkickstrap.com/Kickstrap/js/kickstrap.min.js"></script>
+  <script>window.consoleLog || document.write('<script id="appList" src="Kickstrap/js/kickstrap.js"><\/script>')</script>
+  <script>
+   kickstrap.ready(function() {
+      $('.navbar a').tooltip({
+         placement: 'bottom'
+      });
+   });
+  </script>
+  <!--script src="/Kickstrap/bootstrap/js/bootstrap-scrollspy.js"></script-->
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+       mathiasbynens.be/notes/async-analytics-snippet -->
+  <!--script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script-->
+</body>
+</html>
