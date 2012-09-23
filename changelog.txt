@@ -1,0 +1,21 @@
+1.0.1 Public Beta
+=================
+
+- Creating Bootstrap folder in Kickstrap/. Now the entire unadultered Bootstrap repo is completely separate.
+- Updated to Bootstrap 2.1.1 LESS and JS.
+- Confetti theme boarded up. Instead using default theme with a concentration on semantic HTML5 markup.
+- Kickstrap-core renamed to Kickstrap.less and now replaces settings.less!!
+- Style.less is now obsolete.
+- New core files in extras 
+- Theme import is now handled in theme.less
+- Add a "blank.html" file for getting started right away.
+- Several changes to the layout HTML file, including kickstrap.less reference and
+a better "no stylesheet" error message.
+- Removing support for the ant build script, going to look towards makefile
+instead.
+- qunit app no longer uses a window.
+
+1.0.0 Private Beta
+==================
+
+- First update-supported release, released as OEM (product folder) not as full dev project.
