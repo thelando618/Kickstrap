@@ -347,6 +347,18 @@
       $('.navbar a').tooltip({
          placement: 'bottom'
       });
+		function show_stack_bar_bottom(type) {
+		    var opts = {
+		        title: "I'd like to hear your feedback",
+		        text: '<a style="color: white;text-decoration: underline;" href="https://docs.google.com/spreadsheet/viewform?formkey=dFJuN0szYzVnbVRkeF9EbENZVzFVOUE6MQ#gid=0">Take our three question poll</a> to let us know what to work on next.',
+		        cornerclass: "",
+				type: "info",
+				addclass: "stack-bottomright"
+		    };
+		    $.pnotify(opts);
+		}
+      setTimeout(function() {show_stack_bar_bottom();}, 5000);
+
    });
   </script>
   <!--script src="/Kickstrap/bootstrap/js/bootstrap-scrollspy.js"></script-->

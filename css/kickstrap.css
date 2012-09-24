@@ -635,6 +635,6 @@ section{padding-top:120px;padding-bottom:20px;margin-top:-100px;}
 .text-success{color:#468847;}
 .alert-info a{color:white;text-decoration:underline;}
 #caching{ie8:"<script></script>";}
-#appList{content:"bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";ie8:"bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";}
-#appList::after{content:"bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";}
+#appList{content:"pinesnotify, bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";ie8:"pinesnotify, bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";}
+#appList::after{content:"pinesnotify, bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";}
 script#rootDir{content:"<script>setDir('/', 'root')br-setDir('none', 'universal')</script>";ie8:"<script>setDir('/', 'root')br-setDir('none', 'universal')</script>";}
