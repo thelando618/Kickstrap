@@ -34,7 +34,7 @@
    <link rel="stylesheet/less" type="text/css" href="/kickstrap-example.less">
    <script>localStorage.clear();</script>
    <style type="text/less"> 
-      @app: "pinesnotify, updater";
+      @app: "pinesnotify";
       #appList {
          content: "@{app}";
          ie8: "@{app}";
@@ -136,16 +136,6 @@
     	</div>
     </div>  	
 
-
-
-
-
-
-
-
-
-
-
   <!--! KICKSTRAP FOOTER -->
   <div id="push"></div></div> <!-- sf-wrapper -->
   <footer class="container" id="footer">
@@ -156,11 +146,41 @@
   <!-- Kickstrap CDN thanks to our friends at netDNA.com -->
   <script id="appList" src="http://netdna.getkickstrap.com/Kickstrap/js/kickstrap.min.js"></script>
   <script>window.consoleLog || document.write('<script id="appList" src="Kickstrap/js/kickstrap.js"><\/script>')</script>
-  <script>
-   kickstrap.ready(function() {
-      // JavaScript placed here will run only once Kickstrap has loaded successfully.
-   });
-  </script>
+   <script>
+      kickstrap.ready(function() {
+         $.pnotify({
+            title: "Welcome!",
+            text: "We're glad you came.",
+            type: "success"
+         });
+         $.pnotify({
+            title: "Warning!",
+            text: "Please take notice.",
+            type: "warn"
+         });
+         $.pnotify({
+            title: "Error!",
+            text: "Please take notice.",
+            type: "error"
+         });
+         $.pnotify({
+            title: "Information",
+            text: "We'd like to inform you that everything's cool.",
+            type: "info"
+         });
+      });
+   </script>
+
+
+
+
+
+
+
+
+
+
+
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
   <!--script>
