@@ -7,6 +7,7 @@ build:
 	@echo "Copying in dependencies..."
 	@cp -r assets/ks-files/* html/
 	@echo "Building from templates..."
+	@mkdir -p "html/examples"
 	@node build.js
 	@echo "Copying images"
 	@cp -r assets/img html/
