@@ -48,7 +48,7 @@ test("rootDir definition", function() {
 });
 // get blank.js
 var passed = false;
-$.getScript(rootDir + 'Kickstrap/apps/qUnit/blank.js', function() {
+$.getScript(rootDir + 'Kickstrap/apps/qunit/blank.js', function() {
 	passed = true;
 })
 // shouldn't take more than a second.
