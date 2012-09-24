@@ -10,11 +10,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <!-- You can also compile style.less to use regular css. Your apps will still work. -->
-  <style type="text/css">body{padding-top:60px}.hidden{margin:20px;border:5px solid #a24c4c;background-color:red;padding:10px;width:400px;color:white;font-family:helvetica,sans-serif}</style>
+  <style type="text/css">body{padding-top:60px}.hidden{margin:20px;background-color:green;padding:10px;width:400px;color:white;font-family:helvetica,sans-serif}</style>
 </head>
 <body>
 <div id="sf-wrapper"> <!-- Sticky Footer Wrapper -->
-   <div class="hidden"><h1>No Stylesheet Loaded</h1><p><strong>Could not load Kickstrap.</strong>There are <a href="http://getkickstrap.com/docs/1.1/#lessjs-errors">several common reasons for this error.</a></p></div>
+   <div class="hidden"><h1>Loading Example...</h1><p><strong>Taking too long?.</strong>If this sticks around for a minute or more, there's problably something wrong. <a href="mailto:ajkochanowicz@gmail.com">Let me know.</a></p></div>
   <!-- Prompt IE 6/7 users to install Chrome Frame. Remove this if you support IE 7-.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -31,11 +31,15 @@
 
 
 
-   <style type="text/less">
-      @apps: "updater";
-   </style>
-   <link rel="stylesheet/less" type="text/css" href="kickstrap-example.less">
+   <link rel="stylesheet/less" type="text/css" href="/kickstrap-example.less">
    <script>localStorage.clear();</script>
+   <style type="text/less"> 
+      @app: "pinesnotify, updater";
+      #appList {
+         content: "@{app}";
+         ie8: "@{app}";
+      }
+   </style>
    <script src="/Kickstrap/js/less-1.3.0.js"></script>
 
    <div class="navbar navbar-fixed-top">
@@ -155,10 +159,6 @@
   <script>
    kickstrap.ready(function() {
       // JavaScript placed here will run only once Kickstrap has loaded successfully.
-      $.pnotify({
-         title: 'Hello World',
-         text: 'To edit this message, find me at the bottom of this HTML file.'
-      });
    });
   </script>
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.

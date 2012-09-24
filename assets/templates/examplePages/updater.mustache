@@ -1,9 +1,13 @@
 
-   <style type="text/less">
-      @apps: "updater";
-   </style>
-   <link rel="stylesheet/less" type="text/css" href="kickstrap-example.less">
+   <link rel="stylesheet/less" type="text/css" href="/kickstrap-example.less">
    <script>localStorage.clear();</script>
+   <style type="text/less"> 
+      @app: "pinesnotify, updater";
+      #appList {
+         content: "@{app}";
+         ie8: "@{app}";
+      }
+   </style>
    <script src="/Kickstrap/js/less-1.3.0.js"></script>
 
    <div class="navbar navbar-fixed-top">
