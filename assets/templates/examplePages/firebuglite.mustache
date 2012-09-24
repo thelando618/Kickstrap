@@ -1,13 +1,6 @@
 
    <link rel="stylesheet/less" type="text/css" href="/kickstrap-example.less">
    <script>localStorage.clear();</script>
-   <style type="text/less"> 
-      @app: "pinesnotify, firebuglite";
-      #appList {
-         content: "@{app}";
-         ie8: "@{app}";
-      }
-   </style>
    <script src="/Kickstrap/js/less-1.3.0.js"></script>
 
    <div class="navbar navbar-fixed-top">
@@ -124,5 +117,6 @@
          text: 'Firebug Lite should load momentarily...',
          type: 'info'
       });
+      loadApp('firebuglite');
    });
   </script>
