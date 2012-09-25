@@ -33,7 +33,7 @@
    <link rel="stylesheet/less" type="text/css" href="/kickstrap-example.less">
    <script>localStorage.clear();</script>
    <style type="text/less"> 
-      @app: "pinesnotify, updater";
+      @app: "knockout";
       #appList {
          content: "@{app}";
          ie8: "@{app}";
@@ -94,12 +94,14 @@
 							<article>
 								<header>
 									<hgroup>
+                              <input type="text" data-bind="text: welcomeMessage" />
 										<h1 data-bind="text: welcomeMessage"><i class="icon-bolt"></i> Run Apps</h1>
 									</hgroup>
 								</header>
 
 								<p class="lead">Start up apps in just a few keystrokes.</p>
 								<p>Let's try activating an app. Open your kickstrap.less file and uncomment (remove the //s) the app "knockout". This will allow knockout.js to run. If successful, you should see the title of this section read "Knockout JS is Running!" <a href="http://knockoutjs.com">Read the Knockout.js docs</a> to learn more.</p>
+
                         <p>Now let's try installing a completely new app. In your Kickstrap folder, you should see a zip file called "qunit.zip." This is what you would get when downloading an app from our <a href="http://getkickstrap.com/apps">App Store</a>. Now extract that file and place the qunit folder in Kickstrap/apps.</p>
                         <p>QUnit is now installed, but not activated. To do that, open kickstrap.less and add "qunit" to the comma-separated list of @apps. Save this file and refresh this page. You should see some Javascript tests run at the top of this page.</p>
 								<footer>
