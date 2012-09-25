@@ -2,7 +2,7 @@
    <link rel="stylesheet/less" type="text/css" href="/kickstrap-example.less">
    <script>localStorage.clear();</script>
    <style type="text/less"> 
-      @app: "pinesnotify, updater";
+      @app: "animatecss";
       #appList {
          content: "@{app}";
          ie8: "@{app}";
@@ -39,6 +39,7 @@
 					<header class="hero-unit">
 						<hgroup>
 							<h1>Kickstrap</h1>
+                     <button style="display:none" id="acssbtn" class="btn-primary btn-large">Do some fancy CSS</button>
 							<h2>Twitter's Bootstrap with Themes, Apps, and Enhancements</h2>
 						</hgroup>
 					</header>
@@ -119,6 +120,6 @@
   {{/test}}
   <script>
    kickstrap.ready(function() {
-      // JavaScript placed here will run only once Kickstrap has loaded successfully.
+      $('#acssbtn').show();
    });
   </script>

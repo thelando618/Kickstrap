@@ -1,1 +1,1 @@
-http://netdna.getkickstrap.com/Kickstrap/apps/animatecss/config.ks, //animate.css
+http://netdna.getkickstrap.com/Kickstrap/apps/animatecss/animate.css, //animate.css
