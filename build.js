@@ -5,14 +5,13 @@ var hogan = require('hogan.js')
   , test  = process.argv[2] == 'test'
   , title = 'Kickstrap'
 var apps = require('./apps')
-var layout, pages, layoutGh, exampleLayout, examplePages
+var layout, pages, layoutGh, exampleLayout, examplePages, bootstrapui, bootstrapuiPages
 var publishDir = 'html'
 
 
 // compile layout template
 layout = fs.readFileSync(__dirname + '/assets/templates/layout.mustache', 'utf-8')
 layout = hogan.compile(layout, { sectionTags: [{o:'_i', c:'i'}] })
-
 
 // compile github layout template
 layoutGh = fs.readFileSync(__dirname + '/assets/templates/layoutGh.mustache', 'utf-8')
@@ -22,12 +21,53 @@ layoutGh = hogan.compile(layoutGh, { sectionTags: [{o:'_i', c:'i'}] })
 exampleLayout = fs.readFileSync(__dirname + '/assets/templates/exampleLayout.mustache', 'utf-8')
 exampleLayout = hogan.compile(exampleLayout, { sectionTags: [{o:'_i', c:'i'}] })
 
+// compile bootstrap layout template
+bootstrapui = fs.readFileSync(__dirname + '/assets/templates/bootstrapui.mustache', 'utf-8')
+bootstrapui = hogan.compile(bootstrapui, { sectionTags: [{o:'_i', c:'i'}] })
+
+// retrieve bootstrap pages
+bootstrapuiPages = fs.readdirSync(__dirname + '/assets/ks-files/Kickstrap/bootstrap/docs/templates/pages')
+// bootstrapuiPages = fs.readdirSync(__dirname + '/assets/templates/bootstrapui')
+
+// iterate over bootstrapui pages 
+bootstrapuiPages.forEach(function (name) {
+
+  if (!name.match(/\.mustache$/)) return
+
+  var page = fs.readFileSync(__dirname  + '/assets/ks-files/Kickstrap/bootstrap/docs/templates/pages/' + name, 'utf-8')
+    , context = {}
+
+  context[name.replace(/\.mustache$/, '')] = 'active'
+  context._i = true
+  context.production = prod
+  context.test = test
+  context.title = name
+    .replace(/\.mustache/, '')
+    .replace(/\-.*/, '')
+    .replace(/(.)/, function ($1) { return $1.toUpperCase() })
+
+  if (context.title == 'Index') {
+    context.title = title
+  } 
+  else {
+    context.title += ' á ' + title
+  }
+
+  page = hogan.compile(page, { sectionTags: [{o:'_i', c:'i'}] })
+  page = bootstrapui.render(context, {
+    body: page 
+  })
+  fs.writeFileSync(__dirname + '/assets/templates/pages/bs/' + name, page, 'utf-8')
+})
+
 // retrieve pages
-pages = fs.readdirSync(__dirname + '/assets/templates/pages')
+pages = fs.readdirSync(__dirname + '/assets/templates/pages') 
+pages.concat(fs.readdirSync(__dirname + '/assets/templates/pages/bs'))
+
+
 
 // retrieve example pages
 examplePages = fs.readdirSync(__dirname + '/assets/templates/examplePages')
-
 
 // iterate over pages
 pages.forEach(function (name) {
