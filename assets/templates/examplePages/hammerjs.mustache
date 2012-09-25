@@ -2,7 +2,7 @@
    <link rel="stylesheet/less" type="text/css" href="/kickstrap-example.less">
    <script>localStorage.clear();</script>
    <style type="text/less"> 
-      @app: "pinesnotify, updater";
+      @app: "hammer";
       #appList {
          content: "@{app}";
          ie8: "@{app}";
@@ -40,6 +40,11 @@
 						<hgroup>
 							<h1>Kickstrap</h1>
 							<h2>Twitter's Bootstrap with Themes, Apps, and Enhancements</h2>
+<div id="touchme" style="-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">
+        <h1 class="well">You can touch me...</h1>
+        <p><span class="label label-success" id="callout">Interact with Me.</span></p>
+		<p>Try on a mobile device with multitouch.</p>
+    </div>
 						</hgroup>
 					</header>
 
@@ -119,6 +124,37 @@
   {{/test}}
   <script>
    kickstrap.ready(function() {
-      // JavaScript placed here will run only once Kickstrap has loaded successfully.
+
+    
+        var container = document.getElementById('touchme'),
+        callout = document.getElementById('callout'),
+        shouts = {}
+        shouts['hold'] = 'You are holding me.';
+        shouts['tap'] = 'You just tapped me.';
+        shouts['doubletap'] = 'You just tapped me. Twice.';
+        shouts['transformstart'] = 'You started transforming me.';
+        shouts['transform'] = 'You are transforming me.';
+        shouts['transformend'] = 'You just transformed me.';
+        shouts['dragstart'] = 'You started dragging me.';
+        shouts['drag'] = 'You are dragging me.';
+        shouts['dragend'] = 'You just dragged me.';
+        shouts['swipe'] = 'You just swiped me.';
+
+        container.onselectstart = function() { return false; }; // IE fix for doubletap
+        
+        var hammer = new Hammer(container, {
+            tap_max_interval: 700 // seems to bee needed for IE8
+        });
+
+        function shout(e){
+            callout.innerHTML = 'Ooh! '+ shouts[e.type];
+        }
+
+        var type;
+        for(type in shouts) {
+            hammer['on'+ type] = shout;
+        }
+
+    
    });
   </script>

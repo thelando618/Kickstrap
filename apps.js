@@ -24,7 +24,7 @@ var theApps = [{
    },
    {
       'appName': 'Color Schemer',
-      'appUrl': 'http://getkickstrap.com',
+      'appUrl': 'http://netdna.getkickstrap.com/docs/1.1/#color-schemer',
       'appPrice': 'Free',
       'appDesc': 'Colorschemer was formerly being tested as an inherent function in Kickstrap, later turned into an app to reduce file size. Color schemer automatically generates analogue, mono, split complement, triad, and tetrad color schemes and will convert colors between hex, hsl, hsv, and rgb all from the command line. For convenience, this will also print a floating set of square previews right in your website. Great for picking color schemes and editing your theme.'
    },

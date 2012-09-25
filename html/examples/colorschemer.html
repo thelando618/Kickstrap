@@ -70,7 +70,25 @@
 					<header class="hero-unit">
 						<hgroup>
 							<h1>Kickstrap</h1>
-							<h2>Twitter's Bootstrap with Themes, Apps, and Enhancements</h2>
+							<h2>To use the color scheming tool, open your browser's console and try out a few of these commands:</h2> 
+               <dl class="dl-horizontal">
+                  <dt>setColor('red')<dt>
+                  <dd>Set the color to modify as red. In addition to plain-english words, you can also use hex values like "#e6e6e6", as well as hsv, hsl, and rgb. Use the same sytax as you would with CSS.</dd>
+                  <dt>get(hex)</dt>
+                  <dd>Get the currently set color as a hex value. Again, you can also use hsv, hsl, or rgb.</dd>
+                  <dt>getTetrad([hex])</dt>
+                  <dd>Generate a tetrad-based color scheme based on the currently set color. Optionally use a color code (hsl, hsv, rgb, or hex) as a parameter to have the values spit out in that code.</dd>
+                  <dt>getTriad([hex])<dt>
+                  <dd>Generate a triad-based color scheme.</dd>
+                  <dt>getMono([hex])<dt>
+                  <dd>Generate a monochromatic color scheme</dd>
+                  <dt>getSplit([hex])</dt>
+                  <dd>Generate a split-complement color scheme.</dd>
+                  <dt>getAnalogous([hex])</dt>
+                  <dd>Generate an analogous color scheme</dd>
+               </dl>
+               <p>You can also increase the saturation or luminosity of the selected color via the generated GUI on-screen. Just look for the four circles surrounding that color square.</p>
+   </div>
 						</hgroup>
 					</header>
 
