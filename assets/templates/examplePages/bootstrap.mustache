@@ -2,7 +2,7 @@
    <link rel="stylesheet/less" type="text/css" href="/kickstrap-example.less">
    <script>localStorage.clear();</script>
    <style type="text/less"> 
-      @app: "pinesnotify, updater";
+      @app: "bootstrap/modal, bootstrap/tooltip";
       #appList {
          content: "@{app}";
          ie8: "@{app}";
@@ -31,6 +31,21 @@
     </div>
     
     	<div id="qunit"></div>
+
+
+<div id="myModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div>
     
     <div class="container">
     	<div class="row">
@@ -40,6 +55,11 @@
 						<hgroup>
 							<h1>Kickstrap</h1>
 							<h2>Twitter's Bootstrap with Themes, Apps, and Enhancements</h2>
+                     <p>What's going on here? We're running just a few Bootstrap js files: bootstrap-modal.js and bootstrap-tooltip.js.</p>
+                     <p>But...we're loading them as apps within Kickstrap. Check out your browser's console to see their diagnostics.</p>
+                     <p><button href="#myModal" role="button" data-toggle="modal" style="display:none;" id="launch-modal" class="btn btn-large btn-primary">Launch Modal</button>
+                     <button style="display:none;" id="show-tooltip" class="btn btn-large btn-primary" rel="tooltip" title="Yes! Tooltips are working :)">Hover over me for tooltip</button></p>
+                     <p>Check the resources for this page, you won't find bootstrap-modal.js or bootstrap-tooltip.js. That's because these apps are loaded via non-blocking async AJAX calls.</p>
 						</hgroup>
 					</header>
 
@@ -119,6 +139,8 @@
   {{/test}}
   <script>
    kickstrap.ready(function() {
-      // JavaScript placed here will run only once Kickstrap has loaded successfully.
+     $('button#launch-modal, button#show-tooltip').show(); 
+     $('button#show-tooltip').tooltip({
+      });
    });
   </script>

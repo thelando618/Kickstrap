@@ -11,12 +11,6 @@ var appList = '<section><div class="row">'
 var appCount = 0
 
 var theApps = [{
-      'appName': 'Animate.CSS',
-      'appUrl': 'http://daneden.me',
-      'appPrice': 'Free',
-      'appDesc': 'Animate.css is a bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness.'
-   },
-   {
       'appName': 'Bootstrap',
       'appUrl': 'http://twitter.github.com/bootstrap',
       'appPrice': 'Free',
