@@ -38,8 +38,10 @@
     	  
 					<header class="hero-unit">
 						<hgroup>
-							<h1>Kickstrap</h1>
-							<h2>Twitter's Bootstrap with Themes, Apps, and Enhancements</h2>
+							<h1>Try Knockout.js Below.</h1>
+
+                              <p>Your value: <input data-bind="value: someValue, valueUpdate: 'afterkeydown'" /></p>
+                              <p>You have typed: <span data-bind="text: someValue"></span></p> <!-- updates in real-time -->
 						</hgroup>
 					</header>
 
@@ -63,8 +65,7 @@
 							<article>
 								<header>
 									<hgroup>
-                              <input type="text" data-bind="text: welcomeMessage" />
-										<h1 data-bind="text: welcomeMessage"><i class="icon-bolt"></i> Run Apps</h1>
+										<h1><i class="icon-bolt"></i> Run Apps</h1>
 									</hgroup>
 								</header>
 
@@ -121,6 +122,9 @@
   {{/test}}
   <script>
    kickstrap.ready(function() {
-      // JavaScript placed here will run only once Kickstrap has loaded successfully.
+      var viewModel = {
+         someValue: ko.observable("edit me")
+      };
+      ko.applyBindings(viewModel);
    });
   </script>
