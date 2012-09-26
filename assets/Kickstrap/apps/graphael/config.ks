@@ -1,1 +1,0 @@
-http://cdnjs.cloudflare.com/ajax/libs/graphael/0.5.0/g.raphael-min.js
