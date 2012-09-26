@@ -758,7 +758,11 @@ hgroup.hero-unit.main .bs-docs-social{position:absolute;bottom:25px;}hgroup.hero
 section{padding-top:120px;padding-bottom:20px;margin-top:-100px;}
 .text-success{color:#468847;}
 .alert-info a{color:white;text-decoration:underline;}
+#bootstrap-docs header.jumbotron{background:none;-webkit-box-shadow:0px 0px 0px;-moz-box-shadow:0px 0px 0px;box-shadow:0px 0px 0px;border:0px;color:#222222;margin-top:85px;padding:0;}#bootstrap-docs header.jumbotron h1{font-size:36px;line-height:40px;text-shadow:0px 0px 0px;display:inline;margin-right:10px;font-weight:normal;}
+#bootstrap-docs header.jumbotron p.lead{text-shadow:0px 0px 0px;display:inline;color:#BBB;}
+#bootstrap-docs section{margin-top:0px;}
+#bootstrap-docs .bs-docs-sidenav.affix{top:80px;}
 #caching{ie8:"<script></script>";}
-#appList{content:"pinesnotify, bootstrap, prettify, //knockout, //updater";ie8:"pinesnotify, bootstrap, prettify, //knockout, //updater";}
-#appList::after{content:"pinesnotify, bootstrap, prettify, //knockout, //updater";}
+#appList{content:"pinesnotify, bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";ie8:"pinesnotify, bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";}
+#appList::after{content:"pinesnotify, bootstrap/scrollspy, bootstrap/tooltip, prettify, //knockout, //updater";}
 script#rootDir{content:"<script>setDir('/', 'root')br-setDir('none', 'universal')</script>";ie8:"<script>setDir('/', 'root')br-setDir('none', 'universal')</script>";}
