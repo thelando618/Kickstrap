@@ -1,2 +1,2 @@
-../../bootstrap/docs/assets/js/application.js
+http://twitter.github.com/bootstrap/assets/js/application.js
 overrides.js
