@@ -23,6 +23,14 @@ var theApps = [{
       'appDesc': 'Chosen is a JavaScript plugin that makes long, unwieldy select boxes much more user-friendly.'
    },
    {
+      'appName': 'Fokus',
+      'appUrl': 'http://lab.hakim.se/fokus/',
+      'appPrice': 'Free',
+      'appDesc': 'Fokus uses JavaScript to emphasize anything you select by covering the rest of the page with semi-transparent black.
+         
+         Try it out by selecting this paragraph or the sample content below. You\'ll see the entire page fade out while this text is highlighted.'
+   },
+   {
       'appName': 'Color Schemer',
       'appUrl': 'http://netdna.getkickstrap.com/docs/1.1/#color-schemer',
       'appPrice': 'Free',
