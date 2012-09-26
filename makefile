@@ -10,7 +10,6 @@ build:
 	@mkdir -p "html/examples"
 	@cd assets/ks-files/Kickstrap/bootstrap/docs/templates/pages/;rm -rf index.mustache extend.mustache
 	@node build.js
-	@rm -r assets/templates/pages/bs/*
 	@echo "Copying images"
 	@cp -r assets/img html/
 	@cp assets/update.js html/
