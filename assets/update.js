@@ -1,6 +1,6 @@
 // CHANGE VERSION HERE
 // ===================
-var latestVersion = "1.0.0 Beta";
+var latestVersion = "1.1.0 Beta";
 
 thisVersion ? foundVersion = true : foundVersion = false;
 thisVersion == latestVersion ? update = false : update = true; 
