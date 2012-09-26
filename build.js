@@ -67,11 +67,12 @@ pages = fs.readdirSync(__dirname + '/assets/templates/pages')
 // retrieve example pages
 examplePages = fs.readdirSync(__dirname + '/assets/templates/examplePages')
 
-pageIteration(examplePages, '/assets/templates/examplePages/', '/examples/')
+pageIteration(examplePages, '/assets/templates/examplePages/', '/examples/', exampleLayout)
 pageIteration(pages, '/assets/templates/pages/', '/')
 
-function pageIteration(thePages, fromDir, toDir) {
+function pageIteration(thePages, fromDir, toDir, theLayout) {
    // iterate over pages
+   if(!theLayout) theLayout = layout
    thePages.forEach(function (name) {
 
      if (!name.match(/\.mustache$/)) return
@@ -96,7 +97,7 @@ function pageIteration(thePages, fromDir, toDir) {
      }
 
      page = hogan.compile(page, { sectionTags: [{o:'_i', c:'i'}] })
-     page = layout.render(context, {
+     page = theLayout.render(context, {
        body: page,
        applist: apps.appList
      })
