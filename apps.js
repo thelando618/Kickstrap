@@ -26,9 +26,7 @@ var theApps = [{
       'appName': 'Fokus',
       'appUrl': 'http://lab.hakim.se/fokus/',
       'appPrice': 'Free',
-      'appDesc': 'Fokus uses JavaScript to emphasize anything you select by covering the rest of the page with semi-transparent black.
-         
-         Try it out by selecting this paragraph or the sample content below. You\'ll see the entire page fade out while this text is highlighted.'
+      'appDesc': 'Fokus uses JavaScript to emphasize anything you select by covering the rest of the page with semi-transparent black. Try it out by selecting this paragraph or the sample content below. You\'ll see the entire page fade out while this text is highlighted.'
    },
    {
       'appName': 'Color Schemer',
