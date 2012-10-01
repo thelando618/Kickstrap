@@ -103,7 +103,7 @@ appLayout = hogan.compile(appLayout, { sectionTags: [{o:'_i', c:'i'}] })
 theApps.forEach(function (name) {
    appList +=  appLayout.render(name)
    appCount++
-   if (appCount%3 == 0) appList += '</div></section><section><div class="row">'
+   if (appCount%4 == 0) appList += '</div></section><section><div class="row">'
 }) 
 
 module.exports = {

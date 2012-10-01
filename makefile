@@ -31,7 +31,9 @@ build:
 
 	@echo "Moving in app zips."
 	@mkdir -p html/apps/download
+	@mkdir -p html/themes/download
 	@cp -r assets/app-zips/* html/apps/download/
+	@cp -r assets/theme-zips/* html/themes/download/
 
 	@echo "Doing a shitty job making index.html also work on github pages"
 	@cp -r assets/ks-files/Kickstrap ./

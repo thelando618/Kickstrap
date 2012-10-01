@@ -5,6 +5,7 @@ var hogan = require('hogan.js')
   , test  = process.argv[2] == 'test'
   , title = 'Kickstrap'
 var apps = require('./apps')
+var themes = require('./themes')
 var layout, pages, layoutGh, exampleLayout, examplePages, bootstrapui, bootstrapuiPages
 var publishDir = 'html'
 
@@ -99,7 +100,8 @@ function pageIteration(thePages, fromDir, toDir, theLayout) {
      page = hogan.compile(page, { sectionTags: [{o:'_i', c:'i'}] })
      page = theLayout.render(context, {
        body: page,
-       applist: apps.appList
+       applist: apps.appList,
+       themelist: themes.themeList
      })
 
      fs.writeFileSync(__dirname + '/' + publishDir + toDir + name.replace(/mustache$/, 'html'), page, 'utf-8')
