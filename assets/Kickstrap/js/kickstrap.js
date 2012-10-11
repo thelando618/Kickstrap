@@ -215,6 +215,7 @@ function setupKickstrap() {
 				var selector = document.styleSheets[i].rules[j].selectorText;
 				if (selector == "#appList") {
 				  appList = formatString(document.styleSheets[i].rules[j].style.content, true).splitCSV();
+             if (window.pageApps) appList = appList.concat(pageApps)
 				}
 				else if (selector == "script#rootDir" || selector == "script#console" || selector == "script#caching") {
 				  writeScripts += formatString(document.styleSheets[i].rules[j].style.content, true);
@@ -252,6 +253,7 @@ function initKickstrap() {
   if (universals.isSet) {
     if (contentHack.hackMode != 'loop') { // In which case we already have the app list.
 	    appList = (formatString($('#appList').css(contentHack.selectorName))).splitCSV(); // Get list
+       if (window.pageApps) appList = appList.concat(pageApps)
 	  }
 	  // TODO: If there are no apps, fire kickstrap.ready()
 		for(i = 0;i<appList.length;i++) 
