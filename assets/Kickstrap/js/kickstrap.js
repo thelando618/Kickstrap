@@ -17,7 +17,7 @@ var universals = {
 };
 var readyFired = false; // Prevents multiple ajax calls from calling the kickstrap.ready() fxs
 var appCheck = false; // Prevents a false positive for kickstrap.ready()
-var thisVersion = "1.0.0 Beta"; // Don't change this! Used to check for updates with updater app
+var thisVersion = "1.2.0 Beta"; // Don't change this! Used to check for updates with updater app
 
 // FUNCTIONS
 // ---------
