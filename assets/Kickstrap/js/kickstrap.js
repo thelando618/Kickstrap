@@ -230,7 +230,7 @@ function setupKickstrap() {
 	//if (contentHack.hackMode != 'loop') {
 		// Create our "boring stuff" appendMagics
 		
-		document.write('<script id="rootDir" type="text/javascript">appendMagic(\'#rootDir\');</script><script id="themeFunctions">appendMagic(\'#themeFunctions\');</script><script id="console" type="text/javascript">appendMagic(\'#console\');</script><script id="caching" type="text/javascript">appendMagic(\'#caching\');initKickstrap();</script>');
+		document.write('<script id="rootDir" type="text/javascript">appendMagic(\'#rootDir\');</script><script id="themeFunctions" type="text/javascript">appendMagic(\'#themeFunctions\');</script><script id="console" type="text/javascript">appendMagic(\'#console\');</script><script id="caching" type="text/javascript">appendMagic(\'#caching\');initKickstrap();</script>');
 
 	//}
 	
@@ -240,7 +240,7 @@ function setupKickstrap() {
 function appendMagic(newAppendee) {
   if (contentHack.hackMode != 'loop') {
 		var scriptString = formatString($(newAppendee).css(contentHack.selectorName), true);
-		if (scriptString == 'ndefine') {scriptString = '<script></script>'}; 
+		if (scriptString == 'ndefine' || scriptString == 'on') {scriptString = '<script></script>'}; 
 		// (above) Prevents "[u]ndefine[d]" from being printed when the appended script is removed.
 		document.write(scriptString);
 	}
