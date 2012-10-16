@@ -60,6 +60,7 @@ prod:
 	@rm product/Kickstrap/js/sample.js
 	@rm -r product/Kickstrap/apps/universal/ks-window
 	@node build.js production
+	@rm product/lab.html
 	@echo "Build complete."
 
 test: 

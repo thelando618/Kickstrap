@@ -1,15 +1,20 @@
 // VARIABLES
 // =========
 
-var rootDir;
 var contentHack = {
 	selectorName: 'content',
 	hackMode: 'content-in'
 };
 var self = this; // Used to set context in $.ajax
-var rootDir = "/"; // Don't change this unless you've tried in settings.less already.
-var extrasPath;
+
+// From LESS
+var rootDir
+kickstrap.opts.rootDir ? rootDir = kickstrap.opts.rootDir : rootDir = "/"; 
+
 var appList = [];
+if (!kickstrap) var kickstrap = {};
+
+var extrasPath;
 var appArray = [];
 var universals = {
 	isSet: false,
@@ -25,7 +30,12 @@ var thisVersion = "1.2.0 Beta"; // Don't change this! Used to check for updates 
 if (!window.console) console = {log: function() {}};
 
 // Allow overrides of directories.
-function setDir(newDir, dirType) {dirType == 'root' ? rootDir = newDir : universals.path = newDir;}
+function setDir(newDir, dirType) {
+  if (dirType == 'root') 
+     kickstrap.opts.rootDir ? rootDir = kickstrap.opts.rootDir : rootDir = newDir
+  else
+     universals.path = newDir
+}
 
 // For reading commented-out items
 String.prototype.isIgnored = function () {return (this.substr(0, 2) == "//" || this == "");}
@@ -148,9 +158,8 @@ function loadApp(appName) {
 	window[appName] = new app(appName);
 }
 
-var kickstrap = {
-	hello: 'Kickstrap: Hi! (' + thisVersion + ')',
-	edit: function() {
+kickstrap.hello = 'Kickstrap: Hi! (' + thisVersion + ')'
+kickstrap.edit = function() {
 		document.body.contentEditable='true'; document.designMode='on'; void 0;
 		if(typeof window.$.pnotify == 'function') {
 			$.pnotify({
@@ -160,13 +169,12 @@ var kickstrap = {
 				styling: 'bootstrap'
 			});
 		}
-	},
-	readyFxs: [],
-	ready: function(customFn) {this.readyFxs.push(customFn)},
-	testParams: {
+	}
+kickstrap.readyFxs = [],
+kickstrap.ready = function(customFn) {this.readyFxs.push(customFn)},
+kickstrap.testParams = {
 		readyCount: 0
 	}
-}
 
 function themeFunction(urlPath) {$.ajax({type: "GET", url: rootDir + 'Kickstrap/themes/' + urlPath + '/functions.js', dataType: "script", context: self});}
 
@@ -215,7 +223,7 @@ function setupKickstrap() {
 				var selector = document.styleSheets[i].rules[j].selectorText;
 				if (selector == "#appList") {
 				  appList = formatString(document.styleSheets[i].rules[j].style.content, true).splitCSV();
-             if (window.pageApps) appList = appList.concat(pageApps)
+             if (window.kickstrap.opts.apps) appList = appList.concat(kickstrap.opts.apps)
 				}
 				else if (selector == "script#rootDir" || selector == "script#console" || selector == "script#caching") {
 				  writeScripts += formatString(document.styleSheets[i].rules[j].style.content, true);
@@ -253,7 +261,7 @@ function initKickstrap() {
   if (universals.isSet) {
     if (contentHack.hackMode != 'loop') { // In which case we already have the app list.
 	    appList = (formatString($('#appList').css(contentHack.selectorName))).splitCSV(); // Get list
-       if (window.pageApps) appList = appList.concat(pageApps)
+       if (window.kickstrap.opts.apps) appList = appList.concat(kickstrap.opts.apps)
 	  }
 	  // TODO: If there are no apps, fire kickstrap.ready()
 		for(i = 0;i<appList.length;i++) 
