@@ -9,7 +9,12 @@ var self = this; // Used to set context in $.ajax
 
 // From LESS
 var rootDir
-kickstrap.opts.rootDir ? rootDir = kickstrap.opts.rootDir : rootDir = "/"; 
+if (typeof kickstrap == "object") {
+   kickstrap.opts.rootDir ? rootDir = kickstrap.opts.rootDir : rootDir = "/"; 
+}
+else {
+   rootDir = "/";
+}
 
 var appList = [];
 if (!kickstrap) var kickstrap = {};
@@ -32,7 +37,12 @@ if (!window.console) console = {log: function() {}};
 // Allow overrides of directories.
 function setDir(newDir, dirType) {
   if (dirType == 'root') 
-     kickstrap.opts.rootDir ? rootDir = kickstrap.opts.rootDir : rootDir = newDir
+     if (typeof kickstrap.opts == "object") {
+        kickstrap.opts.rootDir ? rootDir = kickstrap.opts.rootDir : rootDir = newDir
+     }
+     else {
+        rootDir = newDir
+     }
   else
      universals.path = newDir
 }
@@ -261,7 +271,9 @@ function initKickstrap() {
   if (universals.isSet) {
     if (contentHack.hackMode != 'loop') { // In which case we already have the app list.
 	    appList = (formatString($('#appList').css(contentHack.selectorName))).splitCSV(); // Get list
-       if (window.kickstrap.opts.apps) appList = appList.concat(kickstrap.opts.apps)
+       if (typeof kickstrap == "object") 
+          if (typeof kickstrap.opts == "object")
+          if(kickstrap.opts.apps) appList = appList.concat(kickstrap.opts.apps)
 	  }
 	  // TODO: If there are no apps, fire kickstrap.ready()
 		for(i = 0;i<appList.length;i++) 
