@@ -1,0 +1,9 @@
+product
+/tests
+.DS_Store
+
+assets/Kickstrap/bootstrap/.git
+assets/Kickstrap/bootstrap/.[a-z]*
+
+assets/Kickstrap/qunit/.git
+assets/Kickstrap/qunit/.[a-z]*

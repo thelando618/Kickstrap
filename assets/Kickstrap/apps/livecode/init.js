@@ -1,0 +1,1 @@
+loadWindow({name: 'livecode', theUrl: 'live.html', width: '1000', height: '700', title: 'Live Code Editor', iframe: false});
