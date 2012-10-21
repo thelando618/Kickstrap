@@ -29,5 +29,9 @@ kickstrap.ready(function() {
          (typeof(window.kickstrap.opts.rootDir) == 'string'), 
          'kickstrap.opts.rootDir should be a string.'
       )
+      ok(
+         (typeof(window.kickstrap.opts.console) == 'boolean'), 
+         'kickstrap.opts.console should be a boolean.'
+      )
    });
 })

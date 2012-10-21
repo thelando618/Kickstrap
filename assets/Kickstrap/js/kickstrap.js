@@ -6,20 +6,34 @@
  * can concatenate to it later in the code without repetitively
  * checking how we defined it in the first place.
  */
-if (!kickstrap) { 
-   var kickstrap = {
-      'opts': {
-        'apps': [],
-        'rootDir': '/'
+if (!kickstrap) { var kickstrap = { }; }
+// but are opts defined? 
+if (!kickstrap.opts) { kickstrap.opts = {} }
+if (!kickstrap.opts.apps) { kickstrap.opts.apps = [] }
+if (!kickstrap.opts.console || typeof kickstrap.opts.console != 'boolean') { kickstrap.opts.console = false }
+// rootDir will be overridden with kickstrap.less (if there) later.
+
+function consoleLogger(msg, msgType, objName) {
+   var prefix = 'Kickstrap: '
+   if (kickstrap.opts.console) {
+      if(objName ) {
+         console.log([msg, objName])
       }
-   }; 
-}
-else {
-// The user is using page-level apps, but are opts defined? 
-   if (!kickstrap.opts) { kickstrap.opts = {} }
-   if (!kickstrap.opts.apps) { kickstrap.opts.apps = [] }
-   if (!kickstrap.opts.rootDir) { kickstrap.opts.rootDir= '/' }
-   // rootDir will be overridden with kickstrap.less (if there) later.
+      else {
+         switch(msgType) { 
+            case 'warn': 
+            console.warn(prefix + msg)
+            break
+            
+            case 'error':
+            console.error(prefix + msg)
+            break
+            
+            default:console.log(prefix + msg)
+            break
+         }
+      }
+   }
 }
 
 var contentHack = {
@@ -43,7 +57,15 @@ var thisVersion = "1.2.0 Beta"; // Don't change this! Used to check for updates 
 if (!window.console) console = {log: function() {}};
 
 // Allow overrides of directories.
-function setDir(newDir, dirType) {dirType == 'root' ? kickstrap.opts.rootDir = newDir : universals.path = newDir;}
+function setDir(newDir, dirType) {
+   if (dirType == 'root') {
+      // Give js defs preference
+      if (!kickstrap.opts.rootDir) { kickstrap.opts.rootDir = newDir }
+   }
+   else if (dirType == 'universal') {
+      universals.path = newDir;
+   }
+}
 
 // For reading commented-out items
 String.prototype.isIgnored = function () {return (this.substr(0, 2) == "//" || this == "");}
