@@ -19,6 +19,7 @@ else {
    if (!kickstrap.opts) { kickstrap.opts = {} }
    if (!kickstrap.opts.apps) { kickstrap.opts.apps = [] }
    if (!kickstrap.opts.rootDir) { kickstrap.opts.rootDir= '/' }
+   // rootDir will be overridden with kickstrap.less (if there) later.
 }
 
 var contentHack = {
@@ -26,7 +27,6 @@ var contentHack = {
 	hackMode: 'content-in'
 };
 var self = this; // Used to set context in $.ajax
-var rootDir = "/"; // Don't change this unless you've tried in settings.less already.
 var extrasPath;
 var appArray = [];
 var universals = {
@@ -43,7 +43,7 @@ var thisVersion = "1.2.0 Beta"; // Don't change this! Used to check for updates 
 if (!window.console) console = {log: function() {}};
 
 // Allow overrides of directories.
-function setDir(newDir, dirType) {dirType == 'root' ? rootDir = newDir : universals.path = newDir;}
+function setDir(newDir, dirType) {dirType == 'root' ? kickstrap.opts.rootDir = newDir : universals.path = newDir;}
 
 // For reading commented-out items
 String.prototype.isIgnored = function () {return (this.substr(0, 2) == "//" || this == "");}
@@ -184,7 +184,7 @@ kickstrap.readyFxs = [],
 kickstrap.ready = function(customFn) {this.readyFxs.push(customFn)},
 kickstrap.testParams = { readyCount: 0 }
 
-function themeFunction(urlPath) {$.ajax({type: "GET", url: rootDir + 'Kickstrap/themes/' + urlPath + '/functions.js', dataType: "script", context: self});}
+function themeFunction(urlPath) {$.ajax({type: "GET", url: kickstrap.opts.rootDir + 'Kickstrap/themes/' + urlPath + '/functions.js', dataType: "script", context: self});}
 
 // BEGIN
 // =====
@@ -199,7 +199,7 @@ function setupKickstrap() {
 	{
 	  if ( ver < 9.0) {
 	    contentHack.selectorName = 'ie8';
-		  contentHack.hackMode = 'ie8';
+		 contentHack.hackMode = 'ie8';
 	  }
 	  else if (ver >= 9.0) {
 	    //alert('IE9 detected');
@@ -319,7 +319,7 @@ function app(x) {
   this.countDependent=[999,0];
   this.name = x;
   this.loaded = false;
-  extrasPath = rootDir + "Kickstrap/apps/";
+  extrasPath = kickstrap.opts.rootDir + "Kickstrap/apps/";
   this.configPath = extrasPath + x + '/config.ks';
   // Override if user wants CDN-hosted config.ks files.
   if (x.substring(0, 5) == "http:" || x.substring(0,6) == "https:") {
