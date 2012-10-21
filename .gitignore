@@ -1,5 +1,5 @@
 product
-tests
+/tests
 .DS_Store
 
 assets/Kickstrap/bootstrap/.git

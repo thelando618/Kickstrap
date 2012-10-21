@@ -61,6 +61,8 @@ prod:
 	@rm -r product/Kickstrap/apps/universal/ks-window
 	@node build.js production
 	@rm product/lab.html
+
+	@uglifyjs -nc product/Kickstrap/js/kickstrap.js > product/Kickstrap/js/kickstrap.min.js
 	@echo "Build complete."
 
 test: 

@@ -1,32 +1,24 @@
 // VARIABLES
 // =========
 
-/* If the user is not using page-level apps:
- * Let's create everything as an empty var. This way, we
- * can concatenate to it later in the code without repetitively
- * checking how we defined it in the first place.
- */
-if (!kickstrap) { 
-   var kickstrap = {
-      'opts': {
-        'apps': [],
-        'rootDir': '/'
-      }
-   }; 
-}
-else {
-// The user is using page-level apps, but are opts defined? 
-   if (!kickstrap.opts) { kickstrap.opts = {} }
-   if (!kickstrap.opts.apps) { kickstrap.opts.apps = [] }
-   if (!kickstrap.opts.rootDir) { kickstrap.opts.rootDir= '/' }
-}
-
 var contentHack = {
 	selectorName: 'content',
 	hackMode: 'content-in'
 };
 var self = this; // Used to set context in $.ajax
-var rootDir = "/"; // Don't change this unless you've tried in settings.less already.
+
+// From LESS
+var rootDir
+if (typeof kickstrap == "object") {
+   kickstrap.opts.rootDir ? rootDir = kickstrap.opts.rootDir : rootDir = "/"; 
+}
+else {
+   rootDir = "/";
+}
+
+var appList = [];
+if (!kickstrap) var kickstrap = {};
+
 var extrasPath;
 var appArray = [];
 var universals = {
@@ -43,7 +35,17 @@ var thisVersion = "1.2.0 Beta"; // Don't change this! Used to check for updates 
 if (!window.console) console = {log: function() {}};
 
 // Allow overrides of directories.
-function setDir(newDir, dirType) {dirType == 'root' ? rootDir = newDir : universals.path = newDir;}
+function setDir(newDir, dirType) {
+  if (dirType == 'root') 
+     if (typeof kickstrap.opts == "object") {
+        kickstrap.opts.rootDir ? rootDir = kickstrap.opts.rootDir : rootDir = newDir
+     }
+     else {
+        rootDir = newDir
+     }
+  else
+     universals.path = newDir
+}
 
 // For reading commented-out items
 String.prototype.isIgnored = function () {return (this.substr(0, 2) == "//" || this == "");}
@@ -160,29 +162,29 @@ if (!('every' in Array.prototype)) {
 }
 
 // Manual app execution 
-/*
 function loadApp(appName) {
 	appArray = [];
 	appList = [appName];
 	window[appName] = new app(appName);
 }
-*/
 
-kickstrap.hello = 'Kickstrap: Hi! (' + thisVersion + ')',
+kickstrap.hello = 'Kickstrap: Hi! (' + thisVersion + ')'
 kickstrap.edit = function() {
-   document.body.contentEditable='true'; document.designMode='on'; void 0;
-   if(typeof window.$.pnotify == 'function') {
-      $.pnotify({
-         title: 'Prototyping Mode',
-         text: 'You can now edit anything in this page. (But it won\'t be saved!)',
-         type: 'success',
-         styling: 'bootstrap'
-      });
-   }
-},
+		document.body.contentEditable='true'; document.designMode='on'; void 0;
+		if(typeof window.$.pnotify == 'function') {
+			$.pnotify({
+				title: 'Prototyping Mode',
+				text: 'You can now edit anything in this page. (But it won\'t be saved!)',
+				type: 'success',
+				styling: 'bootstrap'
+			});
+		}
+	}
 kickstrap.readyFxs = [],
 kickstrap.ready = function(customFn) {this.readyFxs.push(customFn)},
-kickstrap.testParams = { readyCount: 0 }
+kickstrap.testParams = {
+		readyCount: 0
+	}
 
 function themeFunction(urlPath) {$.ajax({type: "GET", url: rootDir + 'Kickstrap/themes/' + urlPath + '/functions.js', dataType: "script", context: self});}
 
@@ -230,7 +232,8 @@ function setupKickstrap() {
 			  for (j = 0; j < document.styleSheets[i].rules.length; j++) {
 				var selector = document.styleSheets[i].rules[j].selectorText;
 				if (selector == "#appList") {
-				  kickstrap.opts.apps = kickstrap.opts.apps.concat(formatString(document.styleSheets[i].rules[j].style.content, true).splitCSV());
+				  appList = formatString(document.styleSheets[i].rules[j].style.content, true).splitCSV();
+             if (window.kickstrap.opts.apps) appList = appList.concat(kickstrap.opts.apps)
 				}
 				else if (selector == "script#rootDir" || selector == "script#console" || selector == "script#caching") {
 				  writeScripts += formatString(document.styleSheets[i].rules[j].style.content, true);
@@ -245,7 +248,7 @@ function setupKickstrap() {
 	//if (contentHack.hackMode != 'loop') {
 		// Create our "boring stuff" appendMagics
 		
-		document.write('<script id="rootDir" type="text/javascript">appendMagic(\'#rootDir\');</script><script id="themeFunctions">appendMagic(\'#themeFunctions\');</script><script id="console" type="text/javascript">appendMagic(\'#console\');</script><script id="caching" type="text/javascript">appendMagic(\'#caching\');initKickstrap();</script>');
+		document.write('<script id="rootDir" type="text/javascript">appendMagic(\'#rootDir\');</script><script id="themeFunctions" type="text/javascript">appendMagic(\'#themeFunctions\');</script><script id="console" type="text/javascript">appendMagic(\'#console\');</script><script id="caching" type="text/javascript">appendMagic(\'#caching\');initKickstrap();</script>');
 
 	//}
 	
@@ -267,24 +270,27 @@ function initKickstrap() {
   if (!universals.isSet && universals.path == "none") universals.isSet = true;
   if (universals.isSet) {
     if (contentHack.hackMode != 'loop') { // In which case we already have the app list.
-	    kickstrap.opts.apps = kickstrap.opts.apps.concat((formatString($('#appList').css(contentHack.selectorName))).splitCSV()); // Get list
+	    appList = (formatString($('#appList').css(contentHack.selectorName))).splitCSV(); // Get list
+       if (typeof kickstrap == "object") 
+          if (typeof kickstrap.opts == "object")
+          if(kickstrap.opts.apps) appList = appList.concat(kickstrap.opts.apps)
 	  }
 	  // TODO: If there are no apps, fire kickstrap.ready()
-		for(i = 0;i<kickstrap.opts.apps.length;i++) 
+		for(i = 0;i<appList.length;i++) 
 		{
-		  theapp = kickstrap.opts.apps[i];
+		  theapp = appList[i];
 			if (theapp.isIgnored()) {
 			  // Remove commented items from list.
 			  if (theapp != "") {
 			  	//consoleLog('Deactivated ' + theapp.substr(2,theapp.length), 'warn');
 			  }
-				kickstrap.opts.apps.remove(i);
+				appList.remove(i);
 				i--;
 			}
 			else {
 			  // Make each app an app object
 			  //consoleLog('Activating ' + theapp + '...');
-				window[kickstrap.opts.apps[i]] = new app(theapp);
+				window[appList[i]] = new app(theapp);
 			}
 		}
 	}
@@ -360,7 +366,7 @@ function app(x) {
 		appArray.push(window[x]);
 		if(!universals.isSet) {loadResources()}
     // Test to see if the resources we loaded are equal to the resources we've found.
-		if(appArray.length == kickstrap.opts.apps.length) {loadResources();}
+		if(appArray.length == appList.length) {loadResources();}
 	}
 	
   function finishUniversals() {
@@ -371,7 +377,7 @@ function app(x) {
   }
   
 	function loadResources() {
-		if (universals.isSet && kickstrap.opts.apps.length > 0) {appCheck = true;}
+		if (universals.isSet && appList.length > 0) {appCheck = true;}
 		for (i = 0;i<appArray.length || function() {if(!universals.isSet && appArray[0].countRequired[1] == 0){finishUniversals();}}();i++) {
 			appArray[i].countRequired[0] = 0;
 			if(contentHack.hackMode != 'ie8') {
