@@ -28,8 +28,11 @@ var self = this, 									// Used to set context in $.ajax
     universalsSet = false,
     readyFired = false,  					// Prevents multiple ajax calls from calling the kickstrap.ready() fxs
     appCheck = false, 						// Prevents a false positive for kickstrap.ready()
-    thisVersion = "1.2.0 Beta", 	      // Don't change this! Used to check for updates with updater app
+    thisVersion = "1.2.0 Beta", 	// Don't change this! Used to check for updates with updater app
     diagnosticMsgs = []; 					// Array of helpful messages for user to use in diagnosing errors
+    
+var rootDir,											// We'll set these to their namespaced counterparts later for legacy support.
+		appList;											
 
 // KICKSTRAP NAMESPACE
 // ===================
@@ -46,7 +49,7 @@ if (!kickstrap.opts['rootDir'])     { kickstrap.opts['rootDir'] = '/' }
 if (!kickstrap.opts['console'] || typeof kickstrap.opts['console'] != 'boolean') { kickstrap.opts['console'] = false }
 
 
-kickstrap['hello'] = 'Kickstrap: Hi! (' + thisVersion + ')',
+kickstrap['hello'] = 'KS: Hi! (' + thisVersion + ')',
 kickstrap['edit'] = function() {
    document.body.contentEditable='true'; document.designMode='on'; void 0;
    if(typeof window.$.pnotify == 'function') {
@@ -70,11 +73,11 @@ kickstrap.testParams = { readyCount: 0 }
 // There a couple advantages to doing this:
 // 1. All Kickstrap-related logs go through it, so it can be uniformly turned
 //    on or off.
-// 2. Logs are prefixed with "Kickstrap:" to easily distinguish Kickstrap
+// 2. Logs are prefixed with "KS:" to easily distinguish Kickstrap
 //    messages from those created au natural.
 
 function consoleLog(msg, msgType, objName) { 
-   var prefix = 'Kickstrap: '
+   var prefix = 'KS: '
    if (kickstrap.opts.console && window.console) {
       if ( objName ) console.log([msg, objName])
       else {
@@ -318,7 +321,16 @@ setTimeout(function() {
 		if (!readyFired) {
 		  consoleLog('I noticed your page still hasn\'t loaded.')
 			// Show the diagnostic messages. Placed here to insure they happen once each.
-			for (var i = 0;i<diagnosticMsgs.length;i++) { consoleLog(diagnosticMsgs[i], 'error') }
+			// But first, remove any duplicates.
+			diagnosticMsgs = diagnosticMsgs.filter(function(elem, pos) {
+			    return diagnosticMsgs.indexOf(elem) == pos;
+			})
+         // And make it look nice.
+         if (diagnosticMsgs.length > 0) { 
+            consoleLog('-Diagnostics--------')
+            for (var i = 0;i<diagnosticMsgs.length;i++) { consoleLog(diagnosticMsgs[i], 'info') }
+            consoleLog('--------------------')
+         }
 		  if (!kickstrap.opts.readyOverride) {
 		  	consoleLog('If you want kickstrap.ready() to fire anyway, set kickstrap.opts.readyOverride to true.')
 		  }
@@ -345,6 +357,9 @@ function setupKickstrap() {
 		  var writeScripts = '';
 		  contentHack.parse = true; 
 			for(var i = 0; i < document.styleSheets.length; i++) {
+
+			  // Avoid errors resulting from injected stylesheets. Thanks, Slav.
+			  if( document.styleSheets[i].rules == null ) continue;
 			  for (var j = 0; j < document.styleSheets[i].rules.length; j++) {
 				var selector = document.styleSheets[i].rules[j].selectorText;
 				if (selector == "#appList") {
@@ -450,6 +465,8 @@ function app(x) {
 	    // Common error, the user just spelled the name wrong.
 	    consoleLog('Could not load the app "' + x + '" [' + xhr.status + ' (' + thrownError + ')]', 'error');
 	    diagnosticMsgs.push('Verify your rootDir variable in kickstrap.less or in JavaScript has been set correctly.');
+	    diagnosticMsgs.push('Is the name of the app spelled correctly? Should match the name of the folder.');
+	    diagnosticMsgs.push('Do the above 404 errors reflect the right paths to files?.');
 	  }  
 	});
 	function parseConfig(resources) {
@@ -487,7 +504,7 @@ function app(x) {
 		if (universalsSet && kickstrap.opts.apps.length > 0) {appCheck = true;}
 		for (var i = 0;i<appArray.length || function() {if(!universalsSet && appArray[0].countRequired[1] == 0){finishUniversals();}}();i++) {
 			appArray[i].countRequired[0] = 0;
-         consoleLog('Kickstrap: ' +  appArray[i].name, null, appArray[i]); // Tell the user what we're loading.
+         consoleLog('KS: ' +  appArray[i].name, null, appArray[i]); // Tell the user what we're loading.
 		  for (var j = 0;j<appArray[i].resourcesRequired.length;j++) {
 		  
 		    var requiredResource = appArray[i].resourcesRequired[j];
@@ -577,6 +594,10 @@ kickstrap.fire = function() {
 		for (var i = 0;i<kickstrap.readyFxs.length;i++) { // This allows the user to use this function all over the place.
 			(kickstrap.readyFxs[i])(); // Go to the next function in array and fire.
 		}
+		
+		// Legacy apps may still rely on the non-namespaced global variables
+		rootDir = kickstrap.opts.rootDir
+		appList = kickstrap.opts.apps
 	}
 }
 

@@ -94,7 +94,13 @@
       @import "Kickstrap/bootstrap/less/utilities.less";
       @import "Kickstrap/extras/ks-preview.less"; // TODO: Move this to the colorschemer app.
       @import "Kickstrap/extras/retina.less";
-      {{#production}}//{{/production}} @import "Kickstrap/bootstrap/less/responsive.less"; // WARNING: Significantly increases stylesheet size.
+      
+      // Components: Responsive Media Queries
+	  {{#production}}//{{/production}} @import "Kickstrap/bootstrap/less/responsive-utilities.less";
+	  {{#production}}//{{/production}} @import "Kickstrap/bootstrap/less/responsive-1200px-min.less";
+	  {{#production}}//{{/production}} @import "Kickstrap/bootstrap/less/responsive-768px-979px.less";
+	  {{#production}}//{{/production}} @import "Kickstrap/bootstrap/less/responsive-767px-max.less";
+	  {{#production}}//{{/production}} @import "Kickstrap/bootstrap/less/responsive-navbar.less";
 
       // Components: Final Kickstrap Overrides
       
