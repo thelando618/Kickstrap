@@ -46,6 +46,11 @@ var kickstrap = new Object()
 if (!ks)                  		      { var ks = { }; }
 if (!ks['opts'])                    { ks['opts'] = {} }
 if (!ks['apps'])                    { ks['apps'] = [] }
+// In case the user has specified 'apps' as a string, rather than a one-item
+// array, we'll forgive them here:
+var empty = []
+ks.apps = empty.concat(ks.apps)
+
 if (!ks.opts['console'] || typeof ks.opts['console'] != 'boolean') { ks.opts['console'] = false }
 
 
@@ -72,6 +77,42 @@ ks.testParams = { readyCount: 0 }
 
 // FUNCTIONS
 // =========
+
+// The actual mega function ks.ready() will call to run all ready fxs.
+
+function kickstrapReady(myNameIs) {
+
+	// Fire fire() only if all the resource counts match
+	if (appCheck) {
+		this.loadedLoop = []; // Store loaded = false/true vals in array to validate.
+		for(var i = 0;i<appArray.length || function(){if(this.loadedLoop.every(Boolean))ks.fire()}();i++) {
+			var appR = appArray[i].countRequired;
+			var appD = appArray[i].countDependent;
+			
+			if (appR[0] == appR[1] && appD[0] == appD[1]) { appArray[i].loaded = true; }
+			else {appArray[i].loaded = false;}
+			this.loadedLoop.push(appArray[i].loaded);
+			//console.log(this.loadedLoop + ' ' + myNameIs + ' ' + appR + ' ' + appD); // For debugging
+		}
+	}
+}
+
+// this function is called when ks.ready() fxs are safe to call.
+
+ks.fire = function() {
+	if (!readyFired) {
+		readyFired = true;
+  	ks.testParams.readyCount++;
+  	consoleLog('Executing ks.ready() functions');
+		for (var i = 0;i<ks.readyFxs.length;i++) { // This allows the user to use this function all over the place.
+			(ks.readyFxs[i])(); // Go to the next function in array and fire.
+		}
+		
+		// Legacy apps may still rely on the non-namespaced global variables
+		rootDir = ks.opts.rootDir
+		appList = ks.apps
+	}
+}
 
 // consoleLog is a simple substitute for JavaScript's native console.log.
 // There a couple advantages to doing this:
@@ -371,7 +412,6 @@ function setupKickstrap() {
 				}
 				else if (selector == "script#rootDir" || selector == "script#console" || selector == "script#caching") {
 				  writeScripts += formatString(document.styleSheets[i].rules[j].style.content, true);
-				  //if(selector == "script#caching") initKickstrap();
 				}
 			  }
 			}
@@ -396,6 +436,7 @@ function initKickstrap() {
 	// Allow the user to skip universals loading
   if (!universalsSet && ks.opts.universals == "none") universalsSet = true;
   if (universalsSet) {
+    
     if (!contentHack.parse) { // In which case we already have the app list.
 	    ks.apps = ks.apps.concat((formatString($('#appList').css(contentHack.selector))).splitCSV()); // Get list
 	  }
@@ -404,20 +445,20 @@ function initKickstrap() {
 		ks.apps = ks.apps.filter(function(elem, pos) {
 		    return ks.apps.indexOf(elem) == pos;
 		})
-	  
-	  // TODO: If there are no apps, fire ks.ready()
-		for(i = 0;i<ks.apps.length;i++) 
-		{
+		for(var i = 0;i<ks.apps.length;i++) {
 		  theapp = ks.apps[i];
 			if (theapp.isIgnored()) {
 			  // Remove commented items from list.
 				ks.apps.remove(i);
 				i--;
 			}
-			else {
-			  // Make each app an app object
-				window[ks.apps[i]] = new app(theapp);
-			}
+		}
+      if (ks.apps.length == 0) ks.fire()
+		for(var i = 0;i<ks.apps.length;i++) 
+		{
+         theapp = ks.apps[i];
+        // Make each app an app object
+         window[ks.apps[i]] = new app(theapp);
 		}
 	}
 	else {
@@ -499,7 +540,7 @@ function app(x) {
 	}
 	
   function finishUniversals() {
-	  universalsSet = true;
+	 universalsSet = true;
     appArray = [];
     initKickstrap();
   }
@@ -574,36 +615,6 @@ function app(x) {
 	}
 }
 
-function kickstrapReady(myNameIs) {
-
-	// Fire fire() only if all the resource counts match
-	if (appCheck) {
-		this.loadedLoop = []; // Store loaded = false/true vals in array to validate.
-		for(var i = 0;i<appArray.length || function(){if(this.loadedLoop.every(Boolean))ks.fire()}();i++) {
-			var appR = appArray[i].countRequired;
-			var appD = appArray[i].countDependent;
-			
-			if (appR[0] == appR[1] && appD[0] == appD[1]) { appArray[i].loaded = true; }
-			else {appArray[i].loaded = false;}
-			this.loadedLoop.push(appArray[i].loaded);
-			//console.log(this.loadedLoop + ' ' + myNameIs + ' ' + appR + ' ' + appD); // For debugging
-		}
-	}
-}
-ks.fire = function() {
-	if (!readyFired) {
-		readyFired = true;
-  	ks.testParams.readyCount++;
-  	consoleLog('Executing ks.ready() functions');
-		for (var i = 0;i<ks.readyFxs.length;i++) { // This allows the user to use this function all over the place.
-			(ks.readyFxs[i])(); // Go to the next function in array and fire.
-		}
-		
-		// Legacy apps may still rely on the non-namespaced global variables
-		rootDir = ks.opts.rootDir
-		appList = ks.apps
-	}
-}
 
 /*
 When people see some things as beautiful,
