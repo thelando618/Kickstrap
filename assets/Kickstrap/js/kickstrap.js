@@ -64,7 +64,10 @@ ks['edit'] = function() {
 },
 ks.readyFxs = [],
 ks.ready = function(customFn) {this.readyFxs.push(customFn)},
-kickstrap.ready = function(customFn) {ks.readyFxs.push(customFn)},
+kickstrap.ready = function(customFn) {
+   ks.readyFxs.push(customFn)
+   consoleLog('Warning, kickstrap.ready is deprecated. Use ks.ready instead', 'warn');
+},
 ks.testParams = { readyCount: 0 }
 
 // FUNCTIONS
