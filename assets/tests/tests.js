@@ -8,30 +8,39 @@ module('kickstrap tree')
 
 // This should pass it.
 /*
-kickstrap.opts = {
+ks.opts = {
    'apps': ['something', 'something else'],
    'rootDir': '/'
 }
 */
-
-module('Post-kickstrap load')
+module('Backwards compatibility')
+var a;
 kickstrap.ready(function() {
-   test('kickstrap.opts components created', function() {
+   a = true;
+});
+ks.ready(function() {
+   test('kickstrap.ready sets variable \'a\' to \'true\'.', function() {
+      ok( typeof(window.a) == 'boolean', 'the boolean \'a\' was created.') 
+   })
+});
+module('Post-kickstrap load')
+ks.ready(function() {
+   test('ks.opts components created', function() {
       ok(
-         (typeof(window.kickstrap.opts)         == 'object'), 
-         'kickstrap.opts should be an object.'
+         (typeof(window.ks.opts)         == 'object'), 
+         'ks.opts should be an object.'
       )
       ok(
-         (typeof(window.kickstrap.opts.apps)    == 'object'), 
-         'kickstrap.opts.apps should be an object.'
+         (typeof(window.ks.apps)    == 'object'), 
+         'ks.apps should be an object.'
       )
       ok(
-         (typeof(window.kickstrap.opts.rootDir) == 'string'), 
-         'kickstrap.opts.rootDir should be a string.'
+         (typeof(window.ks.opts.rootDir) == 'string'), 
+         'ks.opts.rootDir should be a string.'
       )
       ok(
-         (typeof(window.kickstrap.opts.console) == 'boolean'), 
-         'kickstrap.opts.console should be a boolean.'
+         (typeof(window.ks.opts.console) == 'boolean'), 
+         'ks.opts.console should be a boolean.'
       )
    });
 })

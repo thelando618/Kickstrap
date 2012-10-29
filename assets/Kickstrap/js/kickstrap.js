@@ -26,15 +26,16 @@ var self = this, 									// Used to set context in $.ajax
     configPath,
     appArray = [],
     universalsSet = false,
-    readyFired = false,  					// Prevents multiple ajax calls from calling the kickstrap.ready() fxs
-    appCheck = false, 						// Prevents a false positive for kickstrap.ready()
+    readyFired = false,  					// Prevents multiple ajax calls from calling the ks.ready() fxs
+    appCheck = false, 						// Prevents a false positive for ks.ready()
     thisVersion = "1.2.0 Beta", 	// Don't change this! Used to check for updates with updater app
     diagnosticMsgs = []; 					// Array of helpful messages for user to use in diagnosing errors
     
 var rootDir,											// We'll set these to their namespaced counterparts later for legacy support.
-		appList;											
+	 appList
+var kickstrap = new Object()
 
-// KICKSTRAP NAMESPACE
+// KS NAMESPACE
 // ===================
 
 // If the user is not using page-level apps:
@@ -42,15 +43,14 @@ var rootDir,											// We'll set these to their namespaced counterparts later
 // can concatenate to it later in the code without repetitively
 // checking how we defined it in the first place.
 
-if (!kickstrap)                  		{ var kickstrap = { }; }
-if (!kickstrap['opts'])             { kickstrap['opts'] = {} }
-if (!kickstrap.opts['apps'])        { kickstrap.opts['apps'] = [] }
-if (!kickstrap.opts['rootDir'])     { kickstrap.opts['rootDir'] = '/' }
-if (!kickstrap.opts['console'] || typeof kickstrap.opts['console'] != 'boolean') { kickstrap.opts['console'] = false }
+if (!ks)                  		      { var ks = { }; }
+if (!ks['opts'])                    { ks['opts'] = {} }
+if (!ks['apps'])                    { ks['apps'] = [] }
+if (!ks.opts['console'] || typeof ks.opts['console'] != 'boolean') { ks.opts['console'] = false }
 
 
-kickstrap['hello'] = 'KS: Hi! (' + thisVersion + ')',
-kickstrap['edit'] = function() {
+ks['hello'] = 'KS: Hi! (' + thisVersion + ')',
+ks['edit'] = function() {
    document.body.contentEditable='true'; document.designMode='on'; void 0;
    if(typeof window.$.pnotify == 'function') {
       $.pnotify({
@@ -62,9 +62,10 @@ kickstrap['edit'] = function() {
    }
    else { consoleLog('You can now edit anything in this page. (But it won\'t be saved!'); }
 },
-kickstrap.readyFxs = [],
-kickstrap.ready = function(customFn) {this.readyFxs.push(customFn)},
-kickstrap.testParams = { readyCount: 0 }
+ks.readyFxs = [],
+ks.ready = function(customFn) {this.readyFxs.push(customFn)},
+kickstrap.ready = function(customFn) {ks.readyFxs.push(customFn)},
+ks.testParams = { readyCount: 0 }
 
 // FUNCTIONS
 // =========
@@ -78,7 +79,7 @@ kickstrap.testParams = { readyCount: 0 }
 
 function consoleLog(msg, msgType, objName) { 
    var prefix = 'KS: '
-   if (kickstrap.opts.console && window.console) {
+   if (ks.opts.console && window.console) {
       if ( objName ) console.log([msg, objName])
       else {
          switch(msgType) { 
@@ -101,10 +102,10 @@ function consoleLog(msg, msgType, objName) {
 function setDir(newDir, dirType) {
    if (dirType == 'root') {
       // Give js defs preference
-      kickstrap.opts.rootDir = (kickstrap.opts.rootDir || newDir)
+      ks.opts.rootDir = (ks.opts.rootDir || newDir)
    }
 	 if (dirType == 'universal') {
-			kickstrap.opts.universals = (kickstrap.opts.universals || newDir)
+			ks.opts.universals = (ks.opts.universals || newDir)
 	 }
 }
 
@@ -331,17 +332,17 @@ setTimeout(function() {
             for (var i = 0;i<diagnosticMsgs.length;i++) { consoleLog(diagnosticMsgs[i], 'info') }
             consoleLog('--------------------')
          }
-		  if (!kickstrap.opts.readyOverride) {
-		  	consoleLog('If you want kickstrap.ready() to fire anyway, set kickstrap.opts.readyOverride to true.')
+		  if (!ks.opts.readyOverride) {
+		  	consoleLog('If you want ks.ready() to fire anyway, set ks.opts.readyOverride to true.')
 		  }
 		  else {
 			  //readyFired = true; 
-			  kickstrap.fire();
+			  ks.fire();
 		  }
 		}
 }, 5000);
 
-function themeFunction(urlPath) {$.ajax({type: "GET", url: kickstrap.opts.rootDir + 'Kickstrap/themes/' + urlPath + '/functions.js', dataType: "script", context: self});}
+function themeFunction(urlPath) {$.ajax({type: "GET", url: ks.opts.rootDir + 'Kickstrap/themes/' + urlPath + '/functions.js', dataType: "script", context: self});}
 
 // BEGIN
 // =====
@@ -363,7 +364,7 @@ function setupKickstrap() {
 			  for (var j = 0; j < document.styleSheets[i].rules.length; j++) {
 				var selector = document.styleSheets[i].rules[j].selectorText;
 				if (selector == "#appList") {
-				  kickstrap.opts.apps = kickstrap.opts.apps.concat(formatString(document.styleSheets[i].rules[j].style.content, true).splitCSV());
+				  ks.apps = ks.apps.concat(formatString(document.styleSheets[i].rules[j].style.content, true).splitCSV());
 				}
 				else if (selector == "script#rootDir" || selector == "script#console" || selector == "script#caching") {
 				  writeScripts += formatString(document.styleSheets[i].rules[j].style.content, true);
@@ -390,29 +391,29 @@ function appendMagic(newAppendee) {
 // The last appendMagic will call this function and get things started.
 function initKickstrap() {
 	// Allow the user to skip universals loading
-  if (!universalsSet && kickstrap.opts.universals == "none") universalsSet = true;
+  if (!universalsSet && ks.opts.universals == "none") universalsSet = true;
   if (universalsSet) {
     if (!contentHack.parse) { // In which case we already have the app list.
-	    kickstrap.opts.apps = kickstrap.opts.apps.concat((formatString($('#appList').css(contentHack.selector))).splitCSV()); // Get list
+	    ks.apps = ks.apps.concat((formatString($('#appList').css(contentHack.selector))).splitCSV()); // Get list
 	  }
 	  // Remove duplicates from array
 	  // Thanks http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array
-		kickstrap.opts.apps = kickstrap.opts.apps.filter(function(elem, pos) {
-		    return kickstrap.opts.apps.indexOf(elem) == pos;
+		ks.apps = ks.apps.filter(function(elem, pos) {
+		    return ks.apps.indexOf(elem) == pos;
 		})
 	  
-	  // TODO: If there are no apps, fire kickstrap.ready()
-		for(i = 0;i<kickstrap.opts.apps.length;i++) 
+	  // TODO: If there are no apps, fire ks.ready()
+		for(i = 0;i<ks.apps.length;i++) 
 		{
-		  theapp = kickstrap.opts.apps[i];
+		  theapp = ks.apps[i];
 			if (theapp.isIgnored()) {
 			  // Remove commented items from list.
-				kickstrap.opts.apps.remove(i);
+				ks.apps.remove(i);
 				i--;
 			}
 			else {
 			  // Make each app an app object
-				window[kickstrap.opts.apps[i]] = new app(theapp);
+				window[ks.apps[i]] = new app(theapp);
 			}
 		}
 	}
@@ -448,12 +449,12 @@ function app(x) {
   this.countDependent=[999,0];
   this.name = x;
   this.loaded = false;
-  configPath = kickstrap.opts.rootDir + "Kickstrap/apps/";
+  configPath = ks.opts.rootDir + "Kickstrap/apps/";
   this.configPath = configPath + x + '/config.ks';
   // Override if user wants CDN-hosted config.ks files.
   if (x.substring(0, 5) == "http:" || x.substring(0,6) == "https:") { this.configPath = x; }
-  if(!universalsSet && kickstrap.opts.universals != "local" && kickstrap.opts.universals != undefined) 
-  {this.configPath = kickstrap.opts.universals + '/universal/config.ks'}
+  if(!universalsSet && ks.opts.universals != "local" && ks.opts.universals != undefined) 
+  {this.configPath = ks.opts.universals + '/universal/config.ks'}
   // Now open config and fill out the app object structure.
 	$.ajax({type: "GET", url: this.configPath, dataType: "html", context: self,
 		success: function(data) {
@@ -491,7 +492,7 @@ function app(x) {
 		appArray.push(window[x]);
 		if(!universalsSet) {loadResources()}
     // Test to see if the resources we loaded are equal to the resources we've found.
-		if(appArray.length == kickstrap.opts.apps.length) {loadResources();}
+		if(appArray.length == ks.apps.length) {loadResources();}
 	}
 	
   function finishUniversals() {
@@ -501,7 +502,7 @@ function app(x) {
   }
   
 	function loadResources() {
-		if (universalsSet && kickstrap.opts.apps.length > 0) {appCheck = true;}
+		if (universalsSet && ks.apps.length > 0) {appCheck = true;}
 		for (var i = 0;i<appArray.length || function() {if(!universalsSet && appArray[0].countRequired[1] == 0){finishUniversals();}}();i++) {
 			appArray[i].countRequired[0] = 0;
          consoleLog('KS: ' +  appArray[i].name, null, appArray[i]); // Tell the user what we're loading.
@@ -575,7 +576,7 @@ function kickstrapReady(myNameIs) {
 	// Fire fire() only if all the resource counts match
 	if (appCheck) {
 		this.loadedLoop = []; // Store loaded = false/true vals in array to validate.
-		for(var i = 0;i<appArray.length || function(){if(this.loadedLoop.every(Boolean))kickstrap.fire()}();i++) {
+		for(var i = 0;i<appArray.length || function(){if(this.loadedLoop.every(Boolean))ks.fire()}();i++) {
 			var appR = appArray[i].countRequired;
 			var appD = appArray[i].countDependent;
 			
@@ -586,18 +587,18 @@ function kickstrapReady(myNameIs) {
 		}
 	}
 }
-kickstrap.fire = function() {
+ks.fire = function() {
 	if (!readyFired) {
 		readyFired = true;
-  	kickstrap.testParams.readyCount++;
-  	consoleLog('Executing kickstrap.ready() functions');
-		for (var i = 0;i<kickstrap.readyFxs.length;i++) { // This allows the user to use this function all over the place.
-			(kickstrap.readyFxs[i])(); // Go to the next function in array and fire.
+  	ks.testParams.readyCount++;
+  	consoleLog('Executing ks.ready() functions');
+		for (var i = 0;i<ks.readyFxs.length;i++) { // This allows the user to use this function all over the place.
+			(ks.readyFxs[i])(); // Go to the next function in array and fire.
 		}
 		
 		// Legacy apps may still rely on the non-namespaced global variables
-		rootDir = kickstrap.opts.rootDir
-		appList = kickstrap.opts.apps
+		rootDir = ks.opts.rootDir
+		appList = ks.apps
 	}
 }
 
