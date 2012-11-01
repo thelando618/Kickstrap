@@ -75,6 +75,7 @@ kickstrap.ready = function(customFn) {
 },
 ks.testParams = { readyCount: 0 }
 
+
 // FUNCTIONS
 // =========
 
@@ -135,7 +136,8 @@ function consoleLog(msg, msgType, objName) {
             console.error(prefix + msg)
             break
             
-            default:console.log(prefix + msg)
+            default:
+            console.log(prefix + msg)
             break
          }
       }
@@ -244,6 +246,12 @@ Array.prototype.remove = function(from, to) {
   this.length = from < 0 ? this.length + from : from;
   return this.push.apply(this, rest);
 } 
+
+// Fallback for console.log
+if (typeof console === "undefined" || typeof console.log === "undefined") {
+	console = {};
+	console.log = function() {};
+}
 
 // IE compatibility fallbacks, turned on when needed.
 // Thanks to http://stackoverflow.com/questions/2790001/fixing-javascript-array-functions-in-internet-explorer-indexof-foreach-etc
