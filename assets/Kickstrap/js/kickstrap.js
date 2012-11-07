@@ -450,9 +450,11 @@ function initKickstrap() {
 	  }
 	  // Remove duplicates from array
 	  // Thanks http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array
-		ks.apps = ks.apps.filter(function(elem, pos) {
-		    return ks.apps.indexOf(elem) == pos;
-		})
+      if ( ver != 8 ) { // Blanks out ks.apps in IE8 :(
+         ks.apps = ks.apps.filter(function(elem, pos) {
+             return ks.apps.indexOf(elem) == pos;
+         })
+      }
 		for(var i = 0;i<ks.apps.length;i++) {
 		  theapp = ks.apps[i];
 			if (theapp.isIgnored()) {
