@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="sf-wrapper"> <!-- Sticky Footer Wrapper -->
-   <div class="hidden"><h1>No Stylesheet Loaded</h1><p><strong>Could not load Kickstrap.</strong>There are <a href="http://getkickstrap.com/docs/1.1/#lessjs-errors">several common reasons for this error.</a></p></div>
+   <div class="hidden"><h1>No Stylesheet Loaded</h1><p><strong>Could not load Kickstrap.</strong>There are <a href="http://getkickstrap.com/docs/1.2/troubleshooting/#lessjs-errors">several common reasons for this error.</a></p></div>
   <!-- Prompt IE 6/7 users to install Chrome Frame. Remove this if you support IE 7-.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -102,7 +102,7 @@
 
 						</div>
 
-						<aside class="span4 well">
+						<aside class="span4 well"> 
 							<ul class="nav nav-list">
 								<li class="nav-header">More Articles</li>
 								<li class="active"><a href="#">Change your Theme</a></li>
@@ -141,13 +141,13 @@
   <footer class="container" id="footer">
 	  <p>Built with <a href="http://getkickstrap.com">Kickstrap</a></p>
   </footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="Kickstrap/js/jquery-1.7.1.min.js"><\/script>');</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="Kickstrap/js/jquery-1.8.2.min.js"><\/script>');</script>
   <!-- Kickstrap CDN thanks to our friends at netDNA.com -->
-  <script id="appList" src="http://netdna.getkickstrap.com/Kickstrap/js/kickstrap.min.js"></script>
+  <script id="appList" src="http://netdna.getkickstrap.com/1.2/Kickstrap/js/kickstrap.min.js"></script>
   <script>window.consoleLog || document.write('<script id="appList" src="Kickstrap/js/kickstrap.min.js"><\/script>')</script>
   <script>
-   kickstrap.ready(function() {
+   ks.ready(function() {
       // JavaScript placed here will run only once Kickstrap has loaded successfully.
       $.pnotify({
          title: 'Hello World',
