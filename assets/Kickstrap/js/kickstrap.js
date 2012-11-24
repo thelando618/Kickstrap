@@ -372,6 +372,7 @@ function getInternetExplorerVersion() {
 // The five second test, if your site doesn't load in 5 seconds, you've got problems.
 setTimeout(function() {
 		if (!readyFired) {
+          if ( ks.opts['rootDir'] == 'undefined' ) diagnosticMsgs.push('Your rootDir is "undefined" Often this is caused by the main stylesheet not loading.')
 		  consoleLog('I noticed your page still hasn\'t loaded.')
 			// Show the diagnostic messages. Placed here to insure they happen once each.
 			// But first, remove any duplicates.
