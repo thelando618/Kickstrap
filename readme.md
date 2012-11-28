@@ -6,6 +6,7 @@
 <p>You can also compile only the test folder with <code>make test</code> or just the production folder with <code>make prod</code></p>
 <p>The makefile requires connect, uglify-js, and jshint. Run the following command to install.</p>
 <p><code>$ npm install connect uglify-js jshint -g</code></p>
+<p>Note, Uglify JS 2 is required.</p>
 
 <h1>Branches and Pull Requests</h1>
 <p>There are four main branches for development: <strong>development, canary, beta,</strong> and <strong>stable.</strong></a></p>
