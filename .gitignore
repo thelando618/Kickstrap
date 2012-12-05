@@ -1,6 +1,7 @@
 product
 /tests
 .DS_Store
+UglifyJS
 
 assets/Kickstrap/bootstrap/.git
 assets/Kickstrap/bootstrap/.[a-z]*

@@ -248,9 +248,9 @@ Array.prototype.remove = function(from, to) {
 } 
 
 // Fallback for console.log
-if (typeof console === "undefined" || typeof console.log === "undefined") {
-	console = {};
-	console.log = function() {};
+if (typeof console != "object") {
+  console = {};
+  console.log = function() {};
 }
 
 // IE compatibility fallbacks, turned on when needed.
@@ -434,6 +434,7 @@ function appendMagic(newAppendee) {
   if (!contentHack.parse) {
 		var scriptString = formatString($(newAppendee).css(contentHack.selector), true);
 		if (scriptString == 'ndefine' || scriptString == 'on') {scriptString = '<script></script>'}; 
+      console.log('Problem reading config from kickstrap.less');
 		// (above) Prevents "[u]ndefine[d]" from being printed when the appended script is removed.
 		document.write(scriptString);
 	}
