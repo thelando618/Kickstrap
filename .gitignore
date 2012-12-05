@@ -2,6 +2,9 @@ product
 tests
 .DS_Store
 
+node_modules
+UglifyJS
+
 assets/Kickstrap/bootstrap/.git
 assets/Kickstrap/bootstrap/.[a-z]*
 
