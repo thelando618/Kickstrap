@@ -34,7 +34,7 @@ prod:
 		@cp -r assets/Kickstrap/apps/pinesnotify product/Kickstrap/apps/
 	
 		@echo "-jQuery Lint"
-		@cp -r assets/Kickstrap/apps/jQueryLint product/Kickstrap/apps/
+		@cp -r assets/Kickstrap/apps/jquerylint product/Kickstrap/apps/
 	
 		@echo "-Updater"
 		@cp -r assets/Kickstrap/apps/updater product/Kickstrap/apps/
