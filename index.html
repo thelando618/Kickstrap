@@ -6,235 +6,242 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Kickstrap</title>
+  <title>Kickstrap: Bootstrap with apps, themes, and extras</title>
   <meta name="description" content="Twitter's Bootstrap with themes, apps, and other enhancements">
-  <!-- You can also compile style.less to use regular css. Your apps will still work. -->
-  <style type="text/css">.hidden{margin:20px;border:5px solid #a24c4c;background-color:red;padding:10px;width:400px;color:white;font-family:helvetica,sans-serif}</style>
-  <link rel="stylesheet/less" type="text/css" href="kickstrap.less">
-  <script src="Kickstrap/js/less-1.3.0.min.js"></script>
+ <!--<link rel="stylesheet/less" type="text/css" href="http://getkickstrap.com/static/kickstrap.less">
+ <script src="http://getkickstrap.com/static/Kickstrap/js/less-1.3.0.js"></script>-->
+ <link rel="stylesheet" type="text/css" href="http://getkickstrap.com/static/css/kickstrap.css" />
 	<!-- Begin Inspectlet Embed Code -->
 	<script type="text/javascript" id="inspectletjs">
 		var __insp = __insp || [];
 		__insp.push(['wid', 2182914763]);
 		(function() {
 			var a = window.onload;
+         
 			function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://www.inspectlet.com/inspect/2182914763.js'; document.getElementsByTagName("head")[0].appendChild(insp); }
 			window.onload = (typeof window.onload != 'function') ? __ldinsp : function() { a(); __ldinsp(); };
 		})();
 	</script>
 	<!-- End Inspectlet Embed Code -->
+   <script type="text/javascript" src="http://getkickstrap.com//use.typekit.net/cja8rgc.js"></script>
+   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+   <script>
+      var kickstrap = {
+	      'opts': {
+		      'apps': [
+		         "bootstrap/scrollspy"
+		         , "prettify"
+		         , "pinesnotify"
+		         , "waypoints"
+		         , "bootstrap/tooltip"
+		         , "embeddedtweets"
+		      ]
+	      }
+      }
+   </script>
 </head>
-<body data-offset="150" data-spy="scroll" data-target=".subnav">
+<body class="" data-spy="scroll" data-target=".subsubnav" data-offset="350">
 <div id="sf-wrapper"> <!-- Sticky Footer Wrapper -->
-   <div class="hidden"><h1>No Stylesheet Loaded</h1><p><strong>Could not load Kickstrap.</strong>There are <a href="">several common reasons for this error.</a></p></div>
   <!-- Prompt IE 6/7 users to install Chrome Frame. Remove this if you support IE 7-.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-<!--! END KICKSTRAP HEADER --> 
+<!--! END KICKSTRAP HEADER -->
 
+   <nav class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+         <div class="container">
+            <ul class="nav">
+               <li><a href="http://getkickstrap.com/" class="brand"><img id="logo" src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/littlelogo.png" /></a></li>
+               <li class="color: yellow"><a href="http://getkickstrap.com/"><i class="icon-home"></i> <span class="hidden-tablet">Home</span></a></li>
+               <li class=""><a href="http://getkickstrap.com/apps/"><i class="icon-dashboard"></i> <span class="hidden-tablet">Apps</span></a></li>
+               <li class=""><a href="http://getkickstrap.com/themes/"><i class="icon-magic"></i> <span class="hidden-tablet">Themes</span></a></li>
+               <li class=""><a href="http://getkickstrap.com/extras/"><i class="icon-cogs"></i> <span class="hidden-tablet">Extras</span></a></li>
+               <li class=""><a href="http://getkickstrap.com/docs/"><i class="icon-book"></i> <span class="hidden-tablet">Docs</span></a></li>
+            </ul>
+            <input type="text" />
+            <ul class="nav pull-right">
+            	 
 
-
-
-
-
-
-
-<div class="navbar navbar-fixed-top navbar-inverse">
-   <div class="navbar-inner">
-      <div class="container">
-         <a class="brand" href="/"><img src="html/img/littleswing.png" /></a>
-         <ul class="nav">
-            <li class=""><a href="http://getkickstrap.com/">Home</a></li>
-            <li class="divider-vertical"></li>
-            <li class=""><a href="http://getkickstrap.com/apps">Apps</a></li>
-            <li class=""><a href="http://getkickstrap.com/themes">Themes</a></li>
-            <li class="divider-vertical"></li>
-            <li class=""><a href="http://getkickstrap.com/docs/1.1">Docs</a></li>
-            <li class=""><a href="http://getkickstrap.com/extend">Extend</a></li>
-            <li class=""><a href="http://getkickstrap.com/upgrade">Upgrade</a></li>
-         </ul>
-         <ul class="nav pull-right">
-            <li><a style="padding: 0;" href="https://github.com/downloads/ajkochanowicz/Kickstrap/Kickstrap1.1.0Beta.zip"><button class="btn btn-primary">Download the Beta</button></a></li>
-         </ul>
-      </div>
-   </div>
-</div>
-
-<div class="container">
-   <div class="row">
-      <div class="span12">
-         <hgroup class="hero-unit main">
-            <a href="https://github.com/downloads/ajkochanowicz/Kickstrap/Kickstrap1.1.0Beta.zip"><button class="btn btn-primary btn-large"><h3>Download&nbsp;&nbsp;<i class="icon-download"></i></h3></button></a>
-   
-   		<div class="bs-docs-social">
-   		  <div class="container">
-   		    <ul class="unstyled ul-horizontal bs-docs-social-buttons">
-   		      <li>
-   		        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=ajkochanowicz&repo=kickstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
-   		      </li>
-   		      <li>
-   		        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=ajkochanowicz&repo=kickstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
-   		      </li>
-   		      <li class="follow-btn">
-   		        <a href="https://twitter.com/yourwebsitesux" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @yourwebsitesux</a>
-   		      </li>
-   		      <li class="tweet-btn">
-   		        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ajkochanowicz.github.com/kickstrap/" data-count="horizontal" data-via="yourwebsitesux" data-related="yourwebsitesux:Creator of Kickstrap">Tweet</a>
-   
-   				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-   		      </li>
-   		    </ul>
-   		  </div>
-   		</div>
-   
-         </hgroup>
-      </div>
-   </div>
-   <section>
-      <div class="row">
-         <div class="span12" style="text-align:center;">
-            <h1>Bootstrap with Apps, Themes, and Enhancements</h1>
-            <p class="lead">Any platform, any language, no-install.</p>
+            	 
+            </ul>
+            <a href="http://getkickstrap.com/download" class="btn btn-primary btn-mini" style="float: right"><i class="icon-download"></i> Download</a>
          </div>
       </div>
-   </section>
-   <section>
-      <div class="row">
-         <div class="span4">
-            <p><img src="http://getkickstrap.com/img/apps.png" /></p>
-            <h3>Run libraries as apps.</h3>
-            <p>Kickstrap uses a new technique for loading JavaScript and CSS libraries as atomic units or "apps" that can be turned on and off like light switches. No database required.</p>
-            <p><a href="http://getkickstrap.com/apps"><i class="icon-download"></i> Check out our (humble) app store</a></p>
-         </div>
-         <div class="span4">
-            <p><img src="http://getkickstrap.com/img/themes.png" /></p>
-            <h3>Add themes in seconds.</h3>
-            <p>Thanks to Thomas Park of <a href="http://bootswatch.com">Bootswatch</a>, Kickstrap comes with a handful of themes ready-to-go. This site uses "Spacelab."</p>
-            <p><a href="http://getkickstrap.com/docs/1.1/#themes">Look how easy it is to change themes</a></p>
-         </div>
-         <div class="span4">
-            <p><img src="http://getkickstrap.com/img/go.png" /></p>
-            <h3>Just download and go.</h3>
-            <p>Too many frameworks promise to make your life easy only to require you to install obscure dependencies. Kickstrap is ready out of the box. Just put Kickstrap on your server and begin making your website.</p>
-         </div>
-      </div>
-   </section>
+   </nav>
    
-   <section>
-   	<div class="row">
-   		<div class="span12">
-   			<h1 style="text-align: center">Developer Approved.</h1>
-   		</div>
-   		<div class="span4">
-   			<blockquote class="twitter-tweet"><p>This is freaking cool :-) is there a kickstrap-gem and a sass version already? <a href="http://t.co/HBcQ1QBg" title="http://ajkochanowicz.github.com/Kickstrap/">ajkochanowicz.github.com/Kickstrap/</a></p>&mdash; Fabio Akita (@AkitaOnRails) <a href="https://twitter.com/AkitaOnRails/status/223772021006417920" data-datetime="2012-07-13T13:33:01+00:00">July 13, 2012</a></blockquote>
-   		</div>
-   		<div class="span4">
+   
+
+   
+ 
+
+   <div class="container" style="padding-top: 58px;">
+      
+
+      
+      
+      
+      
+      
+       
+   <hgroup>
+      <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/littlelogo.png" />
+      <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/imac.png" />
+      <h1>Extend Your Site.</h1>
+      <h3>Kickstrap makes your site purr with</h3>
+      <h2>Apps, Themes, and Extras</h2>
+      <a href="http://getkickstrap.com/download/" class="btn btn-primary btn-large btn-super-large"><i class="icon-download"></i> Download</a>
+      </hgroup>
+   
+   <section class="row-fluid">
+   		<div class="span6">
    			<blockquote class="twitter-tweet"><p>Kickstrap: Twitter Bootstrap on Steroids! - <a href="http://t.co/c0iowaCy" title="http://dzone.com/1B9x">dzone.com/1B9x</a> - @<a href="https://twitter.com/dzone">dzone</a> Big Link by mitchp</p>&mdash; DZone (@DZone) <a href="https://twitter.com/DZone/status/223431880022822915" data-datetime="2012-07-12T15:01:26+00:00">July 12, 2012</a></blockquote>
    		</div>
-   		<div class="span4">
-   			<blockquote class="twitter-tweet"><p>Check out <a href="https://twitter.com/search/%23kickstrap">#kickstrap</a>.It's like bootstrap on roids: <a href="http://t.co/0T54lyWH" title="http://ajkochanowicz.github.com/Kickstrap/">ajkochanowicz.github.com/Kickstrap/</a></p>&mdash; Justin Martin (@justspamjustin) <a href="https://twitter.com/justspamjustin/status/225067533919715329" data-datetime="2012-07-17T03:20:56+00:00">July 17, 2012</a></blockquote>
+   		<div class="span6">
+   			<blockquote class="twitter-tweet"><p>This is freaking cool :-) is there a kickstrap-gem and a sass version already? <a href="http://t.co/HBcQ1QBg" title="http://ajkochanowicz.github.com/Kickstrap/">ajkochanowicz.github.com/Kickstrap/</a></p>&mdash; Fabio Akita (@AkitaOnRails) <a href="https://twitter.com/AkitaOnRails/status/223772021006417920" data-datetime="2012-07-13T13:33:01+00:00">July 13, 2012</a></blockquote>
    		</div>
-      </div>
-      <div class="row">
-         <div class="span4">
-            <blockquote class="twitter-tweet"><p>Nice additions and expansion of bootstrap: Kickstrap <a href="http://t.co/Hs4WgpBO" title="http://ajkochanowicz.github.com/kickstrap/">ajkochanowicz.github.com/kickstrap/</a> via @<a href="https://twitter.com/yourwebsitesux">yourwebsitesux</a></p>&mdash; Puja (@puja108) <a href="https://twitter.com/puja108/status/250515272816021504" data-datetime="2012-09-25T08:41:10+00:00">September 25, 2012</a></blockquote>
-         </div>
-         <div class="span4">
-            <blockquote class="twitter-tweet"><p>Kickstrap ~ Bootstrap with Apps, Themes, and EnhancementsAny platform, any language, no-install. <a href="http://t.co/3ZbIzUiA" title="http://getkickstrap.com/">getkickstrap.com</a></p>&mdash; Abderrahmane T.J. (@Abderrahmane_TJ) <a href="https://twitter.com/Abderrahmane_TJ/status/250308754476789763" data-datetime="2012-09-24T19:00:32+00:00">September 24, 2012</a></blockquote>
-         </div>
-         <div class="span4">
-            <blockquote class="twitter-tweet"><p>Bootstrap++ RT @<a href="https://twitter.com/milleiro">milleiro</a>: kickstrap = bootstrap + extras · <a href="http://t.co/qFGQKmgZ" title="http://getkickstrap.com">getkickstrap.com</a></p>&mdash; Aleyda Solís (@aleyda) <a href="https://twitter.com/aleyda/status/250253522497572864" data-datetime="2012-09-24T15:21:03+00:00">September 24, 2012</a></blockquote>
-         </div>
-   	</div>
-   <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
    </section>
-   
-   <section>
-      <div class="row">
-         <div class="span12" style="text-align:center;">
-            <h1>Never fall behind.</h1>
-            <p class="lead">Bootstrap and your customizations are layered separately so you can stay up-to-date in peace.</p>
-         </div>
-      </div>
+
+
+   <section class="row-fluid">
+      <article class="span4">
+         <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/apps.png" />
+         <h2>Apps</h2>
+         <h4>Customize with Goodies from our Extras Store</h4>
+         <p>Extend your Kickstrap site with apps to <a href="http://getkickstrap.com/apps/chosen-558052/">supercharge select menus</a>, <a href="http://getkickstrap.com/apps/firebug-lite-606837/">debug your site</a>, create <a href="http://getkickstrap.com/apps/pines-notify-4934/">fancy notification popups</a> and much more from our <a href="http://getkickstrap.com/apps/">App Store</a>.</p>
+      </article>
+      <article class="span4">
+         <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/themes.png" />
+         <h2>Themes</h2>
+         <h4>Changing your site's appearance is dead simple</h4>
+         <p>Thanks to Thomas Park of <a href="http://bootswatch.com">Bootswatch</a>, Kickstrap comes with a handful of themes ready-to-go. And we've got more in our <a href="http://getkickstrap.com/themes/">Themes Store</a></p>
+      </article>
+      <article class="span4">
+         <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/fontawesome.png" /> 
+         <h2>Extras</h2>
+         <h4>Additions to Bootstrap's default UI library</h4>
+         <p>Extras extend the default Bootstrap CSS library to give you bonus elements like <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome icons</a>, flush spans, and step-wise progress bars</p>
+      </article>
    </section>
-   <section>
-      <div class="row">
-         <div class="span3">
-            <p><img src="http://getkickstrap.com/img/fontawesome.png" /></p>
-            <h3>Font Awesome</h3>
-            <p>Specially made for Bootstrap, Kickstrap uses the Font Awesome icon library instead of the Glyphicons. <a href="http://css-tricks.com/examples/IconFont/">Why are icon fonts awesome you say?</a> Easily revert back to the standard Glyphicons from your kickstrap.less settings file.</p>
-         </div>
-         <div class="span3">
-            <p><img src="http://getkickstrap.com/img/console.png" /></p>
-            <h3>Talks to You</h3>
-            <p>Kickstrap uses your browser's console like a chat window between you and your site. Quickly troubleshoot your apps and other site settings. Kickstrap also includes an optional notification app called Pines Notify to display Growl-like messages to you or your users.</p>
-         </div>
-         <div class="span3">
-            <p><img src="http://getkickstrap.com/img/less.png" /></p>
-            <h3>Write LESS</h3>
-            <p>Kickstrap uses LESS, a shorthand CSS preprocessor that compiles down to CSS and provides options for caching. <a href="http://lesscss.org">Read more about LESS CSS</a>. Kickstrap also includes LESS to CSS compilers for Mac and Windows. We recommend compiling to CSS for your final public product.</p>
-         </div>
-         <div class="span3">
-            <p><img src="http://getkickstrap.com/img/colorschemer.png" /></p>
-            <h3>Color Schemer</h3>
-            <p>Our very own app, Color Schemer, helps you generate color schemes and convert between hsl, hsv, hex, and rgb.</p>
-         </div>
+
+   <section class="row-fluid">
+      <div class="span4">
+         <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/bootstrap.png" />
+      </div>
+      <div class="span8">
+         <h3 style="text-align: center;">If it works in Bootstrap, it works in Kickstrap.</h3>
+         <h3 class="quiet" style="text-align: center"><mark>Kickstrap adds a separate layer on top of Bootstrap.</mark></h3>
+         <p>This means you can keep Bootstrap up-to-date without compromising your existing code. With Kickstrap's extendible framework, you'll never need to touch the Bootstrap core files, and can easily toggle its components on or off to keep your page zippy.</p>
       </div>
    </section>
-   <section>
-      <div class="row">
-         <div class="span3">
-            <p><img src="http://getkickstrap.com/img/kickstrap.less.png" /></p>
-            <h3>Fine tune Kickstrap</h3>
-            <p>Toggle Bootstrap UI components, caching, console-reporting, and more all from one file.</p>
-         </div>
-         <div class="span3">
-            <p><img src="http://getkickstrap.com/img/updater.png" /></p>
-            <h3>Get Updates</h3>
-            <p>With the updater app, Kickstrap will automatically compare your version against Kickstrap's servers for updates.</p>
-         </div>
-         <div class="span3">
-            <p><img src="http://getkickstrap.com/img/h5bp.png" /></p>
-            <h3>Expert Markup</h3>
-            <p>As one of the many components used from the <a href="http://html5boilerplate.com">HTML5 Boilerplate</a> project, Kickstrap's included HTML files have built-in best practices like conditional IE HTML classes, meta properties, and CDN jQuery with local fallback.</p>
-         </div>
-         <div class="span3">
-            <p><img src="http://getkickstrap.com/img/bootstrap.png" /></p>
-            <h3>Pure Bootstrap</h3>
-            <p>Kickstrap uses Bootstrap at its core, so if it works in Bootstrap, it works in Kickstrap.</p>
-         </div>
+
+   <section class="row-fluid"> 
+      <div class="span6">
+         <blockquote class="twitter-tweet"><p>Check out <a href="https://twitter.com/search/%23kickstrap">#kickstrap</a>.It's like bootstrap on roids: <a href="http://t.co/0T54lyWH" title="http://ajkochanowicz.github.com/Kickstrap/">ajkochanowicz.github.com/Kickstrap/</a></p>&mdash; Justin Martin (@justspamjustin) <a href="https://twitter.com/justspamjustin/status/225067533919715329" data-datetime="2012-07-17T03:20:56+00:00">July 17, 2012</a></blockquote>
+      </div>
+      <div class="span6">
+         <blockquote class="twitter-tweet"><p>Nice additions and expansion of bootstrap: Kickstrap <a href="http://t.co/Hs4WgpBO" title="http://ajkochanowicz.github.com/kickstrap/">ajkochanowicz.github.com/kickstrap/</a> via @<a href="https://twitter.com/yourwebsitesux">yourwebsitesux</a></p>&mdash; Puja (@puja108) <a href="https://twitter.com/puja108/status/250515272816021504" data-datetime="2012-09-25T08:41:10+00:00">September 25, 2012</a></blockquote>
       </div>
    </section>
-</div>
+
+   <section class="row-fluid">
+      <div class="span4">
+         <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/less.png" />
+      </div>
+      <div class="span8">
+         <h3 style="text-align: center;">Write LESS.</h3>
+         <h3 class="quiet" style="text-align: center"><mark>LESS = Supercharged CSS.</mark></h3>
+         <p>Kickstrap works via LESS (<a href="http://getkickstrap.com/docs/advanced/#loose-coupling">if you want</a>), a CSS preprocessor which makes writing CSS a snap. Define variables for colors, measurements, or strings; Create mixins to reuse style calculations as functions, and much more.</p>
+      </div>
+   </section> 
+
+   <section class="row-fluid">
+      <div class="span4">
+         <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/platforms.png" />
+      </div>
+      <div class="span8">
+         <h3 style="text-align: center;">Any Platform, Any Language, No installation.</h3>
+         <h3 class="quiet" style="text-align: center"><mark>A revolutionary new way to make websites</mark></h3>
+         <p>Too many frameworks promise to make your life easy only to require you to install obscure dependencies. Kickstrap is ready out of the box. Just put Kickstrap on your server and begin making your website.</p>
+      </div>
+   </section>
+
+    <section class="row-fluid">
+      <div class="span6">
+         <blockquote class="twitter-tweet"><p>Kickstrap ~ Bootstrap with Apps, Themes, and EnhancementsAny platform, any language, no-install. <a href="http://t.co/3ZbIzUiA" title="http://getkickstrap.com/">getkickstrap.com</a></p>&mdash; Abderrahmane T.J. (@Abderrahmane_TJ) <a href="https://twitter.com/Abderrahmane_TJ/status/250308754476789763" data-datetime="2012-09-24T19:00:32+00:00">September 24, 2012</a></blockquote>
+      </div>
+      <div class="span6">
+         <blockquote class="twitter-tweet"><p>Bootstrap++ RT @<a href="https://twitter.com/milleiro">milleiro</a>: kickstrap = bootstrap + extras  <a href="http://t.co/qFGQKmgZ" title="http://getkickstrap.com">getkickstrap.com</a></p>&mdash; Aleyda Solis (@aleyda) <a href="https://twitter.com/aleyda/status/250253522497572864" data-datetime="2012-09-24T15:21:03+00:00">September 24, 2012</a></blockquote>
+      </div>
+	</section>
+
+   <section class="row-fluid">
+      <div class="span4">
+         <img src="http://getkickstrap.com/static/Kickstrap/themes/kickstrap/img/loosecoupling.png" />
+      </div>
+      <div class="span8">
+         <h3 style="text-align: center;">Loosely-Coupled.</h3>
+         <h3 class="quiet" style="text-align: center"><mark>Modularized for stability, efficiency, and customization</mark></h3>
+         <p>Kickstrap is designed to be loosely-coupled. By default it runs with jQuery*, LESS, FontAwesome, Bootstrap, and many other features, but these parts can be <a href="http://getkickstrap.com/docs/advanced#loose-coupling">easily removed and swapped</a> to meet your needs.</p>
+         <p>*jQuery independence coming soon</p>
+      </div>
+   </section>
 
 
-
-
-
-
-
-
+      
+   </div>
 
 
   <!--! KICKSTRAP FOOTER -->
   <div id="push"></div></div> <!-- sf-wrapper -->
-  <footer class="container" id="footer">
-	  <p>Built with <a href="http://getkickstrap.com">Kickstrap</a></p>
-     <p>Kickstrap is built by <a href="http://twitter.com/yourwebsitesux">@yourwebsitesux</a>. Bootstrap is built by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a></p>
+  <footer id="footer">
+    <div class="container">
+    		<div class="row">
+    			<div class="span8">
+		        <p>Built with <a href="http://getkickstrap.com">Kickstrap</a></p>
+		        <p>Kickstrap was handcrafted in New York City by <a href="http://twitter.com/yourwebsitesux">Adam Kochanowicz</a>. Bootstrap created by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a></p>
+    			</div>
+    			<div class="span2">
+			      <ul class="unstyled nav nav-list">
+					    <li>
+					      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=ajkochanowicz&repo=Kickstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+					    </li>
+					    <li>
+					      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=ajkochanowicz&repo=Kickstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+					    </li>
+			      </ul>
+    			</div>
+    			<div class="span2">
+			      <ul class="unstyled nav nav-list">
+					    <li class="follow-btn">
+					      <a href="https://twitter.com/yourwebsitesux" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="false">Follow Adam</a>
+					    </li>
+					    <li class="tweet-btn">
+					      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://getkickstrap.com" data-count="horizontal" data-via="yourwebsitesux" data-related="yourwebsitesux:Creator of Kickstrap">Tweet</a>
+					    </li>
+			      </ul>
+    			</div>
+    		</div>
+    </div>
   </footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="Kickstrap/js/jquery-1.7.1.min.js"><\/script>');</script>
+  <script src="http://getkickstrap.com//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://getkickstrap.com/static/Kickstrap/js/jquery-1.7.1.min.js"><\/script>');</script>
   <!-- Kickstrap CDN thanks to our friends at netDNA.com -->
-  <script id="appList" src="http://netdna.getkickstrap.com/Kickstrap/js/kickstrap.min.js"></script>
-  <script>window.consoleLog || document.write('<script id="appList" src="Kickstrap/js/kickstrap.js"><\/script>')</script>
+  <script></script>
+  <script id="appList" src="http://netdna.getkickstrap.com/1.2/Kickstrap/js/kickstrap.min.js"></script>
+  <script>window.consoleLog || document.write('<script src="http://getkickstrap.com/static/Kickstrap/js/kickstrap.js"><\/script>');</script>
+  <script src="http://getkickstrap.com/static/Kickstrap/apps/waypoints/waypoints.min.js"></script>
+  <script>window.consoleLog || document.write('<script id="appList" src="http://getkickstrap.com/static/Kickstrap/js/kickstrap.js"><\/script>')</script>
   <script>
+   $('.nav-list > li.active > a').append('<div id="glow"></div>');
+   $('#bootstrap-docs .container').addClass('container-fluid').removeClass('container');
+   $('#bootstrap-docs .container-fluid > .row').addClass('row-fluid').removeClass('row');
+   $('#bootstrap-docs .container-fluid > .row-fluid .span9').addClass('span12 flush').removeClass('span9');
+   
    kickstrap.ready(function() {
-      $('.navbar a').tooltip({
-         placement: 'bottom'
-      });
+      
    });
   </script>
-  <!--script src="/Kickstrap/bootstrap/js/bootstrap-scrollspy.js"></script-->
+  <!--script src="http://getkickstrap.com/Kickstrap/bootstrap/js/bootstrap-scrollspy.js"></script-->
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
   <script>
