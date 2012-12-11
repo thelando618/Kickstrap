@@ -4,24 +4,7 @@
 // VARIABLES
 // =========
 //
-// Some of the magic done by kickstrap is done by placing encoded javascript in
-// the content attributes of script elements. However, not all browsers behave
-// friendly when doing this.
-//
-// 1. contentHack.selector
-//
-// To manage compatibility, Kickstrap will determine whether it should use the
-// 'content' attribute (valid and preferred) or the fake 'ie8' attribute.
-// 
-// 2. contentHack.parse
-//
-// As if this weren't enough, sometimes neither method works and Kickstrap will
-// have to manually parse the stylesheet. It's a last resort.
 
-var contentHack = {
-	selector: 'content',
-   parse: false
-};
 var self = this, 									// Used to set context in $.ajax
     configPath,
     appArray = [],
@@ -81,7 +64,7 @@ ks.testParams = { readyCount: 0 }
 
 // The actual mega function ks.ready() will call to run all ready fxs.
 
-function kickstrapReady(myNameIs) {
+function kickstrapReady() {
 
 	// Fire fire() only if all the resource counts match
 	if (appCheck) {
@@ -93,7 +76,6 @@ function kickstrapReady(myNameIs) {
 			if (appR[0] == appR[1] && appD[0] == appD[1]) { appArray[i].loaded = true; }
 			else {appArray[i].loaded = false;}
 			this.loadedLoop.push(appArray[i].loaded);
-			//console.log(this.loadedLoop + ' ' + myNameIs + ' ' + appR + ' ' + appD); // For debugging
 		}
 	}
 }
@@ -350,25 +332,6 @@ if (!('filter' in Array.prototype)) {
 //     };
 // }
 
-// Those with IE shall be marked.
-var ver = getInternetExplorerVersion();
-if (ver > -1)
-{
-  if ( ver < 9.0) { contentHack.selector = 'ie8'; }
-  else { contentHack.selector = 'content'; }
-}	
-function getInternetExplorerVersion() {
-  var rv = -1; // Return value assumes failure.
-  if (navigator.appName == 'Microsoft Internet Explorer')
-  {
-    var ua = navigator.userAgent;
-    var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
-    if (re.exec(ua) != null)
-      rv = parseFloat( RegExp.$1 );
-  }
-  return rv;
-}
-
 // The five second test, if your site doesn't load in 5 seconds, you've got problems.
 setTimeout(function() {
 		if (!readyFired) {
@@ -400,55 +363,13 @@ function themeFunction(urlPath) {$.ajax({type: "GET", url: ks.opts.rootDir + 'Ki
 // BEGIN
 // =====
 
-// Look for script#app and get app list
-setupKickstrap();
-
-function setupKickstrap() {
-	if($('#appList').css('content') == 'normal' || $('#appList').css('content') == undefined) {
-		contentHack.selector = 'ie8';
-		if ($('#appList').css('ie8') == undefined ||
-		$('#appList').css('ie8') == '') {
-		  var writeScripts = '';
-		  contentHack.parse = true; 
-			for(var i = 0; i < document.styleSheets.length; i++) {
-
-			  // Avoid errors resulting from injected stylesheets. Thanks, Slav.
-			  if( document.styleSheets[i].rules == null ) continue;
-			  for (var j = 0; j < document.styleSheets[i].rules.length; j++) {
-				var selector = document.styleSheets[i].rules[j].selectorText;
-				if (selector == "#appList") {
-				  ks.apps = ks.apps.concat(formatString(document.styleSheets[i].rules[j].style.content, true).splitCSV());
-				}
-				else if (selector == "script#rootDir" || selector == "script#console" || selector == "script#caching") {
-				  writeScripts += formatString(document.styleSheets[i].rules[j].style.content, true);
-				}
-			  }
-			}
-			document.write(writeScripts);
-		}
-	};
-	document.write('<script id="rootDir" type="text/javascript">appendMagic(\'#rootDir\');</script><script id="themeFunctions">appendMagic(\'#themeFunctions\');</script><script id="console" type="text/javascript">appendMagic(\'#console\');</script><script id="caching" type="text/javascript">appendMagic(\'#caching\');initKickstrap();</script>');
-}
-
-// The appendMagics we just created will need this.
-function appendMagic(newAppendee) {
-  if (!contentHack.parse) {
-		var scriptString = formatString($(newAppendee).css(contentHack.selector), true);
-		if (scriptString == 'ndefine' || scriptString == 'on') {scriptString = '<script></script>'}; 
-		// (above) Prevents "[u]ndefine[d]" from being printed when the appended script is removed.
-		document.write(scriptString);
-	}
-}
-
 // The last appendMagic will call this function and get things started.
 function initKickstrap() {
 	// Allow the user to skip universals loading
   if (!universalsSet && ks.opts.universals == "none") universalsSet = true;
   if (universalsSet) {
     
-    if (!contentHack.parse) { // In which case we already have the app list.
-	    ks.apps = ks.apps.concat((formatString($('#appList').css(contentHack.selector))).splitCSV()); // Get list
-	  }
+	  ks.apps = ks.apps.concat((formatString($('#appList').css(contentHack.selector))).splitCSV()); // Get list
 	  // Remove duplicates from array
 	  // Thanks http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array
       if ( ver != 8 ) { // Blanks out ks.apps in IE8 :(
