@@ -1,36 +1,7 @@
 // KICKSTRAP (GetKickstrap.com)
 // ============================
 
-   @import "Kickstrap/extras/head.less"; // Some snippets we'll need to override Bootstrap
-
-   // APPS
-   // -------
-
-      {{#test}}
-      @apps: "//updater, //kickbar, //welcome, //mediaelement, //knockout, //jquerylint, //welcome, //bootstrap, bootstrap/affix, bootstrap/alert, bootstrap/button, bootstrap/carousel, bootstrap/collapse, bootstrap/dropdown, bootstrap/modal, //bootstrap/popover, bootstrap/scrollspy, bootstrap/tab, bootstrap/tooltip, bootstrap/tooltip, bootstrap/transition, bootstrap/typeahead, pinesnotify, //jgrowl"; 
-      {{/test}}
-      {{#production}}
-      @apps: "pinesnotify, bootstrap, //bootstrap/transition, //knockout, //updater"; 
-      {{/production}}
-      // Name should match the app's folder name in Kickstrap/apps/.
-
-   // WEBSITE SETTINGS
-   // ----------------
-
-      @rootDir: "/";
-      //Root directory, leave a trailing slash.
-
-      @universalResources: "none"; // EXPERIMENTAL: CDN-Hosted Universal Resources.
-
-   // DEVELOPER SETTINGS
-   // ---------------
-      
-      @import "Kickstrap/extras/console.less"; 					
-      // Let Kickstrap write to console
-
-      //@import "Kickstrap/extras/caching.less"; 				
-      // Cache Kickstrap (Makes your site faster)
-      // Use "clearCache()" in the console to update.
+   @import "Kickstrap/extras/head.less"; // Some snippets we'll need to override Bootstrap 
 
    // CORE FILES
    // ----------
@@ -46,16 +17,12 @@
       @import "Kickstrap/bootstrap/less/scaffolding.less";
       @import "Kickstrap/bootstrap/less/grid.less";
       @import "Kickstrap/bootstrap/less/layouts.less";
-      @import "Kickstrap/extras/olcg.less";
 
       // Base CSS
       @import "Kickstrap/bootstrap/less/type.less";
       @import "Kickstrap/bootstrap/less/code.less";
-      @import "Kickstrap/extras/pretty-print.less";
       @import "Kickstrap/bootstrap/less/forms.less";
       @import "Kickstrap/bootstrap/less/tables.less";
-      @import "Kickstrap/extras/horizontal-lists.less";
-      @import "Kickstrap/extras/sticky-footer.less";
 
       // Components: common
       // @import "Kickstrap/bootstrap/less/sprites.less"; 
@@ -77,7 +44,6 @@
       @import "Kickstrap/bootstrap/less/breadcrumbs.less";
       @import "Kickstrap/bootstrap/less/pagination.less";
       @import "Kickstrap/bootstrap/less/pager.less";
-      @import "Kickstrap/extras/progress.less";
 
       // Components: Popovers
       @import "Kickstrap/bootstrap/less/modals.less";
@@ -94,7 +60,6 @@
       @import "Kickstrap/bootstrap/less/utilities.less";
       @import "Kickstrap/bootstrap/less/media.less";
       @import "Kickstrap/extras/ks-preview.less"; // TODO: Move this to the colorschemer app.
-      @import "Kickstrap/extras/retina.less";
       
       // Components: Responsive Media Queries
 	  {{#production}}//{{/production}} @import "Kickstrap/bootstrap/less/responsive-utilities.less";
@@ -105,6 +70,7 @@
 
       // Components: Final Kickstrap Overrides
       
+      @import "extras.less";
       @import "theme.less"; 
       
       @import "Kickstrap/extras/foot.less";

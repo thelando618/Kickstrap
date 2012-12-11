@@ -11,6 +11,8 @@ prod:
 	@echo "Copying Kickstrap folder..."
 	@mkdir product/Kickstrap
 	@cp -r assets/Kickstrap/* product/Kickstrap/
+	@echo "copying apps.js"
+	@cp assets/apps.js product/apps.js
 	@echo "Adding sample uninstalled app"
 	@cp assets/misc/qunit.zip product/Kickstrap/
 	@echo "Delete contents of apps folder and individually select apps..."
@@ -73,5 +75,6 @@ test:
 	@mkdir tests/Kickstrap
 	@cp -r assets/Kickstrap/* tests/Kickstrap/
 	@cp -r assets/tests/* tests/
+	@cp assets/apps.js tests/apps.js
 	@node build.js test
 	@echo "Build complete."
