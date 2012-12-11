@@ -18,6 +18,7 @@
 // As if this weren't enough, sometimes neither method works and Kickstrap will
 // have to manually parse the stylesheet. It's a last resort.
 
+var debug = false
 var contentHack = {
 	selector: 'content',
    parse: false
@@ -82,6 +83,7 @@ ks.testParams = { readyCount: 0 }
 // The actual mega function ks.ready() will call to run all ready fxs.
 
 function kickstrapReady(myNameIs) {
+   debugLog('kickstrapReady() called')
 
 	// Fire fire() only if all the resource counts match
 	if (appCheck) {
@@ -101,6 +103,7 @@ function kickstrapReady(myNameIs) {
 // this function is called when ks.ready() fxs are safe to call.
 
 ks.fire = function() {
+   debugLog('ks.fire called')
 	if (!readyFired) {
 		readyFired = true;
   	ks.testParams.readyCount++;
@@ -144,8 +147,14 @@ function consoleLog(msg, msgType, objName) {
    }
 }
 
+// Debug log is strictly for testing kickstrap.js. Turning this on causes the
+// console to display certain checkpoints in the Kickstrap.js process.
+// Turn debug on or off at the top of this file.
+function debugLog(msg) { if (debug) console.warn('KSD: ' + msg); else return } 
+
 // Allow overrides of directories.
 function setDir(newDir, dirType) {
+   debugLog('setDir called')
    if (dirType == 'root') {
       // Give js defs preference
       ks.opts.rootDir = (ks.opts.rootDir || newDir)
@@ -352,15 +361,13 @@ if (!('filter' in Array.prototype)) {
 
 // Those with IE shall be marked.
 var ver = getInternetExplorerVersion();
-if (ver > -1)
-{
+if (ver > -1) {
   if ( ver < 9.0) { contentHack.selector = 'ie8'; }
   else { contentHack.selector = 'content'; }
 }	
 function getInternetExplorerVersion() {
   var rv = -1; // Return value assumes failure.
-  if (navigator.appName == 'Microsoft Internet Explorer')
-  {
+  if (navigator.appName == 'Microsoft Internet Explorer') {
     var ua = navigator.userAgent;
     var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
     if (re.exec(ua) != null)
@@ -404,6 +411,7 @@ function themeFunction(urlPath) {$.ajax({type: "GET", url: ks.opts.rootDir + 'Ki
 setupKickstrap();
 
 function setupKickstrap() {
+   debugLog('Setting up Kickstrap');
 	if($('#appList').css('content') == 'normal' || $('#appList').css('content') == undefined) {
 		contentHack.selector = 'ie8';
 		if ($('#appList').css('ie8') == undefined ||
@@ -432,6 +440,7 @@ function setupKickstrap() {
 
 // The appendMagics we just created will need this.
 function appendMagic(newAppendee) {
+  debugLog('appendMagic() called')
   if (!contentHack.parse) {
 		var scriptString = formatString($(newAppendee).css(contentHack.selector), true);
 		if (scriptString == 'ndefine' || scriptString == 'on') {scriptString = '<script></script>'}; 

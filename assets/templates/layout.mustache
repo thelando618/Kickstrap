@@ -57,7 +57,7 @@
   <script>window.jQuery || document.write('<script src="Kickstrap/js/jquery-1.8.2.min.js"><\/script>');</script>
   <!-- Kickstrap CDN thanks to our friends at netDNA.com -->
   <script id="appList" src="//{{#test}}fakeurl.{{/test}}netdna.getkickstrap.com/1.2/Kickstrap/js/kickstrap.min.js"></script>
-  <script>window.consoleLog || document.write('<script id="appList" src="Kickstrap/js/kickstrap{{#production}}.min{{/production}}.js"><\/script>')</script>
+  <script>window.ks || document.write('<script id="appList" src="Kickstrap/js/kickstrap{{#production}}.min{{/production}}.js"><\/script>')</script>
   {{#test}}
     <script type="text/javascript" src="tests.js"></script>
   {{/test}}
