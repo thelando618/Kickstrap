@@ -72,5 +72,5 @@ lesses.forEach(function (name) {
   less = hogan.compile(less, { sectionTags: [{o:'_i', c:'i'}] })
   less = less.render(context)
 
-  fs.writeFileSync(__dirname + '/' + publishDir + '/' + name.replace(/mustache$/, 'less'), less, 'utf-8')
+  fs.writeFileSync(__dirname + '/' + publishDir + '/Kickstrap/' + name.replace(/mustache$/, 'less'), less, 'utf-8')
 })

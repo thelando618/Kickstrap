@@ -12,7 +12,7 @@ prod:
 	@mkdir product/Kickstrap
 	@cp -r assets/Kickstrap/* product/Kickstrap/
 	@echo "copying apps.js"
-	@cp assets/apps.js product/apps.js
+	@cp assets/Kickstrap/apps.js product/Kickstrap/apps.js
 	@echo "Adding sample uninstalled app"
 	@cp assets/misc/qunit.zip product/Kickstrap/
 	@echo "Delete contents of apps folder and individually select apps..."
@@ -62,6 +62,8 @@ prod:
 	@rm product/Kickstrap/js/sample.js
 	@rm -r product/Kickstrap/apps/universal/ks-window
 	@node build.js production
+	@echo "moving kickstrap.less"
+	@mv product/Kickstrap/kickstrap.less product/kickstrap.less
 	@rm product/lab.html
 
 	@uglifyjs product/Kickstrap/js/kickstrap.js -mc > product/Kickstrap/js/kickstrap.min.js 
@@ -75,6 +77,8 @@ test:
 	@mkdir tests/Kickstrap
 	@cp -r assets/Kickstrap/* tests/Kickstrap/
 	@cp -r assets/tests/* tests/
-	@cp assets/apps.js tests/apps.js
+	@cp assets/Kickstrap/apps.js tests/Kickstrap/apps.js
 	@node build.js test
+	@echo "Moving kickstrap.less"
+	@mv tests/Kickstrap/kickstrap.less tests/kickstrap.less
 	@echo "Build complete."
