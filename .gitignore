@@ -5,9 +5,9 @@ UglifyJS
 
 UglifyJS2
 node_modules
-
 assets/Kickstrap/bootstrap/.git
 assets/Kickstrap/bootstrap/.[a-z]*
-
 assets/Kickstrap/qunit/.git
 assets/Kickstrap/qunit/.[a-z]*
+Kickstrap/bootstrap/docs
+Kickstrap/extras/fontawesome/docs
