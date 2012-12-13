@@ -1,1 +1,0 @@
-consoleLog('Subdirectory set up fine.');
