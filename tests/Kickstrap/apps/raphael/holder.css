@@ -1,0 +1,21 @@
+#holder {
+	height: 420px;
+	left: 50%;
+	top: 50%;
+	width: 620px;
+	background-color: #3E3E3E;
+	border-radius: 10px;
+}
+#copy {
+  bottom: 0;
+  font: 300 .7em "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+  position: absolute;
+  right: 1em;
+  text-align: right;
+}
+#copy a {
+  color: #fff;
+}
+.ks-window.raphael {
+	background-color: #333;
+}
