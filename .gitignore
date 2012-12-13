@@ -3,3 +3,5 @@ UglifyJS
 node_modules
 Kickstrap/bootstrap/docs
 Kickstrap/extras/fontawesome/docs
+/product
+/tests
