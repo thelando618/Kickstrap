@@ -22,6 +22,7 @@ var contentHack = {
 	selector: 'content',
    parse: false
 };
+var appendees = [];
 var self = this, 									// Used to set context in $.ajax
     configPath,
     appArray = [],
@@ -249,8 +250,8 @@ Array.prototype.remove = function(from, to) {
 
 // Fallback for console.log
 if (typeof console != "object") {
-  console = {};
-  console.log = function() {};
+	console = {};
+	console.log = function() {};
 }
 
 // IE compatibility fallbacks, turned on when needed.
@@ -372,7 +373,7 @@ function getInternetExplorerVersion() {
 // The five second test, if your site doesn't load in 5 seconds, you've got problems.
 setTimeout(function() {
 		if (!readyFired) {
-          if ( ks.opts['rootDir'] == 'undefined' ) diagnosticMsgs.push('Your rootDir is "undefined" Often this is caused by the main stylesheet not loading.')
+		  if ( ks.opts['rootDir'] == 'undefined' ) diagnosticMsgs.push('Your rootDir is "undefined" Often this is caused by the main stylesheet not loading.')
 		  consoleLog('I noticed your page still hasn\'t loaded.')
 			// Show the diagnostic messages. Placed here to insure they happen once each.
 			// But first, remove any duplicates.
@@ -427,22 +428,37 @@ function setupKickstrap() {
 			document.write(writeScripts);
 		}
 	};
-	document.write('<script id="rootDir" type="text/javascript">appendMagic(\'#rootDir\');</script><script id="themeFunctions">appendMagic(\'#themeFunctions\');</script><script id="console" type="text/javascript">appendMagic(\'#console\');</script><script id="caching" type="text/javascript">appendMagic(\'#caching\');initKickstrap();</script>');
+	document.write('<script id="ffBug"></script><script id="rootDir" type="text/javascript">appendMagic(\'#rootDir\');</script><script id="themeFunctions">appendMagic(\'#themeFunctions\');</script><script id="console" type="text/javascript">appendMagic(\'#console\');</script><script id="caching" type="text/javascript">appendMagic(\'#caching\');ffSlashBugCheck();</script>');
 }
 
 // The appendMagics we just created will need this.
-function appendMagic(newAppendee) {
-  if (!contentHack.parse) {
-		var scriptString = formatString($(newAppendee).css(contentHack.selector), true);
-		if (scriptString == 'ndefine' || scriptString == 'on') {scriptString = '<script></script>'}; 
-      console.log('Problem reading config from kickstrap.less');
-		// (above) Prevents "[u]ndefine[d]" from being printed when the appended script is removed.
-		document.write(scriptString);
-	}
+
+function appendMagic(newAppendee) { appendees = appendees.concat(newAppendee)}
+
+
+// This is a quick test to get around an annoying bug in Firefox when the site is accessed
+// with a trailing slash.
+function ffSlashBugCheck() {
+  var testVal = $('script#ffBug').css('content')
+  if (testVal != 'success') { setTimeout(function() { initKickstrap(); },500) }
 }
 
 // The last appendMagic will call this function and get things started.
 function initKickstrap() {
+
+	if (!contentHack.parse) {
+  	for (var i = 0; i < appendees.length; i++) {
+  	  
+			var scriptString = formatString($(appendees[i]).css(contentHack.selector), true);
+			if (scriptString == 'ndefine' || scriptString == 'on') {scriptString = '<script></script>'}; 
+			// (above) Prevents "[u]ndefine[d]" from being printed when the appended script is removed.
+			console.log(scriptString);
+			$('body').append(scriptString);
+			
+		}
+  }
+  
+
 	// Allow the user to skip universals loading
   if (!universalsSet && ks.opts.universals == "none") universalsSet = true;
   if (universalsSet) {
